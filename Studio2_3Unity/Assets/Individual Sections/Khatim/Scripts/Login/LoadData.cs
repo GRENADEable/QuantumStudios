@@ -20,7 +20,7 @@ public class LoadData : MonoBehaviour
         string userDataString = userData.text;
         print(userDataString);
         users = userDataString.Split(';');
-        print(GetUserValue(users[0], "Name:"));
+        print(GetUserValue(users[0], "Password:"));
     }
     #endregion
 
@@ -28,7 +28,9 @@ public class LoadData : MonoBehaviour
     string GetUserValue(string data, string index)
     {
         string value = data.Substring(data.IndexOf(index) + index.Length);
-		//value = value.Remove(value.IndexOf("|"));
+        if (value.Contains("|"))
+            value = value.Remove(value.IndexOf("|"));
+
         return value;
     }
     #endregion
