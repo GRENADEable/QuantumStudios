@@ -12,12 +12,13 @@ public class LoginScript : MonoBehaviour
 
     #region Private Variables
     private string userURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php";
+    //private string userURL = "http://localhost/unity_login_system/usernamelogin.php";
     #endregion
 
     #region Callbacks
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.L))
             StartCoroutine(DBLogin(inputUser, inputPassword));
     }
     #endregion
