@@ -11,8 +11,8 @@ public class InsertData : MonoBehaviour
     #endregion
 
     #region Private Variables
-    //private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php";
-    private string userURL = "http://localhost/unity_login_system/adduser.php";
+    private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php";
+    //private string userURL = "http://localhost/unity_login_system/adduser.php";
     #endregion
 
     #region Callbacks.
