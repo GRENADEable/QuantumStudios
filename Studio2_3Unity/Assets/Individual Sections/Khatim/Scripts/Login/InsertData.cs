@@ -11,14 +11,14 @@ public class InsertData : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php";
-    //private string userURL = "http://localhost/unity_login_system/adduser.php";
+    //private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php";
+    private string userURL = "http://localhost/unity_login_system/adduser.php";
     #endregion
 
     #region Callbacks.
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.C))
             CreateUser(inputUser, inputPassword, inputEmail);
     }
     #endregion

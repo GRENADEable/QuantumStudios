@@ -11,8 +11,8 @@ public class LoginScript : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private string userURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php";
-    //private string userURL = "http://localhost/unity_login_system/usernamelogin.php";
+    //private string userURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php";
+    private string userURL = "http://localhost/unity_login_system/usernamelogin.php";
     #endregion
 
     #region Callbacks
