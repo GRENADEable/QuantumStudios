@@ -5,7 +5,7 @@ public class DDOL : MonoBehaviour
     #region Callbacks
     void Awake()
     {
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this);    
     }
     #endregion
 }
