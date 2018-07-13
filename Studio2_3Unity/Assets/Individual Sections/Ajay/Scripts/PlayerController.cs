@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
     #region Private Variables
     private Rigidbody MyRB;
     private Vector3 MovementInput;
-    private Vector3 MovementVelocity;
     #endregion
 
     void Start()
@@ -24,15 +23,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        MovementInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        MovementVelocity = MovementInput * MoveSpeed;
+        MovePlayer();
     }
 
-    void FixedUpdate()
+    void MovePlayer()
     {
-        MyRB.velocity = MovementVelocity;
-    }
+        float MoveHorizontal = Input.GetAxisRaw("Horizontal");
+        float MoveVertical = Input.GetAxisRaw("Vertical");
 
+        MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(MovementInput), 0.10f);
+
+        transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Whirlpool")
