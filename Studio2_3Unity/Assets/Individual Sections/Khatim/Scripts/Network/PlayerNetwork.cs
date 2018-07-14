@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerNetwork : MonoBehaviour
 {
     #region Public Variables
     public static PlayerNetwork instance;
-    public string userName { get; private set; }
-    #endregion
-
-    #region  Private Variables
-
+    public string userName
+    {
+        get;
+        private set;
+    }
     #endregion
 
     #region Callbacks
