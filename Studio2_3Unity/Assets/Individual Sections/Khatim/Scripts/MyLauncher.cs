@@ -16,8 +16,6 @@ public class MyLauncher : Photon.PunBehaviour
     public GameObject usernameLoginPanel;
     [Tooltip("The UI Label to inform the user that the connection is in progress")]
     [Header("Lobby")]
-    public TypedLobby newLobby;
-    public string lobbyName;
     public string roomName;
     [Header("Login Field")]
     public InputField inputUser;
@@ -63,12 +61,6 @@ public class MyLauncher : Photon.PunBehaviour
         }
         else
             PhotonNetwork.ConnectUsingSettings(version);
-    }
-
-    public void JoinLobby()
-    {
-        newLobby = new TypedLobby(lobbyName, LobbyType.Default);
-        PhotonNetwork.JoinLobby(newLobby);
     }
 
     public void JoinRoom(RoomInfo room)
@@ -128,37 +120,26 @@ public class MyLauncher : Photon.PunBehaviour
         if (isConnecting)
         {
             Debug.LogWarning("Connected To Master");
-            JoinLobby();
+            PhotonNetwork.JoinRandomRoom();
         }
-    }
-
-    public override void OnJoinedLobby()
-    {
-        base.OnJoinedLobby();
-        Debug.LogWarning("Joined Lobby: " + PhotonNetwork.lobby.Name);
-        RoomOptions roomOption = new RoomOptions()
-        {
-            PublishUserId = true,
-            IsVisible = true,
-            MaxPlayers = maxPlayersInRoom
-        };
-
-        //You can create as many rooms you can. The bigger the number, the lower the chance two players will create a same room.
-        roomName = lobbyName + UnityEngine.Random.Range(1, 1024).ToString();
-        //Creates the room by the lobby you created.
-        PhotonNetwork.CreateRoom(roomName, roomOption, newLobby);
-        //PhotonNetwork.JoinRandomRoom();
     }
 
     public override void OnDisconnectedFromPhoton()
     {
         usernameLoginPanel.SetActive(true);
+        isConnecting = false;
         Debug.LogWarning("Disconnected from Photon");
     }
 
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
     {
         Debug.LogWarning("No Random Room Found");
+
+        PhotonNetwork.CreateRoom(null, new RoomOptions()
+        {
+            MaxPlayers = maxPlayersInRoom
+        },
+        null);
     }
 
     public override void OnJoinedRoom()
@@ -166,7 +147,7 @@ public class MyLauncher : Photon.PunBehaviour
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             Debug.LogWarning("Loading Scene: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.LoadLevel("ShariqScene");
+            PhotonNetwork.LoadLevel("IntegrateScene");
         }
     }
     #endregion

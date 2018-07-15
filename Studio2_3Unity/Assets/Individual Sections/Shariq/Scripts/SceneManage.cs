@@ -40,6 +40,6 @@ public class SceneManage : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene("ShariqScene");
+        SceneManager.LoadScene("LoginTestScene");
     }
 }
