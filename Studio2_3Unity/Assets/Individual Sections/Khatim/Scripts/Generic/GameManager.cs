@@ -17,18 +17,18 @@ public class GameManager : Photon.PunBehaviour
     #region Unity Callbacks
     void Awake()
     {
-        
+
     }
     void Start()
     {
-        if (plyPrefab == null)
+        if (PlayerManager.localPlyInstance == null)
         {
-            Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
+            Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
+            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 15f, 0f), Quaternion.identity, 0);
         }
         else
         {
-            Debug.Log("We are Instantiating LocalPlayer from " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+            Debug.Log("Ignoring scene load for " + SceneManager.GetActiveScene().name);
         }
     }
     #endregion
@@ -47,7 +47,7 @@ public class GameManager : Photon.PunBehaviour
             Debug.LogError("No Master Client Found");
         }
         Debug.LogWarning("Loading Level: " + SceneManager.GetActiveScene());
-        PhotonNetwork.LoadLevel("KhatimScene");
+        PhotonNetwork.LoadLevel("IntegrateScene");
     }
     #endregion
     #region Photon Callbacks
