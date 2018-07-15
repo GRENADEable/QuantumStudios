@@ -166,7 +166,7 @@ public class MyLauncher : Photon.PunBehaviour
         if (PhotonNetwork.room.PlayerCount == 1)
         {
             Debug.LogWarning("Loading Scene: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.LoadLevel("KhatimScene");
+            PhotonNetwork.LoadLevel("ShariqScene");
         }
     }
     #endregion
