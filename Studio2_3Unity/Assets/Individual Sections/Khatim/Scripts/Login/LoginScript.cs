@@ -43,7 +43,7 @@ public class LoginScript : MonoBehaviour
         WWW dbLink = new WWW(userURL, loginform);
 
         yield return dbLink;
-        SceneManager.LoadScene("ShariqScene");
+        SceneManager.LoadScene("KhatimScene");
         Debug.Log(dbLink.text);
     }
     #endregion
