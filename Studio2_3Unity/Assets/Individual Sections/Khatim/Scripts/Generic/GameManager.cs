@@ -7,6 +7,7 @@ public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
     public GameObject plyPrefab;
+    public static GameObject localPlyInstance;
     #endregion
 
     #region  Private Variables
@@ -14,6 +15,10 @@ public class GameManager : Photon.PunBehaviour
     #endregion
 
     #region Unity Callbacks
+    void Awake()
+    {
+        
+    }
     void Start()
     {
         if (plyPrefab == null)
@@ -28,7 +33,36 @@ public class GameManager : Photon.PunBehaviour
     }
     #endregion
 
-    #region Photon Callbacks
+    #region My Functions
 
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+    }
+
+    void LoadMap()
+    {
+        if (!PhotonNetwork.isMasterClient)
+        {
+            Debug.LogError("No Master Client Found");
+        }
+        Debug.LogWarning("Loading Level: " + SceneManager.GetActiveScene());
+        PhotonNetwork.LoadLevel("KhatimScene");
+    }
+    #endregion
+    #region Photon Callbacks
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene("LoginTestScene");
+    }
+
+    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    {
+        if (PhotonNetwork.isMasterClient)
+        {
+            Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient);
+            LoadMap();
+        }
+    }
     #endregion
 }
