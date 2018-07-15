@@ -35,5 +35,11 @@ public class SceneManage : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("ShariqScene");
     }
 }
