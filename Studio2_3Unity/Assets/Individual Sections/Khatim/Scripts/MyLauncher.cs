@@ -9,12 +9,12 @@ public class MyLauncher : Photon.PunBehaviour
     #region Public Variables
     public PhotonLogLevel logLevel = PhotonLogLevel.Informational;
 
-    [Tooltip("Maximum Number of Players")]
     public byte maxPlayersInRoom = 4;
-
-    [Tooltip("The Ui Panel to let the user enter name, connect and play")]
-    public GameObject usernameLoginPanel;
-    [Tooltip("The UI Label to inform the user that the connection is in progress")]
+    [Header("Panels")]
+    public GameObject connectingText;
+    public GameObject createUserPanel;
+    public GameObject loginUserPanel;
+    public GameObject mainMenuPanel;
     [Header("Lobby")]
     public string roomName;
     [Header("Login Field")]
@@ -45,18 +45,40 @@ public class MyLauncher : Photon.PunBehaviour
     }
     void Start()
     {
-        usernameLoginPanel.SetActive(true);
+        mainMenuPanel.SetActive(true);
+        connectingText.SetActive(false);
+        createUserPanel.SetActive(false);
+        loginUserPanel.SetActive(false);
     }
     #endregion
 
     #region My Functions
+    public void MainMenuPanel()
+    {
+        createUserPanel.SetActive(false);
+        loginUserPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
+    }
+    public void CreateUserPanel()
+    {
+        createUserPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+    }
+    public void LoginPanel()
+    {
+        mainMenuPanel.SetActive(false);
+        loginUserPanel.SetActive(true);
+    }
     public void ConnectToServer()
     {
         isConnecting = true;
+        connectingText.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        loginUserPanel.SetActive(false);
+        createUserPanel.SetActive(false);
 
         if (PhotonNetwork.connected)
         {
-            usernameLoginPanel.SetActive(false);
             //PhotonNetwork.JoinRandomRoom();
         }
         else
@@ -126,7 +148,6 @@ public class MyLauncher : Photon.PunBehaviour
 
     public override void OnDisconnectedFromPhoton()
     {
-        usernameLoginPanel.SetActive(true);
         isConnecting = false;
         Debug.LogWarning("Disconnected from Photon");
     }
