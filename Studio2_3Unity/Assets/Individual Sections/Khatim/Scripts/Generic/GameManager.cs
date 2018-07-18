@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Photon.PunBehaviour
+public class GameManager : Photon.MonoBehaviour
 {
     #region  Public Variables
     public GameObject plyPrefab;
@@ -51,12 +51,12 @@ public class GameManager : Photon.PunBehaviour
     }
     #endregion
     #region Photon Callbacks
-    public override void OnLeftRoom()
+    void OnLeftRoom()
     {
         SceneManager.LoadScene("LoginTestScene");
     }
 
-    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
         if (PhotonNetwork.isMasterClient)
         {

@@ -9,6 +9,7 @@ public class LobbyManager : Photon.MonoBehaviour
     #region  Public Variables
     public InputField roomName;
     public GameObject roomButtonPrefab;
+    public PhotonLogLevel logLevel = PhotonLogLevel.Informational;
     #endregion
 
     #region  Private Variables
@@ -16,6 +17,7 @@ public class LobbyManager : Photon.MonoBehaviour
     private string version = "1";
     private List<GameObject> roomButtonPrefabs = new List<GameObject>();
     private bool joinedLobby;
+    private byte maxPlayers = 4;
     #endregion
 
     #region Unity Callbacks
@@ -50,7 +52,7 @@ public class LobbyManager : Photon.MonoBehaviour
             {
                 IsVisible = true,
                 IsOpen = true,
-                MaxPlayers = 4
+                MaxPlayers = maxPlayers
             };
 
             PhotonNetwork.CreateRoom(roomName.text, roomOpt, TypedLobby.Default);

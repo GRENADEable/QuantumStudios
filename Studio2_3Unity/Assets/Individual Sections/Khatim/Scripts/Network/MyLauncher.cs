@@ -4,19 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MyLauncher : Photon.PunBehaviour
+public class MyLauncher : Photon.MonoBehaviour
 {
     #region Public Variables
-    public PhotonLogLevel logLevel = PhotonLogLevel.Informational;
-
-    public byte maxPlayersInRoom = 4;
     [Header("Panels")]
-    public GameObject connectingText;
     public GameObject createUserPanel;
     public GameObject loginUserPanel;
     public GameObject mainMenuPanel;
-    [Header("Lobby")]
-    public string roomName;
+    public GameObject lobbyPanel;
+    [Header("Notification Text")]
+    public GameObject userNotFoundText;
+    public GameObject passwordWrongText;
+    public GameObject loginText;
+    public GameObject creatingUserText;
+    public GameObject createdUserText;
     [Header("Login Field")]
     public InputField inputUser;
     public InputField inputPassword;
@@ -27,8 +28,6 @@ public class MyLauncher : Photon.PunBehaviour
     #endregion
 
     #region Private Variables
-    private string version = "1";
-    private bool isConnecting;
     private string LoginURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php";
     //private string userURL = "http://localhost/unity_login_system/usernamelogin.php";
 
@@ -41,14 +40,18 @@ public class MyLauncher : Photon.PunBehaviour
     void Awake()
     {
         PhotonNetwork.autoJoinLobby = false;
-        PhotonNetwork.automaticallySyncScene = true;
     }
     void Start()
     {
-        mainMenuPanel.SetActive(true);
-        connectingText.SetActive(false);
+        createdUserText.SetActive(false);
+        creatingUserText.SetActive(false);
+        passwordWrongText.SetActive(false);
+        userNotFoundText.SetActive(false);
+        lobbyPanel.SetActive(false);
+        loginText.SetActive(false);
         createUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
     #endregion
 
@@ -58,6 +61,10 @@ public class MyLauncher : Photon.PunBehaviour
         createUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        createdUserText.SetActive(false);
+        creatingUserText.SetActive(false);
+        passwordWrongText.SetActive(false);
+        userNotFoundText.SetActive(false);
     }
     public void CreateUserPanel()
     {
@@ -69,32 +76,23 @@ public class MyLauncher : Photon.PunBehaviour
         mainMenuPanel.SetActive(false);
         loginUserPanel.SetActive(true);
     }
-    public void ConnectToServer()
+    public void JoinLobby()
     {
-        isConnecting = true;
-        connectingText.SetActive(true);
+        loginText.SetActive(false);
         mainMenuPanel.SetActive(false);
         loginUserPanel.SetActive(false);
         createUserPanel.SetActive(false);
-
-        if (PhotonNetwork.connected)
-        {
-            //PhotonNetwork.JoinRandomRoom();
-        }
-        else
-            PhotonNetwork.ConnectUsingSettings(version);
-    }
-
-    public void JoinRoom(RoomInfo room)
-    {
-        PhotonNetwork.JoinRoom(room.Name);
+        lobbyPanel.SetActive(true);
     }
     public void Login()
     {
+        userNotFoundText.SetActive(false);
+        passwordWrongText.SetActive(false);
         StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
     }
     public void Create()
     {
+        creatingUserText.SetActive(true);
         CreateUser(createUser.text, createPassword.text, createEmail.text);
     }
 
@@ -103,6 +101,8 @@ public class MyLauncher : Photon.PunBehaviour
     #region  IEnums
     public IEnumerator DBLogin(string playerName, string password)
     {
+        loginText.SetActive(true);
+        loginUserPanel.SetActive(false);
         WWWForm loginform = new WWWForm();
         loginform.AddField("playerUsername", playerName);
         loginform.AddField("playerPassword", password);
@@ -113,63 +113,41 @@ public class MyLauncher : Photon.PunBehaviour
 
         if (dbLink.text == "Login Success")
         {
-            ConnectToServer();
+            JoinLobby();
         }
-        else
+        else if (dbLink.text == "User Not Found")
+        {
+            loginText.SetActive(false);
+            loginUserPanel.SetActive(true);
+            userNotFoundText.SetActive(true);
             yield return null;
+        }
+        else if (dbLink.text == "Password is Wrong")
+        {
+            loginText.SetActive(false);
+            loginUserPanel.SetActive(true);
+            passwordWrongText.SetActive(true);
+            yield return null;
+        }
     }
     public void CreateUser(string playerName, string password, string email)
     {
         WWWForm loginform = new WWWForm();
-        Debug.Log("WWWForm Created");
+        Debug.Log("WWWForm Created"); //Testing
 
         loginform.AddField("playerUsername", playerName);
-        Debug.Log("Username Field Added");
+        Debug.Log("Username Field Added"); //Testing
 
         loginform.AddField("playerPassword", password);
-        Debug.Log("Password Field Added");
+        Debug.Log("Password Field Added"); //Testing
 
         loginform.AddField("playerEmail", email);
-        Debug.Log("Email Field Added");
+        Debug.Log("Email Field Added"); //Testing
 
         WWW dbLink = new WWW(userURL, loginform);
-        Debug.Log("Databse Accessed");
-    }
-    #endregion
-    #region PunCallbacks
-    public override void OnConnectedToMaster()
-    {
-        if (isConnecting)
-        {
-            Debug.LogWarning("Connected To Master");
-            PhotonNetwork.JoinRandomRoom();
-        }
-    }
-
-    public override void OnDisconnectedFromPhoton()
-    {
-        isConnecting = false;
-        Debug.LogWarning("Disconnected from Photon");
-    }
-
-    public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
-    {
-        Debug.LogWarning("No Random Room Found");
-
-        PhotonNetwork.CreateRoom(null, new RoomOptions()
-        {
-            MaxPlayers = maxPlayersInRoom
-        },
-        null);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        if (PhotonNetwork.room.PlayerCount == 1)
-        {
-            Debug.LogWarning("Loading Scene: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.LoadLevel("IntegrateScene");
-        }
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(true);
+        Debug.Log("Databse Accessed"); //Testing
     }
     #endregion
 }
