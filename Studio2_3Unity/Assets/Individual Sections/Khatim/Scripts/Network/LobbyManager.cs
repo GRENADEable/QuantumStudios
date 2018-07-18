@@ -15,6 +15,7 @@ public class LobbyManager : Photon.MonoBehaviour
     private static LobbyManager instance;
     private string version = "1";
     private List<GameObject> roomButtonPrefabs = new List<GameObject>();
+    private bool joinedLobby;
     #endregion
 
     #region Unity Callbacks
@@ -35,6 +36,7 @@ public class LobbyManager : Photon.MonoBehaviour
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings(version);
+        joinedLobby = false;
     }
     #endregion
 
@@ -58,17 +60,17 @@ public class LobbyManager : Photon.MonoBehaviour
 
     public void RefreshRoom()
     {
-        //if (PhotonNetwork.JoinLobby())
-        //{
-        if (roomButtonPrefabs.Count > 0)
+        if (joinedLobby)
         {
-            for (int i = 0; i < roomButtonPrefabs.Count; i++)
+            if (roomButtonPrefabs.Count > 0)
             {
-                Destroy(roomButtonPrefabs[i]);
+                for (int i = 0; i < roomButtonPrefabs.Count; i++)
+                {
+                    Destroy(roomButtonPrefabs[i]);
+                }
             }
+            roomButtonPrefabs.Clear();
         }
-        roomButtonPrefabs.Clear();
-        //}
 
         for (int i = 0; i < PhotonNetwork.GetRoomList().Length; i++)
         {
@@ -79,12 +81,42 @@ public class LobbyManager : Photon.MonoBehaviour
             room.GetComponent<RectTransform>().localScale = roomButtonPrefab.GetComponent<RectTransform>().localScale;
             room.GetComponent<RectTransform>().localPosition = new Vector3(roomButtonPrefab.GetComponent<RectTransform>().localPosition.x, roomButtonPrefab.GetComponent<RectTransform>().localPosition.y - (i * 50), roomButtonPrefab.GetComponent<RectTransform>().localPosition.z);
             room.gameObject.transform.Find("RoomNameText").GetComponent<Text>().text = PhotonNetwork.GetRoomList()[i].Name;
-            room.gameObject.transform.Find("PlayerCount").GetComponent<Text>().text = PhotonNetwork.GetRoomList()[i].PlayerCount + "/" + PhotonNetwork.GetRoomList()[i].MaxPlayers;
+            room.gameObject.transform.Find("PlayerCountText").GetComponent<Text>().text = PhotonNetwork.GetRoomList()[i].PlayerCount + "/" + PhotonNetwork.GetRoomList()[i].MaxPlayers;
+            room.gameObject.transform.Find("JoinButton").GetComponent<Button>().onClick.AddListener(() => { JoinRoom(room.gameObject.transform.Find("RoomNameText").GetComponent<Text>().text); });
 
             room.SetActive(true);
             roomButtonPrefabs.Add(room);
 
         }
+    }
+
+    void JoinRoom(string room)
+    {
+        bool roomVisible = false;
+
+        foreach (RoomInfo info in PhotonNetwork.GetRoomList())
+        {
+            if (room == info.Name)
+            {
+                roomVisible = true;
+                break;
+            }
+            else
+                roomVisible = false;
+        }
+
+        if (roomVisible)
+            PhotonNetwork.JoinRoom(room);
+        else
+            Debug.LogWarning("Room Not Found");
+    }
+
+    public void RandomRoom()
+    {
+        if (PhotonNetwork.GetRoomList().Length > 0)
+            PhotonNetwork.JoinRandomRoom();
+        else
+            Debug.LogWarning("No Random Room Found");
     }
     #endregion
 
@@ -102,7 +134,7 @@ public class LobbyManager : Photon.MonoBehaviour
     void OnJoinedLobby()
     {
         Debug.LogWarning("Joined Lobby");
-        Invoke("RefreshRoom", 0.2f);
+        joinedLobby = true;
     }
 
     void OnPhotonJoinRoomFailed(object[] codeAndMsg)
