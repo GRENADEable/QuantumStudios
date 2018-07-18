@@ -78,8 +78,6 @@ public class NetworkLobby : Photon.PunBehaviour
         if (isConnecting)
         {
             Debug.LogWarning("Connecting to Master");
-            PhotonNetwork.playerName = PlayerNetwork.instance.userName;
-            //PhotonNetwork.playerName = PlayerNetwork.instance.userName;
         }
     }
 
