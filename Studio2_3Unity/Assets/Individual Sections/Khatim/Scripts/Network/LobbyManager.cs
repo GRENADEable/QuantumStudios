@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LobbyManager : Photon.MonoBehaviour
+public class LobbyManager : Photon.PunBehaviour
 {
     #region  Public Variables
     public InputField roomName;
@@ -13,26 +13,19 @@ public class LobbyManager : Photon.MonoBehaviour
     #endregion
 
     #region  Private Variables
-    private static LobbyManager instance;
+    //private static LobbyManager instance;
     private string version = "1";
     private List<GameObject> roomButtonPrefabs = new List<GameObject>();
     private bool joinedLobby;
     private byte maxPlayers = 4;
+    //private bool isConnecting;
     #endregion
 
     #region Unity Callbacks
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject.transform);
-        }
-        else if (instance != this)
-            Destroy(gameObject);
-
         PhotonNetwork.autoJoinLobby = false;
-        PhotonNetwork.automaticallySyncScene = true;
+        PhotonNetwork.automaticallySyncScene = false;
     }
 
     void Start()
@@ -45,6 +38,7 @@ public class LobbyManager : Photon.MonoBehaviour
     #region My Functions
     public void CreateRoom()
     {
+        //isConnecting = true;
         if (PhotonNetwork.JoinLobby())
         {
             Debug.LogWarning("Creating Room");
@@ -123,7 +117,7 @@ public class LobbyManager : Photon.MonoBehaviour
     #endregion
 
     #region Photon Callbacks
-    void OnConnectedToMaster()
+    public override void OnConnectedToMaster()
     {
         Debug.LogWarning("Connectng to Master");
         PhotonNetwork.JoinLobby();
@@ -133,24 +127,27 @@ public class LobbyManager : Photon.MonoBehaviour
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
     }
-    void OnJoinedLobby()
+    public override void OnJoinedLobby()
     {
         Debug.LogWarning("Joined Lobby");
         joinedLobby = true;
     }
 
-    void OnPhotonJoinRoomFailed(object[] codeAndMsg)
+    public override void OnPhotonJoinRoomFailed(object[] codeAndMsg)
     {
         Debug.LogWarning("No Random Room Found");
     }
 
-    void OnJoinedRoom()
+    public override void OnJoinedRoom()
     {
+        /*if (isConnecting)
+        {*/
         Debug.LogWarning("Joined Room");
-        SceneManager.LoadScene("IntegrateScene");
+        PhotonNetwork.LoadLevel("IntegrateScene");
+        //}
     }
 
-    void OnCreatedRoom()
+    public override void OnCreatedRoom()
     {
         Debug.LogWarning("Room Created");
     }

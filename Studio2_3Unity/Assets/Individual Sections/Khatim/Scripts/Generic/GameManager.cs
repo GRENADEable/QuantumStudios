@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Photon.MonoBehaviour
+public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
     public GameObject plyPrefab;
-    public static GameObject localPlyInstance;
     #endregion
 
     #region  Private Variables
@@ -21,15 +20,13 @@ public class GameManager : Photon.MonoBehaviour
     }
     void Start()
     {
-        if (PlayerManager.localPlyInstance == null)
-        {
-            Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 15f, 0f), Quaternion.identity, 0);
-        }
+        /*if (plyPrefab == null)
+            Debug.LogError("<Color=Red><a>Missing</a></Color> Player Gameobject is Missing", this);
         else
-        {
-            Debug.Log("Ignoring scene load for " + SceneManager.GetActiveScene().name);
-        }
+        {*/
+        Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
+        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 15f, 0f), Quaternion.identity, 0);
+        //}
     }
     #endregion
 
@@ -44,23 +41,24 @@ public class GameManager : Photon.MonoBehaviour
     {
         if (!PhotonNetwork.isMasterClient)
         {
-            Debug.LogError("No Master Client Found");
+            Debug.LogWarning("Load Level Faild. We are not Master");
         }
-        Debug.LogWarning("Loading Level: " + SceneManager.GetActiveScene());
-        PhotonNetwork.LoadLevel("IntegrateScene");
+        Debug.Log("Level being Loaded");
+        //PhotonNetwork.LoadLevel("IntegrateScene");
     }
     #endregion
     #region Photon Callbacks
-    void OnLeftRoom()
+    public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("LoginTestScene");
+        SceneManager.LoadScene("LobbyScene");
     }
-
-    void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
+    public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
+        Debug.LogWarning("OnPhotonPlayerConnected" + newPlayer.NickName);
+
         if (PhotonNetwork.isMasterClient)
         {
-            Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient);
+            Debug.LogWarning("OnPhotonPlayerConnected isMasterClient" + PhotonNetwork.isMasterClient);
             LoadMap();
         }
     }
