@@ -60,16 +60,17 @@ public class MyLauncher : MonoBehaviour
     {
         createUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
         createdUserText.SetActive(false);
         creatingUserText.SetActive(false);
         passwordWrongText.SetActive(false);
         userNotFoundText.SetActive(false);
+        lobbyPanel.SetActive(false);
+        mainMenuPanel.SetActive(true);
     }
     public void CreateUserPanel()
     {
-        createUserPanel.SetActive(true);
         mainMenuPanel.SetActive(false);
+        createUserPanel.SetActive(true);
     }
     public void LoginPanel()
     {

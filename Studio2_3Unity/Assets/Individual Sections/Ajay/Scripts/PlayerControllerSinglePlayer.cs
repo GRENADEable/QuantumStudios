@@ -32,7 +32,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
         MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(MovementInput), -90f);
+        transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.LookRotation(MovementInput), 0f);
 
         transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
     }

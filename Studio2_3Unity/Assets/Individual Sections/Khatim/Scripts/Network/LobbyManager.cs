@@ -26,6 +26,9 @@ public class LobbyManager : Photon.PunBehaviour
     {
         PhotonNetwork.autoJoinLobby = false;
         PhotonNetwork.automaticallySyncScene = false;
+
+        //PhotonNetwork.sendRate = 60; //Default 20
+        //PhotonNetwork.sendRateOnSerialize = 30; //Default 10
     }
 
     void Start()
