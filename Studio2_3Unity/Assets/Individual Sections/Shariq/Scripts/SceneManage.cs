@@ -17,7 +17,7 @@ public class SceneManage : MonoBehaviour
 
     public void PlaySinglePlayer()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("IntegrateScene");
     }
 
     public void Shop()
