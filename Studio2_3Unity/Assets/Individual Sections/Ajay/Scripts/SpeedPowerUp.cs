@@ -21,7 +21,7 @@ public class SpeedPowerUp : MonoBehaviour
     {
         Instantiate(PickUpFX, transform.position, transform.rotation);
 
-        PlayerController ply = player.GetComponent<PlayerController>();
+        PlayerControllerSinglePlayer ply = player.GetComponent<PlayerControllerSinglePlayer>();
         ply.MoveSpeed *= Multiplier;
 
         GetComponent<MeshRenderer>().enabled = false;
