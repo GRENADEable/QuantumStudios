@@ -8,6 +8,7 @@ public class PlayerController : Photon.PunBehaviour
     public float MoveSpeed;
     public float slowSpeed;
     public float regularSpeed;
+    public float clampMax;
     #endregion
 
     #region Private Variables
@@ -58,9 +59,10 @@ public class PlayerController : Photon.PunBehaviour
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
         MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(MovementInput), -90f);
+        MyRB.rotation = Quaternion.Slerp(MyRB.rotation,Quaternion.LookRotation(MovementInput), 0.15f);
 
-        transform.Translate(MovementInput * MoveSpeed * Time.deltaTime, Space.World);
+        MovementInput = Vector3.ClampMagnitude(MovementInput, clampMax);
+        MyRB.AddForce (MovementInput * MoveSpeed);
     }
 
     void SmoothMovement()
