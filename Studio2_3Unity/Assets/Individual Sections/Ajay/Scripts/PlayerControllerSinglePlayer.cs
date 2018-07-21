@@ -33,7 +33,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+        MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
         MyRB.rotation = Quaternion.Slerp(MyRB.rotation,Quaternion.LookRotation(MovementInput), 0.15f);
 
         MovementInput = Vector3.ClampMagnitude(MovementInput, clampMax);
