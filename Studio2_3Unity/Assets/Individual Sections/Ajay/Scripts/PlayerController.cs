@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlayerController : Photon.PunBehaviour
 {
     #region Public Variables
-    public float MoveSpeed;
+    public float moveSpeed;
     public float slowSpeed;
     public float regularSpeed;
     public float clampMax;
+    //public GameObject pickUpFX;
+    public float spDuration;
     #endregion
 
     #region Private Variables
-    private Rigidbody MyRB;
-    private Vector3 MovementInput;
+    private Rigidbody myRB;
+    private Vector3 movementInput;
     private PhotonView pview;
     private Vector3 tarPos;
     private Quaternion tarRot;
@@ -21,17 +23,20 @@ public class PlayerController : Photon.PunBehaviour
     private float movementValue = 0.25f; //Default 0.25f
     [SerializeField]
     private float rotateValue = 500f; //Default 500f
+    [SerializeField]
+    private double timer;
     #endregion
 
     #region Callbacks
     void Start()
     {
-        MyRB = GetComponent<Rigidbody>();
+        myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
     }
 
     void Update()
     {
+        timer -= PhotonNetwork.time;
         if (pview.isMine)
             MovePlayer();
         else
@@ -42,13 +47,13 @@ public class PlayerController : Photon.PunBehaviour
     {
         if (other.tag == "Whirlpool")
         {
-            MoveSpeed = slowSpeed;
+            moveSpeed = slowSpeed;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        MoveSpeed = regularSpeed;
+        moveSpeed = regularSpeed;
     }
     #endregion
 
@@ -58,11 +63,11 @@ public class PlayerController : Photon.PunBehaviour
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
-        MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        MyRB.rotation = Quaternion.Slerp(MyRB.rotation,Quaternion.LookRotation(MovementInput), 0.15f);
+        movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+        myRB.rotation = Quaternion.Slerp(myRB.rotation, Quaternion.LookRotation(movementInput), 0.15f);
 
-        MovementInput = Vector3.ClampMagnitude(MovementInput, clampMax);
-        MyRB.AddForce (MovementInput * MoveSpeed);
+        movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
+        myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
     }
 
     void SmoothMovement()
