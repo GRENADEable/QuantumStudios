@@ -49,7 +49,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         myRB.rotation = Quaternion.Slerp(myRB.rotation,Quaternion.LookRotation(movementInput), 0.15f);
 
         movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
-        myRB.AddForce (movementInput * moveSpeed);
+        myRB.AddForce (movementInput * moveSpeed, ForceMode.Impulse);
         
         //transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
     }
