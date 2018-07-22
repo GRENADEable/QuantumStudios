@@ -17,7 +17,6 @@ public class LobbyManager : Photon.PunBehaviour
     private string version = "1";
     private List<GameObject> roomButtonPrefabs = new List<GameObject>();
     private bool joinedLobby;
-    private byte maxPlayers = 4;
     //private bool isConnecting;
     #endregion
 
@@ -39,7 +38,7 @@ public class LobbyManager : Photon.PunBehaviour
     #endregion
 
     #region My Functions
-    public void CreateRoom()
+    public void TwoPlayerRoom()
     {
         //isConnecting = true;
         if (PhotonNetwork.JoinLobby())
@@ -49,7 +48,25 @@ public class LobbyManager : Photon.PunBehaviour
             {
                 IsVisible = true,
                 IsOpen = true,
-                MaxPlayers = maxPlayers
+                MaxPlayers = 2
+            };
+
+            PhotonNetwork.CreateRoom(roomName.text, roomOpt, TypedLobby.Default);
+            Debug.LogWarning("Created Room with Lobby Name " + roomName.text);
+        }
+    }
+
+    public void FourPlayerRoom()
+    {
+        //isConnecting = true;
+        if (PhotonNetwork.JoinLobby())
+        {
+            Debug.LogWarning("Creating Room");
+            RoomOptions roomOpt = new RoomOptions()
+            {
+                IsVisible = true,
+                IsOpen = true,
+                MaxPlayers = 4
             };
 
             PhotonNetwork.CreateRoom(roomName.text, roomOpt, TypedLobby.Default);
