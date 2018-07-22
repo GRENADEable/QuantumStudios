@@ -15,7 +15,7 @@ public class RandomWhirlpool : MonoBehaviour {
 	{
 			
 		{	
-			transform.localScale = new Vector3(Random.Range(5,8), 0.3710543f ,Random.Range (1,6));
+			transform.localScale = new Vector3(Random.Range(5,8), 0.3710543f, Random.Range (1,6));
 		}
 
 		

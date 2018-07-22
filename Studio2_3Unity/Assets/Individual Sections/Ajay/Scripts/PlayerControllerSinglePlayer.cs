@@ -5,27 +5,39 @@ using UnityEngine;
 public class PlayerControllerSinglePlayer : MonoBehaviour 
 {
     #region Public Variables
-    public float MoveSpeed;
+    public float moveSpeed;
     public float slowSpeed;
     public float regularSpeed;
+    public float powerUpSpeed;
     public float clampMax;
+    public GameObject pickUpFX;
+    public float spDuration;
+    
     #endregion
 
     #region Private Variables
-    private Rigidbody MyRB;
-    private Vector3 MovementInput;
+    private Rigidbody myRB;
+    private Vector3 movementInput;
+    [SerializeField]
+    private float timer;
     
     #endregion
 
     void Start()
     {
-        MyRB = GetComponent<Rigidbody>();
+        myRB = GetComponent<Rigidbody>();
+        
     }
 
 
     void Update()
     {
-        
+        timer -=Time.deltaTime;
+        if(timer == 0)
+        {
+            moveSpeed  = regularSpeed;
+        }
+       
     }
 
     void FixedUpdate()
@@ -33,26 +45,36 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
-        MovementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        MyRB.rotation = Quaternion.Slerp(MyRB.rotation,Quaternion.LookRotation(MovementInput), 0.15f);
+        movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+        myRB.rotation = Quaternion.Slerp(myRB.rotation,Quaternion.LookRotation(movementInput), 0.15f);
 
-        MovementInput = Vector3.ClampMagnitude(MovementInput, clampMax);
-        MyRB.AddForce (MovementInput * MoveSpeed);
+        movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
+        myRB.AddForce (movementInput * moveSpeed);
         
         //transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
     }
-  
-    
+
+    void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.tag == "SpeedPowerUp")
+        {
+            moveSpeed = powerUpSpeed;
+            other.gameObject.SetActive(false);
+            Instantiate(pickUpFX, myRB.position, myRB.rotation);
+            timer = spDuration;
+        }
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Whirlpool")
         {
-            MoveSpeed = slowSpeed;
+            moveSpeed = slowSpeed;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        MoveSpeed = regularSpeed;
+        moveSpeed = regularSpeed;
     }
 }
