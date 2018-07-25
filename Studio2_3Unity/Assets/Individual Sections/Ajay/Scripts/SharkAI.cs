@@ -10,17 +10,39 @@ public class SharkAI : MonoBehaviour {
 	public int moveSpeed;
 	public int maxDis;
 	public int minDis;
+	GameObject[] AI;
+	public float spaceBetween;
+	#endregion
+	
+	#region Private Variables
+	private Rigidbody sharkRB;
 	#endregion
 
 
 	void Start () 
 	{
-		
+		sharkRB = GetComponent<Rigidbody>();
+		AI = GameObject.FindGameObjectsWithTag("AIShark");
 	}
 	
 	
 	void Update () 
 	{
+		//Add seperation between each AI
+		foreach(GameObject go in AI)
+		{
+			if (go != gameObject)
+			{
+				float dist = Vector3.Distance(go.transform.position, this.transform.position);
+				if(dist <=spaceBetween)
+				{
+					Vector3 direction = transform.position - go.transform.position;
+					transform.Translate(direction * Time.deltaTime);
+				}
+			}
+		}
+		
+		//Look at the player and start moving towards them
 		transform.LookAt (Player);
 
 		if (Vector3.Distance(transform.position, Player.position) >= minDis)
