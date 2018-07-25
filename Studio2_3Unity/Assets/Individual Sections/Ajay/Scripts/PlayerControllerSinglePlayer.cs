@@ -46,11 +46,14 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         float MoveVertical = Input.GetAxisRaw("Vertical");
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        myRB.rotation = Quaternion.Slerp(myRB.rotation,Quaternion.LookRotation(movementInput), 0.15f);
-
-        movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
-        myRB.AddForce (movementInput * moveSpeed, ForceMode.Impulse);
-        
+        if (movementInput != Vector3.zero)
+        {
+            myRB.rotation = Quaternion.Slerp(myRB.rotation,Quaternion.LookRotation(movementInput), 0.15f);
+            
+            movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
+            myRB.AddForce (movementInput * moveSpeed, ForceMode.Impulse);
+        }
+           
         //transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
     }
 
