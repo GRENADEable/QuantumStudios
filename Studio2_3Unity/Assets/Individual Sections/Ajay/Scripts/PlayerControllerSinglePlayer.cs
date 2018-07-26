@@ -32,12 +32,13 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
     void Update()
     {
+        //the problem here is that if I set the timer to <= 0, then the player will always stay at regular speed even through the whirlpool
         timer -=Time.deltaTime;
-        if(timer == 0)
+        if(timer <= 0f )
         {
             moveSpeed  = regularSpeed;
+            timer = 5;       
         }
-       
     }
 
     void FixedUpdate()
@@ -67,15 +68,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             Instantiate(pickUpFX, myRB.position, myRB.rotation);
             timer = spDuration;
         }
-    }
-    void OnTriggerStay(Collider other)
-    {
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
         }
     }
-
+    
     void OnTriggerExit(Collider other)
     {
         moveSpeed = regularSpeed;
