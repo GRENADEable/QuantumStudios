@@ -10,7 +10,9 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
+    public GameObject miniShark;
     public GameObject pickUpFX;
+    public GameObject pickUpFX2;
     public float spDuration;
     
     #endregion
@@ -71,6 +73,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
+        }
+        if(other.tag == "SharkSeekPowerUp")
+        {
+            Instantiate(miniShark, myRB.position, myRB.rotation);
+            other.gameObject.SetActive(false);
+            Instantiate(pickUpFX2, myRB.position, myRB.rotation);
         }
     }
     
