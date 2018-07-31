@@ -11,18 +11,18 @@ public class AdManager : MonoBehaviour
 
     #region Private Variables
     private BannerView bview;
-    private string appID = "ca-app-pub-6818619256470654~7001355373"; //My AppID.
-    //private string appID = "ca-app-pub-3940256099942544~3347511713"; //Test AppID.
+    //private string appID = "ca-app-pub-6818619256470654~7001355373"; //My AppID.
+    private string appID = "ca-app-pub-3940256099942544~3347511713"; //Test AppID.
 
-    private string bannerID = "ca-app-pub-6818619256470654/4071939700"; //My BannerID.
-    //private string bannerID = "ca-app-pub-3940256099942544/6300978111"; //Test BannerID.
-    private static AdManager instance;
+    //private string bannerID = "ca-app-pub-6818619256470654/4071939700"; //My BannerID.
+    private string bannerID = "ca-app-pub-3940256099942544/6300978111"; //Test BannerID.
+    //private static AdManager instance;
     #endregion
 
     #region Callbacks
     void Awake()
     {
-        instance = this;
+        //instance = this;
         DontDestroyOnLoad(gameObject);
         MobileAds.Initialize(appID);
     }
