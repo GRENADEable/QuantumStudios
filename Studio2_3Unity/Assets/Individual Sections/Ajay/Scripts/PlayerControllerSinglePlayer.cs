@@ -14,6 +14,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public GameObject pickUpFX;
     public GameObject pickUpFX2;
     public float spDuration;
+    public bool hasSharkSeekPowerUp;
     
     #endregion
 
@@ -40,6 +41,10 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         {
             moveSpeed  = regularSpeed;
             timer = 5;       
+        }
+        if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(miniShark, myRB.position, myRB.rotation);
         }
     }
 
@@ -76,7 +81,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         }
         if(other.tag == "SharkSeekPowerUp")
         {
-            Instantiate(miniShark, myRB.position, myRB.rotation);
+            hasSharkSeekPowerUp = true;
             other.gameObject.SetActive(false);
             Instantiate(pickUpFX2, myRB.position, myRB.rotation);
         }

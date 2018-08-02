@@ -47,9 +47,7 @@ public class SharkAI : MonoBehaviour {
 
 		if (Vector3.Distance(transform.position, Player.position) >= minDis)
 		{
-			transform.position += transform.forward * moveSpeed * Time.deltaTime;
-
-			
+			transform.position += transform.forward * moveSpeed * Time.deltaTime;	
 		}
 	}
 }
