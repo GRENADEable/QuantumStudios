@@ -10,9 +10,9 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-    public GameObject miniShark;
+    //public GameObject miniShark;
     public GameObject pickUpFX;
-    public GameObject pickUpFX2;
+    //public GameObject pickUpFX2;
     public float spDuration;
     public bool hasSharkSeekPowerUp;
     
@@ -42,10 +42,10 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             moveSpeed  = regularSpeed;
             timer = 5;       
         }
-        if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E))
-        {
-            Instantiate(miniShark, myRB.position, myRB.rotation);
-        }
+        //if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E))
+        //{
+        //    Instantiate(miniShark, myRB.position, myRB.rotation);
+        //}
     }
 
     void FixedUpdate()
@@ -79,12 +79,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         {
             moveSpeed = slowSpeed;
         }
-        if(other.tag == "SharkSeekPowerUp")
-        {
-            hasSharkSeekPowerUp = true;
-            other.gameObject.SetActive(false);
-            Instantiate(pickUpFX2, myRB.position, myRB.rotation);
-        }
+        //if(other.tag == "SharkSeekPowerUp")
+        //{
+        //    hasSharkSeekPowerUp = true;
+        //    other.gameObject.SetActive(false);
+        //    Instantiate(pickUpFX2, myRB.position, myRB.rotation);
+        //}
     }
     
     void OnTriggerExit(Collider other)
