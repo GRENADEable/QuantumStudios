@@ -22,7 +22,7 @@ public class LoginScript : MonoBehaviour
     #endregion
 
     #region Callbacks
-    void Update()
+    private void Update()
     {
         //For Testing
         /*if (Input.GetKeyDown(KeyCode.L))

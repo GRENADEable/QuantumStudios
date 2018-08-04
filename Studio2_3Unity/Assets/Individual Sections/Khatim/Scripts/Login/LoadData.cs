@@ -13,7 +13,7 @@ public class LoadData : MonoBehaviour
     #endregion
 
     #region Callbacks
-    IEnumerator Start()
+    private IEnumerator Start()
     {
         WWW userData = new WWW("http://localhost/unity_login_system/UsernameLogin.php");
         yield return userData;
@@ -25,7 +25,7 @@ public class LoadData : MonoBehaviour
     #endregion
 
     #region My Functions
-    string GetUserValue(string data, string index)
+    private string GetUserValue(string data, string index)
     {
         string value = data.Substring(data.IndexOf(index) + index.Length);
         if (value.Contains("|"))

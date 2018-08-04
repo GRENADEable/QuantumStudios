@@ -20,7 +20,7 @@ public class AdManager : MonoBehaviour
     #endregion
 
     #region Callbacks
-    void Awake()
+    private void Awake()
     {
         //instance = this;
         DontDestroyOnLoad(gameObject);
@@ -42,7 +42,7 @@ public class AdManager : MonoBehaviour
 
         }
 
-        bview = new BannerView(bannerID, AdSize.Banner, AdPosition.Top);
+        bview = new BannerView(bannerID, AdSize.SmartBanner, AdPosition.Top);
         Debug.LogWarning("Creating Banner");
 
 

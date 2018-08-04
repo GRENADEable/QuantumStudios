@@ -19,7 +19,7 @@ public class FBScript : MonoBehaviour
     #endregion
 
     #region Callbacks
-    void Awake()
+    private void Awake()
     {
         if (!FB.IsInitialized)
             FB.Init(InitializeCallback, OnHideUnity);
@@ -29,7 +29,7 @@ public class FBScript : MonoBehaviour
     #endregion
 
     #region My Functions
-    void InitializeCallback()
+    private void InitializeCallback()
     {
         if (FB.IsInitialized)
             FB.ActivateApp();
@@ -39,7 +39,7 @@ public class FBScript : MonoBehaviour
         FBMenu(FB.IsLoggedIn);
     }
 
-    void OnHideUnity(bool isGameShown)
+    private void OnHideUnity(bool isGameShown)
     {
         if (!isGameShown)
             Time.timeScale = 0;
@@ -119,7 +119,7 @@ public class FBScript : MonoBehaviour
     }*/
     #endregion
 
-    void FBMenu(bool IsLoggedIn)
+    private void FBMenu(bool IsLoggedIn)
     {
         if (IsLoggedIn)
         {
@@ -138,7 +138,7 @@ public class FBScript : MonoBehaviour
 
     }
 
-    void DisplayUser(IResult result)
+    private void DisplayUser(IResult result)
     {
         Text user = FBUsername.GetComponent<Text>();
 
@@ -148,7 +148,7 @@ public class FBScript : MonoBehaviour
             Debug.LogWarning(result.Error);
     }
 
-    void DisplayImage(IGraphResult result)
+    private void DisplayImage(IGraphResult result)
     {
         if (result.Texture != null)
         {
@@ -161,15 +161,5 @@ public class FBScript : MonoBehaviour
             Debug.LogWarning("Profile Picture not Found");
         }
     }
-
-    /*void DisplayEmail(IResult result)
-    {
-        Text useremail = FBEmail.GetComponent<Text>();
-
-        if (result.Error == null)
-            useremail.text = "Email: " + result.ResultDictionary["email"];
-        else
-            Debug.LogWarning(result.Error);
-    }*/
     #endregion
 }

@@ -13,15 +13,13 @@ public class LobbyManager : Photon.PunBehaviour
     #endregion
 
     #region  Private Variables
-    //private static LobbyManager instance;
     private string version = "1";
     private List<GameObject> roomButtonPrefabs = new List<GameObject>();
     private bool joinedLobby;
-    //private bool isConnecting;
     #endregion
 
     #region Unity Callbacks
-    void Awake()
+    private void Awake()
     {
         PhotonNetwork.autoJoinLobby = false;
         PhotonNetwork.automaticallySyncScene = false;
@@ -29,18 +27,16 @@ public class LobbyManager : Photon.PunBehaviour
         //PhotonNetwork.sendRate = 60; //Default 20
         //PhotonNetwork.sendRateOnSerialize = 30; //Default 10
     }
+    #endregion
 
-    void Start()
+    #region My Functions
+    public void Connect()
     {
         PhotonNetwork.ConnectUsingSettings(version);
         joinedLobby = false;
     }
-    #endregion
-
-    #region My Functions
     public void TwoPlayerRoom()
     {
-        //isConnecting = true;
         if (PhotonNetwork.JoinLobby())
         {
             Debug.LogWarning("Creating Room");
@@ -58,7 +54,6 @@ public class LobbyManager : Photon.PunBehaviour
 
     public void FourPlayerRoom()
     {
-        //isConnecting = true;
         if (PhotonNetwork.JoinLobby())
         {
             Debug.LogWarning("Creating Room");
@@ -106,7 +101,12 @@ public class LobbyManager : Photon.PunBehaviour
         }
     }
 
-    void JoinRoom(string room)
+    public void Disconnect()
+    {
+        PhotonNetwork.Disconnect();
+        Debug.LogWarning("Disconnected From PhotonNetwork");
+    }
+    private void JoinRoom(string room)
     {
         bool roomVisible = false;
 
@@ -143,7 +143,7 @@ public class LobbyManager : Photon.PunBehaviour
         PhotonNetwork.JoinLobby();
     }
 
-    void OnGUI()
+    private void OnGUI()
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
     }
@@ -160,11 +160,8 @@ public class LobbyManager : Photon.PunBehaviour
 
     public override void OnJoinedRoom()
     {
-        /*if (isConnecting)
-        {*/
         Debug.LogWarning("Joined Room");
         PhotonNetwork.LoadLevel("IntegrateScene");
-        //}
     }
 
     public override void OnCreatedRoom()

@@ -10,8 +10,10 @@ public class MyLauncher : MonoBehaviour
     [Header("Panels")]
     public GameObject createUserPanel;
     public GameObject loginUserPanel;
-    public GameObject mainMenuPanel;
+    public GameObject loginAndCreateUserPanel;
     public GameObject lobbyPanel;
+    public GameObject mainMenuPanel;
+    public GameObject multiplayerPanel;
     [Header("Notification Text")]
     public GameObject userNotFoundText;
     public GameObject passwordWrongText;
@@ -37,20 +39,12 @@ public class MyLauncher : MonoBehaviour
 
     #region Callbacks
 
-    void Awake()
+    private void Awake()
     {
-        PhotonNetwork.autoJoinLobby = false;
-    }
-    void Start()
-    {
-        createdUserText.SetActive(false);
-        creatingUserText.SetActive(false);
-        passwordWrongText.SetActive(false);
-        userNotFoundText.SetActive(false);
         lobbyPanel.SetActive(false);
-        loginText.SetActive(false);
-        createUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);
+        multiplayerPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
     #endregion
@@ -58,49 +52,72 @@ public class MyLauncher : MonoBehaviour
     #region My Functions
     public void MainMenuPanel()
     {
-        createUserPanel.SetActive(false);
-        loginUserPanel.SetActive(false);
-        createdUserText.SetActive(false);
-        creatingUserText.SetActive(false);
-        passwordWrongText.SetActive(false);
-        userNotFoundText.SetActive(false);
         lobbyPanel.SetActive(false);
+        multiplayerPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
+
+    public void MultiplayerPanel()
+    {
+        loginText.SetActive(false);
+        mainMenuPanel.SetActive(false);
+        multiplayerPanel.SetActive(true);
+        createUserPanel.SetActive(false);
+        loginUserPanel.SetActive(false);
+        loginAndCreateUserPanel.SetActive(true);
+    }
+
     public void CreateUserPanel()
     {
-        mainMenuPanel.SetActive(false);
+        loginText.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(false);
         createUserPanel.SetActive(true);
     }
     public void LoginPanel()
     {
-        mainMenuPanel.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);
+        userNotFoundText.SetActive(false);
+        passwordWrongText.SetActive(false);
         loginUserPanel.SetActive(true);
     }
+
     public void JoinLobby()
     {
         loginText.SetActive(false);
-        mainMenuPanel.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
         createUserPanel.SetActive(false);
         lobbyPanel.SetActive(true);
     }
+
     public void Login()
     {
         userNotFoundText.SetActive(false);
         passwordWrongText.SetActive(false);
         StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
     }
+
     public void Create()
     {
         creatingUserText.SetActive(true);
         CreateUser(createUser.text, createPassword.text, createEmail.text);
     }
 
+    public void Singleplayer()
+    {
+        SceneManager.LoadScene("AjayScene");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.LogWarning("Application Closed");
+    }
     #endregion
 
-    #region  IEnums
-    public IEnumerator DBLogin(string playerName, string password)
+    #region IEnums
+    private IEnumerator DBLogin(string playerName, string password)
     {
         loginText.SetActive(true);
         loginUserPanel.SetActive(false);
@@ -149,6 +166,9 @@ public class MyLauncher : MonoBehaviour
         creatingUserText.SetActive(false);
         createdUserText.SetActive(true);
         Debug.Log("Databse Accessed"); //Testing
+
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(true);
     }
     #endregion
 }

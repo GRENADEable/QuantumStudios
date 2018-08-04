@@ -17,7 +17,7 @@ public class InsertData : MonoBehaviour
     #endregion
 
     #region Callbacks.
-    void Update()
+    private void Update()
     {
         //For Testing
         /*if (Input.GetKeyDown(KeyCode.C))
