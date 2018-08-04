@@ -239,7 +239,12 @@ ModelImporter:
     4300002: Body5
     4300004: Clothes5
     4300006: HeadStuff5
-    7400000: Take 001
+    7400000: Idle
+    7400002: Speed Up
+    7400004: Turn Left
+    7400006: Turn Right
+    7400008: Stopping
+    7400010: Falling
     9500000: //RootNode
     13700000: Body5
     13700002: Clothes5
@@ -266,7 +271,1645 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 44
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Speed Up
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Turn Left
+      takeName: Take 001
+      firstFrame: 77
+      lastFrame: 105
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Turn Right
+      takeName: Take 001
+      firstFrame: 110
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stopping
+      takeName: Take 001
+      firstFrame: 145
+      lastFrame: 175
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Falling
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 220
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Arm_L_IKTarget
+        weight: 1
+      - path: Arm_LElbow_UpNode
+        weight: 1
+      - path: Arm_R_IKTarget
+        weight: 1
+      - path: Arm_RElbow_UpNode
+        weight: 1
+      - path: Body5
+        weight: 1
+      - path: Clothes5
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04 1
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_LBone_01 1/Arm_LBone_02
+          1/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: HeadStuff5
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: Leg_LKnee_UpNode
+        weight: 1
+      - path: Leg_RKnee_UpNode
+        weight: 1
+      - path: ParentControl
+        weight: 1
+      - path: ParentControl/COG_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Index_LBone_01_Controller/Index_LBone_02_Controller/Index_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Middle_LBone_01_Controller/Middle_LBone_02_Controlle/Middle_LBone_03_Controlle
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Pinky_LBone_01_Controller/Pinky_LBone_02_Controller/Pinky_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Ring_LBone_01_Controller/Ring_LBone_02_Controller/Ring_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_LCollarbone_Controller/Arm_LPalmIK_Controller/Thumb_LBone_01_Controller/Thumb_LBone_02_Controller/Thumb_LBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Index_RBone_01_Controller/Index_RBone_02_Controller/Index_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Middle_RBone_01_Controller/Middle_RBone_02_Controller/Middle_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Pinky_RBone_01_Controller/Pinky_RBone_02_Controller/Pinky_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Ring_RBone_01_Controller/Ring_RBone_02_Controller/Ring_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Arm_RCollarbone_Controller/Arm_RPalmIK_Controller/Thumb_RBone_01_Controller/Thumb_RBone_02_Controller/Thumb_RBone_03_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller
+        weight: 1
+      - path: ParentControl/COG_Controller/Spine_01_Controller/Spine_02_Controller/Chest_Controller/Neck_Controller/Head_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_L_MController/Leg_LAnkle_Controller/Leg_LFoot_Controller/Leg_LToe_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller
+        weight: 1
+      - path: ParentControl/Leg_R_MController/Leg_RAnkle_Controller/Leg_RFoot_Controller/Leg_RToe_Controller
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
