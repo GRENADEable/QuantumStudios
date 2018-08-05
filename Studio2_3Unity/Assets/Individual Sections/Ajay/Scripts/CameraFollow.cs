@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-	public GameObject Player;
+	#region Private Variables
+	[SerializeField]
+	private GameObject Player;
 
 	private Vector3 Offset;
-
+	#endregion
+	
+	void Awake()
+	{
+		Player = GameObject.FindGameObjectWithTag("Player");
+	}
 	void Start () 
 	{
 		Offset = transform.position - Player.transform.position;
-	}
-	
+	}	
 	void LateUpdate () 
 	{
 		transform.position = Player.transform.position + Offset;
 	}
-
-	
 }

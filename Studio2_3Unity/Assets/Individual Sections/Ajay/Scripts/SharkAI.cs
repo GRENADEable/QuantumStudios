@@ -49,5 +49,16 @@ public class SharkAI : MonoBehaviour {
 		{
 			transform.position += transform.forward * moveSpeed * Time.deltaTime;	
 		}
+		
 	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.tag == "Player")
+		{
+			Time.timeScale = 0;
+			Destroy(other.gameObject);
+		}
+	}
+	
 }

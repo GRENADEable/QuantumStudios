@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerSinglePlayer : MonoBehaviour 
 {
@@ -14,7 +15,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public GameObject pickUpFX;
     //public GameObject pickUpFX2;
     public float spDuration;
-    public bool hasSharkSeekPowerUp;
+    //public bool hasSharkSeekPowerUp;
     
     #endregion
 
@@ -91,4 +92,5 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     {
         moveSpeed = regularSpeed;
     }
+
 }
