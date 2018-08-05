@@ -12,27 +12,31 @@ public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IP
 
     #region Private Variables
     private Image bgImage;
-    private Image joyImgage;
+    private Image joyImage;
     #endregion
 
     #region Callbacks
+    void Start()
+    {
+        bgImage = GetComponent<Image>();
+        joyImage = transform.GetChild(0).GetComponent<Image>();
+    }
+    #endregion
+
+    #region My Functions
+    public virtual void OnDrag(PointerEventData data)
+    {
+        /*Vector2 pos;
+        if(RectTransformUtility.ScreenPointToLocalPointInRectangle())*/
+    }
     public virtual void OnPointerDown(PointerEventData data)
     {
-
+        OnDrag(data);
     }
 
     public virtual void OnPointerUp(PointerEventData data)
     {
 
     }
-
-    public virtual void OnDrag(PointerEventData data)
-    {
-
-    }
-    #endregion
-
-    #region My Functions
-
     #endregion
 }
