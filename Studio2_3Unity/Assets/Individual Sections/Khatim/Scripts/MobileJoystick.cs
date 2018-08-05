@@ -26,8 +26,7 @@ public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IP
     #region My Functions
     public virtual void OnDrag(PointerEventData data)
     {
-        /*Vector2 pos;
-        if(RectTransformUtility.ScreenPointToLocalPointInRectangle())*/
+        
     }
     public virtual void OnPointerDown(PointerEventData data)
     {
