@@ -10,7 +10,8 @@ public class GameManager : Photon.PunBehaviour
     #endregion
 
     #region  Private Variables
-
+    //[SerializeField]
+    //private CameraFollow cam;
     #endregion
 
     #region Unity Callbacks
@@ -20,13 +21,10 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        /*if (plyPrefab == null)
-            Debug.LogError("<Color=Red><a>Missing</a></Color> Player Gameobject is Missing", this);
-        else
-        {*/
         Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 15f, 0f), Quaternion.identity, 0);
-        //}
+        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 1f, 0f), Quaternion.identity, 0);
+
+        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
     }
     #endregion
 

@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour {
 	#region Private Variables
 	[SerializeField]
 	private GameObject Player;
-
+	[SerializeField]
 	private Vector3 Offset;
 	#endregion
 	

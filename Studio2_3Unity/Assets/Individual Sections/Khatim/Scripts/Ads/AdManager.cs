@@ -42,7 +42,7 @@ public class AdManager : MonoBehaviour
 
         }
 
-        bview = new BannerView(bannerID, AdSize.SmartBanner, AdPosition.Top);
+        bview = new BannerView(bannerID, AdSize.SmartBanner, AdPosition.Bottom);
         Debug.LogWarning("Creating Banner");
 
 

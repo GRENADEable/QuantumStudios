@@ -13,6 +13,7 @@ public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IP
     #region Private Variables
     private Image bgImage;
     private Image joyImage;
+    private Vector3 inputVec;
     #endregion
 
     #region Callbacks
@@ -23,10 +24,21 @@ public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IP
     }
     #endregion
 
-    #region My Functions
+    #region Pointer Events
     public virtual void OnDrag(PointerEventData data)
     {
-        
+        Vector2 pos;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(bgImage.rectTransform, data.position, data.pressEventCamera, out pos))
+        {
+            pos.x = (pos.x / bgImage.rectTransform.sizeDelta.x);
+            pos.y = (pos.y / bgImage.rectTransform.sizeDelta.y);
+
+            inputVec = new Vector3(pos.x * 2f, 0f, pos.y * 2f);
+            inputVec = (inputVec.magnitude > 1f) ? inputVec.normalized : inputVec;
+
+            //Movement of Joystick Img;
+            joyImage.rectTransform.anchoredPosition = new Vector3(inputVec.x * (bgImage.rectTransform.sizeDelta.x / 3), inputVec.z * (bgImage.rectTransform.sizeDelta.y / 3));
+        }
     }
     public virtual void OnPointerDown(PointerEventData data)
     {
@@ -35,7 +47,26 @@ public class MobileJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, IP
 
     public virtual void OnPointerUp(PointerEventData data)
     {
+        inputVec = Vector3.zero;
+        joyImage.rectTransform.anchoredPosition = Vector3.zero;
+    }
+    #endregion
 
+    #region My Functions
+    public float Horizontal()
+    {
+        if (inputVec.x != 0)
+            return inputVec.x;
+        else
+            return Input.GetAxisRaw("Horizontal");
+    }
+
+    public float Vertical()
+    {
+        if (inputVec.x != 0)
+            return inputVec.z;
+        else
+            return Input.GetAxisRaw("Vertical");
     }
     #endregion
 }

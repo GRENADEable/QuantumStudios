@@ -9,6 +9,8 @@ public class PlayerController : Photon.PunBehaviour
     public float slowSpeed;
     public float regularSpeed;
     public float clampMax;
+    public float powerUpSpeed;
+
     //public GameObject pickUpFX;
     public float spDuration;
     #endregion
@@ -25,6 +27,8 @@ public class PlayerController : Photon.PunBehaviour
     private float rotateValue = 500f; //Default 500f
     [SerializeField]
     private double timer;
+    [SerializeField]
+    private MobileJoystick mobileJoy;
     #endregion
 
     #region Callbacks
@@ -32,19 +36,37 @@ public class PlayerController : Photon.PunBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
+
+        mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        timer -= PhotonNetwork.time;
+
         if (pview.isMine)
             MovePlayer();
         else
             SmoothMovement();
+
+        timer -= PhotonNetwork.time;
+
+        if (timer <= 0f)
+        {
+            moveSpeed = regularSpeed;
+            timer = 5;
+        }
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        if (other.tag == "SpeedPowerUp")
+        {
+            moveSpeed = powerUpSpeed;
+            other.gameObject.SetActive(false);
+            //Instantiate(pickUpFX, myRB.position, myRB.rotation);
+            timer = spDuration;
+        }
+
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
@@ -60,14 +82,23 @@ public class PlayerController : Photon.PunBehaviour
     #region My Functions
     void MovePlayer()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
+#else
+        float MoveHorizontal = mobileJoy.Horizontal();
+        float MoveVertical = mobileJoy.Vertical();
+#endif
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
-        myRB.rotation = Quaternion.Slerp(myRB.rotation, Quaternion.LookRotation(movementInput), 0.15f);
 
-        movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
-        myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
+        if (movementInput != Vector3.zero)
+        {
+            myRB.rotation = Quaternion.Slerp(myRB.rotation, Quaternion.LookRotation(movementInput), 0.15f);
+
+            movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
+            myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
+        }
     }
 
     void SmoothMovement()

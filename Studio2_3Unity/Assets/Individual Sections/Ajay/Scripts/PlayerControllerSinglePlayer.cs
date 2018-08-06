@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerControllerSinglePlayer : MonoBehaviour 
+public class PlayerControllerSinglePlayer : MonoBehaviour
 {
     #region Public Variables
     public float moveSpeed;
@@ -16,7 +16,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     //public GameObject pickUpFX2;
     public float spDuration;
     //public bool hasSharkSeekPowerUp;
-    
+
     #endregion
 
     #region Private Variables
@@ -24,25 +24,21 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     private Vector3 movementInput;
     [SerializeField]
     private float timer;
-    
+    [SerializeField]
+    private MobileJoystick mobileJoy;
     #endregion
 
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
-        
+        mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
     }
 
 
     void Update()
     {
         //the problem here is that if I set the timer to <= 0, then the player will always stay at regular speed even through the whirlpool
-        timer -=Time.deltaTime;
-        if(timer <= 0f )
-        {
-            moveSpeed  = regularSpeed;
-            timer = 5;       
-        }
+
         //if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E))
         //{
         //    Instantiate(miniShark, myRB.position, myRB.rotation);
@@ -51,25 +47,35 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
     void FixedUpdate()
     {
+        timer -= Time.deltaTime;
+
+        if (timer <= 0f)
+        {
+            moveSpeed = regularSpeed;
+            timer = 5;
+        }
+#if UNITY_EDITOR || UNITY_STANDALONE
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
+#else
+        float MoveHorizontal = mobileJoy.Horizontal();
+        float MoveVertical = mobileJoy.Vertical();
+#endif
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
         if (movementInput != Vector3.zero)
         {
-            myRB.rotation = Quaternion.Slerp(myRB.rotation,Quaternion.LookRotation(movementInput), 0.15f);
-            
+            myRB.rotation = Quaternion.Slerp(myRB.rotation, Quaternion.LookRotation(movementInput), 0.15f);
+
             movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
-            myRB.AddForce (movementInput * moveSpeed, ForceMode.Impulse);
+            myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
         }
-           
-        //transform.Translate (MovementInput * MoveSpeed * Time.deltaTime, Space.World);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        
-        if(other.tag == "SpeedPowerUp")
+
+        if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
             other.gameObject.SetActive(false);
@@ -87,7 +93,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         //    Instantiate(pickUpFX2, myRB.position, myRB.rotation);
         //}
     }
-    
+
     void OnTriggerExit(Collider other)
     {
         moveSpeed = regularSpeed;
