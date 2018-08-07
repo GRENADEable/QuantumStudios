@@ -42,13 +42,12 @@ public class PlayerController : Photon.PunBehaviour
 
     void FixedUpdate()
     {
-
         if (pview.isMine)
             MovePlayer();
         else
             SmoothMovement();
 
-        timer -= PhotonNetwork.time;
+        //timer -= PhotonNetwork.time;
 
         if (timer <= 0f)
         {

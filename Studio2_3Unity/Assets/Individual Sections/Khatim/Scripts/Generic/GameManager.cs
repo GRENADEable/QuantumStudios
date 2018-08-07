@@ -33,6 +33,7 @@ public class GameManager : Photon.PunBehaviour
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
     }
 
     void LoadMap()
