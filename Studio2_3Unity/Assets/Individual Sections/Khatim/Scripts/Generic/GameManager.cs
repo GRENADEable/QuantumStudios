@@ -22,7 +22,7 @@ public class GameManager : Photon.PunBehaviour
     void Start()
     {
         Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 5f, 0f), Quaternion.identity, 0);
+        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
 
         //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
     }
