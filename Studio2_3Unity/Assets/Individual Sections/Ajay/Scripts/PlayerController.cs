@@ -29,6 +29,7 @@ public class PlayerController : Photon.PunBehaviour
     private double timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
+    private CameraFollow cam;
     #endregion
 
     #region Callbacks
@@ -37,7 +38,11 @@ public class PlayerController : Photon.PunBehaviour
         myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
 
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+
+        if (pview.isMine)
+            cam.Player = this.gameObject;
     }
 
     void FixedUpdate()

@@ -97,7 +97,6 @@ public class LobbyManager : Photon.PunBehaviour
 
             room.SetActive(true);
             roomButtonPrefabs.Add(room);
-
         }
     }
 
