@@ -10,7 +10,8 @@
 		//_Wavelength ("Wavelength", Float) = 10
 		//_Direction ("Direction (2D)", Vector) = (1,0,0,0)
 		_WaveA ("Wave A (dir, steepness, wavelength)", Vector) = (1,0,0.5,10)
-		//_WaveB ("Wave B", Vector) = (0,1,0.25,20)
+		_WaveB ("Wave B", Vector) = (0,1,0.25,20)
+		_WaveC ("Wave C", Vector) = (1,1,0.15,10)
 		//_Speed ("Speed", Float) = 1
 	}
 	SubShader 
@@ -36,7 +37,7 @@
 		fixed4 _Color;
 		//float _Steepness, _Wavelength; //Removed _Speed;
 		//float2 _Direction;
-		float4 _WaveA;
+		float4 _WaveA, _WaveB, _WaveC; //_WaveB and _WaveC Removed
 
 		float3 GerstnerWave (float4 wave, float3 p, inout float3 tangent, inout float3 binormal)
 		{
@@ -86,7 +87,10 @@
 		p += GerstnerWave(_WaveA, gridPoint, tangent, binormal);
 
 		//Second Wave
-		//p += GerstnerWave(_WaveB, gridPoint, tangent, binormal);
+		p += GerstnerWave(_WaveB, gridPoint, tangent, binormal);
+
+		//Third Wave
+		p += GerstnerWave(_WaveC, gridPoint, tangent, binormal);
 
 		//Normalizing the Wave light
 		float3 normal = normalize(cross(binormal, tangent));
