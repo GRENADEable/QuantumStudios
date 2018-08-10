@@ -41,6 +41,9 @@ public class MyLauncher : MonoBehaviour
 
     private void Awake()
     {
+        if (PhotonNetwork.connected)
+            PhotonNetwork.Disconnect();
+
         lobbyPanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
