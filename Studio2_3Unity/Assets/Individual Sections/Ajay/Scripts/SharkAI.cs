@@ -14,6 +14,7 @@ public class SharkAI : MonoBehaviour
     public int minDis;
     GameObject[] AI;
     public float spaceBetween;
+    public AudioClip gameOverSoundFX;
     #endregion
 
     #region Private Variables
@@ -58,6 +59,8 @@ public class SharkAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            AudioManager.instance.PlaySingle(gameOverSoundFX);
+            AudioManager.instance.musicSource.Stop();
             Destroy(other.gameObject);
             SceneManager.LoadScene("GameOverScene");
 

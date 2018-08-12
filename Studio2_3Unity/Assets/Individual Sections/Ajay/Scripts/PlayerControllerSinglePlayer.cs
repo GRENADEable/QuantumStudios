@@ -16,6 +16,8 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     //public GameObject pickUpFX2;
     public float spDuration;
     //public bool hasSharkSeekPowerUp;
+    public AudioClip surfing;
+    public AudioClip speedPUP;
 
     #endregion
 
