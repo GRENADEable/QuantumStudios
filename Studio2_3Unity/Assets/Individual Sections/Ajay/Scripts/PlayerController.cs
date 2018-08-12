@@ -52,7 +52,7 @@ public class PlayerController : Photon.PunBehaviour
         else
             SmoothMovement();
 
-        //timer -= PhotonNetwork.time;
+        timer -= Time.deltaTime;
 
         if (timer <= 0f)
         {
