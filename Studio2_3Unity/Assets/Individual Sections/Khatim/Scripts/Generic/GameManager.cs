@@ -2,15 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
     public GameObject plyPrefab;
     public static GameManager instance = null;
+    public float scoreCount;
+    public float pointsPerSec;
+    public float timerCount = 0f;
     #endregion
 
     #region  Private Variables
+    [SerializeField]
+    private Text scoring;
+    private Text timerSecond;
     #endregion
 
     #region Unity Callbacks
@@ -26,9 +33,21 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
+        if (plyPrefab != null)
+        {
+            Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
+            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
+        }
+        scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        timerSecond = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
+    }
 
+    void Update()
+    {
+        scoreCount += pointsPerSec * Time.deltaTime;
+        scoring.text = "Score: " + Mathf.Round(scoreCount);
+        timerCount += Time.deltaTime;
+		timerSecond.text = timerCount.ToString ("Time: 0");
     }
     #endregion
 
