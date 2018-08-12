@@ -8,7 +8,6 @@ public class SharkAI : MonoBehaviour
 {
 
     #region Public Variables
-    public Transform Player;
     public int moveSpeed;
     public int maxDis;
     public int minDis;
@@ -19,6 +18,9 @@ public class SharkAI : MonoBehaviour
 
     #region Private Variables
     private Rigidbody sharkRB;
+    [SerializeField]
+    private GameObject Player;
+
     #endregion
 
 
@@ -26,6 +28,7 @@ public class SharkAI : MonoBehaviour
     {
         sharkRB = GetComponent<Rigidbody>();
         AI = GameObject.FindGameObjectsWithTag("AIShark");
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
@@ -46,9 +49,9 @@ public class SharkAI : MonoBehaviour
         }
 
         //Look at the player and start moving towards them
-        transform.LookAt(Player);
+        transform.LookAt(Player.transform.position);
 
-        if (Vector3.Distance(transform.position, Player.position) >= minDis)
+        if (Vector3.Distance(transform.position, Player.transform.position) >= minDis && Player != null)
         {
             transform.position += transform.forward * moveSpeed * Time.deltaTime;
         }
@@ -61,7 +64,7 @@ public class SharkAI : MonoBehaviour
         {
             AudioManager.instance.PlaySingle(gameOverSoundFX);
             AudioManager.instance.musicSource.Stop();
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
             SceneManager.LoadScene("GameOverScene");
 
         }
