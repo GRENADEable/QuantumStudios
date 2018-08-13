@@ -16,9 +16,12 @@ public class CameraFollow : MonoBehaviour
     }
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player != null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
 
-        Offset = transform.position - Player.transform.position;
+            Offset = transform.position - Player.transform.position;
+        }
     }
     void LateUpdate()
     {

@@ -11,13 +11,13 @@ public class GameManager : Photon.PunBehaviour
     public static GameManager instance = null;
     public float scoreCount;
     public float pointsPerSec;
-    public float timerCount = 0f;
     #endregion
 
     #region  Private Variables
     [SerializeField]
     private Text scoring;
-    private Text timerSecond;
+    //private Text playerName;
+
     #endregion
 
     #region Unity Callbacks
@@ -33,21 +33,24 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        if (plyPrefab != null)
+        if (plyPrefab != null || scoring != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
             PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
+            //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+            //SetName();
+
+            //scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         }
-        scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        timerSecond = GameObject.FindGameObjectWithTag("Timer").GetComponent<Text>();
     }
 
     void Update()
     {
-        scoreCount += pointsPerSec * Time.deltaTime;
-        scoring.text = "Score: " + Mathf.Round(scoreCount);
-        timerCount += Time.deltaTime;
-		timerSecond.text = timerCount.ToString ("Time: 0");
+        /*if (scoring != null)
+        {
+            scoring.text = "Score: " + Mathf.Round(scoreCount);
+            scoreCount += pointsPerSec * Time.deltaTime;
+        }*/
     }
     #endregion
 
@@ -66,6 +69,14 @@ public class GameManager : Photon.PunBehaviour
         }
         Debug.Log("Level being Loaded");
     }
+
+    /*void SetName()
+    {
+        if (playerName != null)
+        {
+            playerName.text = photonView.owner.NickName;
+        }
+    }*/
     #endregion
     #region Photon Callbacks
     public override void OnLeftRoom()
