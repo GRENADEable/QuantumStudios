@@ -28,11 +28,13 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     private float timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
+    private GameObject mobilePrefab;
     #endregion
 
     void Start()
     {
         myRB = GetComponent<Rigidbody>();
+        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
     }
 
@@ -59,9 +61,11 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
+        mobilePrefab.SetActive(false);
 #else
         float MoveHorizontal = mobileJoy.Horizontal();
         float MoveVertical = mobileJoy.Vertical();
+        mobilePrefab.SetActive(true);
 #endif
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);

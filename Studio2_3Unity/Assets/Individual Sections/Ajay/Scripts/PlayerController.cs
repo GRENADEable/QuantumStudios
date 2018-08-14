@@ -50,7 +50,7 @@ public class PlayerController : Photon.PunBehaviour
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         SetName();
-        
+
         if (pview.isMine)
             cam.Player = this.gameObject;
     }

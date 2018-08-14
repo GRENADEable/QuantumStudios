@@ -16,8 +16,7 @@ public class GameManager : Photon.PunBehaviour
     #region  Private Variables
     [SerializeField]
     private Text scoring;
-    [SerializeField]
-    private GameObject[] speedPowers;
+    //private GameObject[] speedPowers;
     #endregion
 
     #region Unity Callbacks
@@ -36,9 +35,9 @@ public class GameManager : Photon.PunBehaviour
         if (plyPrefab != null || scoring != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 1f, 15.0f), Quaternion.identity, 0);
 
-            speedPowers = GameObject.FindGameObjectsWithTag("SpeedPowerUp");
+            //speedPowers = GameObject.FindGameObjectsWithTag("SpeedPowerUp");
             scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         }
     }
@@ -51,15 +50,15 @@ public class GameManager : Photon.PunBehaviour
             scoreCount += pointsPerSec * Time.deltaTime;
         }
 
-        foreach (GameObject speed in speedPowers)
+        /*foreach (GameObject speed in speedPowers)
         {
-            transform.Rotate(Vector3.right * Time.deltaTime);
-        }
+            //Rotation of powerup
+            speed.transform.Rotate(Vector3.right * Time.deltaTime);
+        }*/
     }
     #endregion
 
     #region My Functions
-
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
