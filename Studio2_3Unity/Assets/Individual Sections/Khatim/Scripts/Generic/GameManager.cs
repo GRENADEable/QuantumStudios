@@ -16,8 +16,8 @@ public class GameManager : Photon.PunBehaviour
     #region  Private Variables
     [SerializeField]
     private Text scoring;
-    //private Text playerName;
-
+    [SerializeField]
+    private GameObject[] speedPowers;
     #endregion
 
     #region Unity Callbacks
@@ -37,20 +37,24 @@ public class GameManager : Photon.PunBehaviour
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
             PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
-            //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
-            //SetName();
 
-            //scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+            speedPowers = GameObject.FindGameObjectsWithTag("SpeedPowerUp");
+            scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         }
     }
 
     void Update()
     {
-        /*if (scoring != null)
+        if (scoring != null)
         {
             scoring.text = "Score: " + Mathf.Round(scoreCount);
             scoreCount += pointsPerSec * Time.deltaTime;
-        }*/
+        }
+
+        foreach (GameObject speed in speedPowers)
+        {
+            transform.Rotate(Vector3.right * Time.deltaTime);
+        }
     }
     #endregion
 
@@ -69,14 +73,6 @@ public class GameManager : Photon.PunBehaviour
         }
         Debug.Log("Level being Loaded");
     }
-
-    /*void SetName()
-    {
-        if (playerName != null)
-        {
-            playerName.text = photonView.owner.NickName;
-        }
-    }*/
     #endregion
     #region Photon Callbacks
     public override void OnLeftRoom()

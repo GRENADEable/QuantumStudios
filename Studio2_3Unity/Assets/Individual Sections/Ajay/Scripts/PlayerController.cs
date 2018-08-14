@@ -34,6 +34,7 @@ public class PlayerController : Photon.PunBehaviour
     private CameraFollow cam;
     [SerializeField]
     private Text playerName;
+    private Text score;
     #endregion
 
     #region Callbacks
@@ -46,7 +47,10 @@ public class PlayerController : Photon.PunBehaviour
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
 
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        SetName();
+        
         if (pview.isMine)
             cam.Player = this.gameObject;
     }
@@ -79,6 +83,7 @@ public class PlayerController : Photon.PunBehaviour
 
         if (other.tag == "Whirlpool")
         {
+            score.text = 0.ToString();
             this.gameObject.SetActive(false);
             this.gameObject.transform.position = new Vector3(1.3f, 1f, 15.0f);
             this.gameObject.SetActive(true);
