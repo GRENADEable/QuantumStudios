@@ -16,13 +16,17 @@ public class AdManager : MonoBehaviour
 
     //private string bannerID = "ca-app-pub-6818619256470654/4071939700"; //My BannerID.
     private string bannerID = "ca-app-pub-3940256099942544/6300978111"; //Test BannerID.
-    //private static AdManager instance;
+    private static AdManager instance;
     #endregion
 
     #region Callbacks
     private void Awake()
     {
-        //instance = this;
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(gameObject);
+
         DontDestroyOnLoad(gameObject);
         MobileAds.Initialize(appID);
     }

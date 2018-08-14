@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManagerOffline : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     #region Public Variables
-    public static GameManagerOffline instance = null;
     public float timerCount = 0f;
     public float scoreCount;
     public float pointsPerSec;
@@ -16,22 +14,10 @@ public class GameManagerOffline : MonoBehaviour
     #region  Private Variables
     [SerializeField]
     private Text scoring;
-
     private Text timerSecond;
-
     #endregion
 
     #region Unity Callbacks
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-
-        else if (instance != null)
-            Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
-    }
     void Start()
     {
         scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
@@ -40,11 +26,17 @@ public class GameManagerOffline : MonoBehaviour
 
     void Update()
     {
-        scoring.text = "Score: " + Mathf.Round(scoreCount);
-        scoreCount += pointsPerSec * Time.deltaTime;
+        if (scoring.text != null)
+        {
+            scoring.text = "Score: " + Mathf.Round(scoreCount);
+            scoreCount += pointsPerSec * Time.deltaTime;
+        }
 
-        timerSecond.text = timerCount.ToString("Time: 0");
-        timerCount += Time.deltaTime;
+        if (timerSecond.text != null)
+        {
+            timerSecond.text = timerCount.ToString("Time: 0");
+            timerCount += Time.deltaTime;
+        }
     }
     #endregion
 
