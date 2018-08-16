@@ -9,14 +9,9 @@ public class GameManager : Photon.PunBehaviour
     #region  Public Variables
     public GameObject plyPrefab;
     public static GameManager instance = null;
-    public float scoreCount;
-    public float pointsPerSec;
     #endregion
 
     #region  Private Variables
-    [SerializeField]
-    private Text scoring;
-    //private GameObject[] speedPowers;
     #endregion
 
     #region Unity Callbacks
@@ -32,29 +27,11 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        if (plyPrefab != null || scoring != null)
+        if (plyPrefab != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
             PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 1f, 15.0f), Quaternion.identity, 0);
-
-            //speedPowers = GameObject.FindGameObjectsWithTag("SpeedPowerUp");
-            scoring = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         }
-    }
-
-    void Update()
-    {
-        if (scoring != null)
-        {
-            scoring.text = "Score: " + Mathf.Round(scoreCount);
-            scoreCount += pointsPerSec * Time.deltaTime;
-        }
-
-        /*foreach (GameObject speed in speedPowers)
-        {
-            //Rotation of powerup
-            speed.transform.Rotate(Vector3.right * Time.deltaTime);
-        }*/
     }
     #endregion
 
