@@ -32,6 +32,7 @@ public class PlayerController : Photon.PunBehaviour
     private MobileJoystick mobileJoy;
     //private GameObject mobilePrefab;
     private CameraFollow cam;
+    private UIManagerOnline minimapCam;
     [SerializeField]
     private Text playerName;
     private Text score;
@@ -45,14 +46,18 @@ public class PlayerController : Photon.PunBehaviour
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+        minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
-        //mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         SetName();
 
         if (pview.isMine)
+        {
             cam.Player = this.gameObject;
+            minimapCam.player = this.gameObject;
+        }
+
     }
 
     void FixedUpdate()
@@ -77,7 +82,6 @@ public class PlayerController : Photon.PunBehaviour
         {
             moveSpeed = powerUpSpeed;
             other.gameObject.SetActive(false);
-            //Instantiate(pickUpFX, myRB.position, myRB.rotation);
             timer = spDuration;
         }
 
