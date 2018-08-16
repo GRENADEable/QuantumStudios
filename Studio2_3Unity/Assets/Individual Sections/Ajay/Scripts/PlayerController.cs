@@ -30,7 +30,7 @@ public class PlayerController : Photon.PunBehaviour
     private double timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
-    //private GameObject mobilePrefab;
+    private GameObject mobilePrefab;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
     [SerializeField]
@@ -46,6 +46,7 @@ public class PlayerController : Photon.PunBehaviour
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
         score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
@@ -106,11 +107,11 @@ public class PlayerController : Photon.PunBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
-        //mobilePrefab.SetActive(false);
+        mobilePrefab.SetActive(false);
 #else
         float MoveHorizontal = mobileJoy.Horizontal();
         float MoveVertical = mobileJoy.Vertical();
-        //mobilePrefab.SetActive(true);
+        mobilePrefab.SetActive(true);
 #endif
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);

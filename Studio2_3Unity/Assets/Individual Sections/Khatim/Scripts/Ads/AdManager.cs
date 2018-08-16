@@ -28,6 +28,7 @@ public class AdManager : MonoBehaviour
             Destroy(gameObject);
 
         DontDestroyOnLoad(gameObject);
+        
         MobileAds.Initialize(appID);
     }
     #endregion
