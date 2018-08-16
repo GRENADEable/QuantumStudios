@@ -8,7 +8,7 @@ public class SharkAI : MonoBehaviour
 {
 
     #region Public Variables
-    public int moveSpeed;
+    public float moveSpeed;
     public int maxDis;
     public int minDis;
     GameObject[] AI;
@@ -34,6 +34,14 @@ public class SharkAI : MonoBehaviour
 
     void Update()
     {
+        Vector3 headDir = (new Vector3 (Player.gameObject.transform.position.x, 0, Player.gameObject.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
+        
+        moveSpeed = Mathf.Clamp(moveSpeed,0,5);
+        sharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
+
+        //Look at the player and start moving towards them
+        transform.LookAt(headDir + this.transform.position);
+
         //Add seperation between each AI
         foreach (GameObject go in AI)
         {
@@ -48,13 +56,13 @@ public class SharkAI : MonoBehaviour
             }
         }
 
-        //Look at the player and start moving towards them
-        transform.LookAt(Player.transform.position);
+        
+        //transform.LookAt(Player.transform.position);
 
-        if (Vector3.Distance(transform.position, Player.transform.position) >= minDis && Player != null)
-        {
-            transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        }
+        //if (Vector3.Distance(transform.position, Player.transform.position) >= minDis && Player != null)
+        //{
+        //    transform.position += transform.forward * moveSpeed * Time.deltaTime;
+        //}
 
     }
 
