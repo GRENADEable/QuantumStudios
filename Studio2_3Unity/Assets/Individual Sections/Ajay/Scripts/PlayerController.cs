@@ -134,7 +134,7 @@ public class PlayerController : Photon.PunBehaviour
     {
         if (playerName != null)
         {
-            playerName.text = pview.owner.NickName;
+            playerName.text = PhotonNetwork.player.NickName;
         }
     }
     #endregion
