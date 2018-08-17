@@ -30,7 +30,7 @@ public class GameManager : Photon.PunBehaviour
         if (plyPrefab != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 1f, 15.0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(115.0f, 1.35f, 80.0f), Quaternion.identity, 0);
         }
     }
     #endregion
