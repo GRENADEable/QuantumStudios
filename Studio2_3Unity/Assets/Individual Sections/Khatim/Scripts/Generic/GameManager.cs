@@ -2,39 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
     public GameObject plyPrefab;
+    public static GameManager instance = null;
     #endregion
 
     #region  Private Variables
-    //[SerializeField]
-    //private CameraFollow cam;
     #endregion
 
     #region Unity Callbacks
     void Awake()
     {
+        if (instance == null)
+            instance = this;
 
+        else if (instance != null)
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
-        Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-        PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(1.3f, 1f, 15.0f), Quaternion.identity, 0);
-
-        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        if (plyPrefab != null)
+        {
+            Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
+            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(0f, 1f, 15.0f), Quaternion.identity, 0);
+        }
     }
     #endregion
 
     #region My Functions
-
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
-        //PhotonNetwork.Disconnect();
-        //PhotonNetwork.LeaveRoom();
     }
 
     void LoadMap()
@@ -44,7 +48,6 @@ public class GameManager : Photon.PunBehaviour
             Debug.LogWarning("Load Level Faild. We are not Master");
         }
         Debug.Log("Level being Loaded");
-        //PhotonNetwork.LoadLevel("IntegrateScene");
     }
     #endregion
     #region Photon Callbacks

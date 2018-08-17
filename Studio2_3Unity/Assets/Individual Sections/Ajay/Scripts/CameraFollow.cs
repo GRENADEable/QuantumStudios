@@ -9,20 +9,33 @@ public class CameraFollow : MonoBehaviour
     public GameObject Player;
     [SerializeField]
     private Vector3 Offset;
+    //private RectTransform playerCanvas;
+    [SerializeField]
+    private Vector3 textOffset;
     #endregion
 
     void Awake()
     {
+        //playerCanvas = GameObject.FindGameObjectWithTag("PlayerCanvas").GetComponent<RectTransform>();
     }
     void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player != null)
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
 
-        Offset = transform.position - Player.transform.position;
+            Offset = transform.position - Player.transform.position;
+        }
+
+        //textOffset = playerCanvas.transform.position - Player.transform.position;
+
+        //playerCanvas.transform.position = playerCanvas.transform.position + textOffset;
     }
     void LateUpdate()
     {
         if (Player != null)
+        {
             transform.position = Player.transform.position + Offset;
+        }
     }
 }

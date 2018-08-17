@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : Photon.PunBehaviour
 {
@@ -29,7 +30,12 @@ public class PlayerController : Photon.PunBehaviour
     private double timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
+    private GameObject mobilePrefab;
     private CameraFollow cam;
+    private UIManagerOnline minimapCam;
+    [SerializeField]
+    private Text playerName;
+    private Text score;
     #endregion
 
     #region Callbacks
@@ -40,9 +46,19 @@ public class PlayerController : Photon.PunBehaviour
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
+        minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
+
+        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        SetName();
 
         if (pview.isMine)
+        {
             cam.Player = this.gameObject;
+            minimapCam.player = this.gameObject;
+        }
+
     }
 
     void FixedUpdate()
@@ -52,7 +68,7 @@ public class PlayerController : Photon.PunBehaviour
         else
             SmoothMovement();
 
-        //timer -= PhotonNetwork.time;
+        timer -= Time.deltaTime;
 
         if (timer <= 0f)
         {
@@ -67,13 +83,15 @@ public class PlayerController : Photon.PunBehaviour
         {
             moveSpeed = powerUpSpeed;
             other.gameObject.SetActive(false);
-            //Instantiate(pickUpFX, myRB.position, myRB.rotation);
             timer = spDuration;
         }
 
         if (other.tag == "Whirlpool")
         {
-            moveSpeed = slowSpeed;
+            score.text = 0.ToString();
+            this.gameObject.SetActive(false);
+            this.gameObject.transform.position = new Vector3(1.3f, 1f, 15.0f);
+            this.gameObject.SetActive(true);
         }
     }
 
@@ -89,9 +107,11 @@ public class PlayerController : Photon.PunBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE
         float MoveHorizontal = Input.GetAxisRaw("Horizontal");
         float MoveVertical = Input.GetAxisRaw("Vertical");
+        mobilePrefab.SetActive(false);
 #else
         float MoveHorizontal = mobileJoy.Horizontal();
         float MoveVertical = mobileJoy.Vertical();
+        mobilePrefab.SetActive(true);
 #endif
 
         movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
@@ -109,6 +129,14 @@ public class PlayerController : Photon.PunBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, tarPos, movementValue);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
+    }
+
+    public void SetName()
+    {
+        if (playerName != null)
+        {
+            playerName.text = PhotonNetwork.player.NickName;
+        }
     }
     #endregion
 

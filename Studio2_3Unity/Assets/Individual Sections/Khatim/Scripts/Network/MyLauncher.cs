@@ -100,6 +100,7 @@ public class MyLauncher : MonoBehaviour
         userNotFoundText.SetActive(false);
         passwordWrongText.SetActive(false);
         StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
+        PhotonNetwork.player.NickName = inputUser.text;
     }
 
     public void Create()
