@@ -90,7 +90,7 @@ public class PlayerController : Photon.PunBehaviour
         {
             score.text = 0.ToString();
             this.gameObject.SetActive(false);
-            this.gameObject.transform.position = new Vector3(1.3f, 1f, 15.0f);
+            this.gameObject.transform.position = new Vector3(115.0f, 1.35f, 80.0f);
             this.gameObject.SetActive(true);
         }
     }
