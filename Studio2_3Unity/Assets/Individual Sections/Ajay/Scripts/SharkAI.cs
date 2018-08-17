@@ -11,6 +11,8 @@ public class SharkAI : MonoBehaviour
     public float moveSpeed;
     public int maxDis;
     public int minDis;
+
+    public float maxSpeed;
     GameObject[] AI;
     public float spaceBetween;
     public AudioClip gameOverSoundFX;
@@ -36,7 +38,7 @@ public class SharkAI : MonoBehaviour
     {
         Vector3 headDir = (new Vector3 (Player.gameObject.transform.position.x, 0, Player.gameObject.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
         
-        moveSpeed = Mathf.Clamp(moveSpeed,0,5);
+        moveSpeed = Mathf.Clamp(moveSpeed,0,maxSpeed);
         sharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
 
         //Look at the player and start moving towards them
