@@ -22,8 +22,6 @@ public class GameManager : Photon.PunBehaviour
 
         else if (instance != null)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
