@@ -34,7 +34,7 @@ public class SharkAI : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         Vector3 headDir = (new Vector3 (Player.gameObject.transform.position.x, 0, Player.gameObject.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
         
