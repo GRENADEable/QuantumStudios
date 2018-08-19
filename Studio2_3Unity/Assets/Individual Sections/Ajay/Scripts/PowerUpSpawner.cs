@@ -78,7 +78,7 @@ public class PowerUpSpawner : Photon.MonoBehaviour
     [PunRPC]
     void Spawner(string intConvert)
     {
-        Debug.LogWarning("Spawning Health");
+        Debug.LogWarning("Spawning SpeedPowerup");
         int convertIndex = int.Parse(intConvert);
         for (int i = 0; i < powerPickUp.Count; i++)
         {

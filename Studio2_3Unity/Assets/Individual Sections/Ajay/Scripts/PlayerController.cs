@@ -35,7 +35,7 @@ public class PlayerController : Photon.PunBehaviour
     private UIManagerOnline minimapCam;
     [SerializeField]
     private Text playerName;
-    private Text score;
+    //private Text score;
     #endregion
 
     #region Callbacks
@@ -46,12 +46,14 @@ public class PlayerController : Photon.PunBehaviour
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
-        score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
+        //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         SetName();
+        //this.pview.RPC("SetName", PhotonTargets.All, )
 
         if (pview.isMine)
         {
@@ -88,7 +90,7 @@ public class PlayerController : Photon.PunBehaviour
 
         if (other.tag == "Whirlpool")
         {
-            score.text = 0.ToString();
+            //score.text = 0.ToString();
             this.gameObject.SetActive(false);
             this.gameObject.transform.position = new Vector3(115.0f, 1.35f, 80.0f);
             this.gameObject.SetActive(true);
@@ -134,9 +136,7 @@ public class PlayerController : Photon.PunBehaviour
     public void SetName()
     {
         if (playerName != null)
-        {
             playerName.text = PhotonNetwork.player.NickName;
-        }
     }
     #endregion
 
