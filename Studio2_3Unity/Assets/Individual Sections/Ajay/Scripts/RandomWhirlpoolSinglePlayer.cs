@@ -23,7 +23,7 @@ public class RandomWhirlpoolSinglePlayer : MonoBehaviour
 			while(maxSize > transform.localScale.x)
 			{
 				timer += Time.deltaTime;
-				transform.localScale += new Vector3(5f,0.37105f,3.69958f) * Time.deltaTime * growInt * Random.Range(1f, 10f);
+				transform.localScale += new Vector3(1f,1f,0.04683586f) * Time.deltaTime * growInt * Random.Range(1f, 10f);
 				yield return null;
 			}
 			
@@ -34,7 +34,7 @@ public class RandomWhirlpoolSinglePlayer : MonoBehaviour
 			while(1 < transform.localScale.x)
 			{
 				timer += Time.deltaTime;
-				transform.localScale -= new Vector3(5f,0.37105f,3.69958f) * Time.deltaTime * growInt * Random.Range(1f, 10f);
+				transform.localScale -= new Vector3(1f,1f,0.04683586f) * Time.deltaTime * growInt * Random.Range(1f, 10f);
 				yield return null;
 			}
 
