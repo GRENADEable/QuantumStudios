@@ -17,6 +17,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     //public bool hasSharkSeekPowerUp;
     public AudioClip surfing;
     public AudioClip speedPUP;
+    
 
     #endregion
 
@@ -28,6 +29,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     [SerializeField]
     private MobileJoystick mobileJoy;
     private GameObject mobilePrefab;
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    private float MoveHorizontal;
+    [SerializeField]
+    private float MoveVertical;
     #endregion
 
     void Start()
@@ -35,6 +42,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -55,11 +63,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
+            anim.SetBool("isFast", false);
             timer = 5;
         }
 #if UNITY_EDITOR || UNITY_STANDALONE
-        float MoveHorizontal = Input.GetAxisRaw("Horizontal");
-        float MoveVertical = Input.GetAxisRaw("Vertical");
+        MoveHorizontal = Input.GetAxisRaw("Horizontal");
+        MoveVertical = Input.GetAxisRaw("Vertical");
         mobilePrefab.SetActive(false);
 #else
         float MoveHorizontal = mobileJoy.Horizontal();
@@ -74,6 +83,29 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
             movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
             myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
+            anim.SetBool("isMoving", true);
+        }
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            anim.SetBool("isRight", true);
+        }
+        else
+        {
+            anim.SetBool("isRight", false);
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            anim.SetBool("isLeft", true);
+        }
+        else
+        {
+            anim.SetBool("isLeft", false);
         }
     }
 
@@ -83,9 +115,11 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
+            anim.SetBool("isFast", true);
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
+        
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
