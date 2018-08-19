@@ -33,8 +33,7 @@ public class PlayerController : Photon.PunBehaviour
     private GameObject mobilePrefab;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
-    [SerializeField]
-    private Text playerName;
+    //private Text playerName;
     //private Text score;
     #endregion
 
@@ -51,8 +50,8 @@ public class PlayerController : Photon.PunBehaviour
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
         //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
-        SetName();
+        //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        //SetName();
         //this.pview.RPC("SetName", PhotonTargets.All, )
 
         if (pview.isMine)
@@ -60,6 +59,8 @@ public class PlayerController : Photon.PunBehaviour
             cam.Player = this.gameObject;
             minimapCam.player = this.gameObject;
         }
+
+        this.gameObject.SetActive(true);
 
     }
 
@@ -133,11 +134,11 @@ public class PlayerController : Photon.PunBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
     }
 
-    public void SetName()
+    /*public void SetName()
     {
         if (playerName != null)
             playerName.text = PhotonNetwork.player.NickName;
-    }
+    }*/
     #endregion
 
     #region Photon Callbacks
