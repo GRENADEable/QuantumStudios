@@ -53,6 +53,7 @@ public class PlayerController : Photon.PunBehaviour
         //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         SetName();
+        //this.pview.RPC("SetName", PhotonTargets.All, )
 
         if (pview.isMine)
         {
@@ -135,9 +136,7 @@ public class PlayerController : Photon.PunBehaviour
     public void SetName()
     {
         if (playerName != null)
-        {
             playerName.text = PhotonNetwork.player.NickName;
-        }
     }
     #endregion
 
