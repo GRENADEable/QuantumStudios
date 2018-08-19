@@ -27,6 +27,7 @@ public class MyLauncher : MonoBehaviour
     public InputField createUser;
     public InputField createPassword;
     public InputField createEmail;
+    public PlayerNameObj plyName;
     #endregion
 
     #region Private Variables
@@ -100,7 +101,8 @@ public class MyLauncher : MonoBehaviour
         userNotFoundText.SetActive(false);
         passwordWrongText.SetActive(false);
         StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
-        PhotonNetwork.player.NickName = inputUser.text;
+        plyName.uesrName = inputUser.text;
+        //PhotonNetwork.player.NickName = inputUser.text;
     }
 
     public void Create()
