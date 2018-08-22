@@ -11,9 +11,12 @@ public class PlayerController : Photon.PunBehaviour
     public float regularSpeed;
     public float clampMax;
     public float powerUpSpeed;
-
-    //public GameObject pickUpFX;
+    public float buoyancy = 20.0f;
+    public float viscosity;
     public float spDuration;
+    public PlayerNameObj plyNames;
+    public Text userName;
+
     #endregion
 
     #region Private Variables
@@ -34,7 +37,6 @@ public class PlayerController : Photon.PunBehaviour
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
     //private Text playerName;
-    //private Text score;
     #endregion
 
     #region Callbacks
@@ -53,15 +55,14 @@ public class PlayerController : Photon.PunBehaviour
         //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         //SetName();
         //this.pview.RPC("SetName", PhotonTargets.All, )
+        Sync();
+        this.gameObject.SetActive(true);
 
         if (pview.isMine)
         {
             cam.Player = this.gameObject;
             minimapCam.player = this.gameObject;
         }
-
-        this.gameObject.SetActive(true);
-
     }
 
     void FixedUpdate()
@@ -78,6 +79,22 @@ public class PlayerController : Photon.PunBehaviour
             moveSpeed = regularSpeed;
             timer = 5;
         }
+
+        Vector3[] vertices = WaterDeformation.mesh.vertices;
+        Vector3[] worldVertices = new Vector3[vertices.Length];
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            worldVertices[i] = WaterDeformation.water.TransformPoint(vertices[i]);
+        }
+
+        Vector3 nearestVertices = NearVertices(transform.position, worldVertices);
+
+        if (transform.position.y < nearestVertices.y)
+        {
+            myRB.AddForce(Vector3.up * buoyancy);
+            myRB.velocity /= ((viscosity / 100) + 1);
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -91,7 +108,6 @@ public class PlayerController : Photon.PunBehaviour
 
         if (other.tag == "Whirlpool")
         {
-            //score.text = 0.ToString();
             this.gameObject.SetActive(false);
             this.gameObject.transform.position = new Vector3(115.0f, 1.0f, 75.0f);
             this.gameObject.SetActive(true);
@@ -139,6 +155,24 @@ public class PlayerController : Photon.PunBehaviour
         if (playerName != null)
             playerName.text = PhotonNetwork.player.NickName;
     }*/
+
+    Vector3 NearVertices(Vector3 position, Vector3[] vertices)
+    {
+        Vector3 nearestVertices = Vector3.zero;
+
+        float minimumDistance = 100;
+
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            if (Vector3.Distance(position, vertices[i]) < minimumDistance)
+            {
+                nearestVertices = vertices[i];
+                minimumDistance = Vector3.Distance(position, vertices[i]);
+            }
+        }
+
+        return nearestVertices;
+    }
     #endregion
 
     #region Photon Callbacks
@@ -148,12 +182,26 @@ public class PlayerController : Photon.PunBehaviour
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(userName);
         }
         else
         {
             tarPos = (Vector3)stream.ReceiveNext();
             tarRot = (Quaternion)stream.ReceiveNext();
+            userName.text = (string)stream.ReceiveNext();
         }
+    }
+
+    [PunRPC]
+    public void Sync()
+    {
+        pview.RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { plyNames.uesrName });
+    }
+
+    [PunRPC]
+    public void DisplayPlayer(string user)
+    {
+        userName.text = user;
     }
     #endregion
 
