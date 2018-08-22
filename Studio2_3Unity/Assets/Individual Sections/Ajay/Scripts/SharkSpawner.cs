@@ -8,6 +8,8 @@ public class SharkSpawner : MonoBehaviour {
 	public GameObject shark;
 	public Transform sharkPos;
 	#endregion
+
+	private int index;
 	void Start () 
 	{
 		
