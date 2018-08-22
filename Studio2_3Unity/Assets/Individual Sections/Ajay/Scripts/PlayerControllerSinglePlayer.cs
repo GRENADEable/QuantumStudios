@@ -89,24 +89,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         {
             anim.SetBool("isMoving", false);
         }
-
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            anim.SetBool("isRight", true);
-        }
-        else
-        {
-            anim.SetBool("isRight", false);
-        }
-
-        if(Input.GetKeyDown(KeyCode.A))
-        {
-            anim.SetBool("isLeft", true);
-        }
-        else
-        {
-            anim.SetBool("isLeft", false);
-        }
     }
 
     void OnTriggerEnter(Collider other)
