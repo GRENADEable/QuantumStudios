@@ -4,27 +4,29 @@ using UnityEngine;
 
 public class SharkSpawner : MonoBehaviour {
 
-	#region Public Variables
-	public GameObject shark;
-	public Transform sharkPos;
-	#endregion
-
+	#region Private Variables
+	[SerializeField]
 	private int index;
+	[SerializeField]
+	private GameObject[] sharkSpawnLocation;
+	[SerializeField]
+	private GameObject shark;
+	#endregion
 	void Start () 
 	{
-		
+		sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Player")
-		{
-			Instantiate(shark,sharkPos.position,sharkPos.rotation);
-		}
+			{
+				GameObject skp = Instantiate(shark,sharkSpawnLocation[index].transform.position,Quaternion.identity);
+			}
 	}
 	
-	void Update () 
+	void FixedUpdate () 
 	{
-		
+		index = Random.Range(0, sharkSpawnLocation.Length);
 	}
 }
