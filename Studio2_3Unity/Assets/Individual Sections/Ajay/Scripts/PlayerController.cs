@@ -36,6 +36,7 @@ public class PlayerController : Photon.PunBehaviour
     private GameObject mobilePrefab;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
+    //private Animator anim;
     //private Text playerName;
     #endregion
 
@@ -51,6 +52,7 @@ public class PlayerController : Photon.PunBehaviour
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
+        //anim = GetComponent<Animator>();
         //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         //SetName();
@@ -77,6 +79,7 @@ public class PlayerController : Photon.PunBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
+            //anim.SetBool("isFast", false);
             timer = 5;
         }
 
@@ -102,6 +105,7 @@ public class PlayerController : Photon.PunBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
+            //anim.SetBool("isFast", true);
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
@@ -141,7 +145,10 @@ public class PlayerController : Photon.PunBehaviour
 
             movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
             myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
+            //anim.SetBool("isMoving", true);
         }
+        //else
+        //anim.SetBool("isMoving", false);
     }
 
     void SmoothMovement()

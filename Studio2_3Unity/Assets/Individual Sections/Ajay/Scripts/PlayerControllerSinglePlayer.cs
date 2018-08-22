@@ -17,7 +17,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     //public bool hasSharkSeekPowerUp;
     public AudioClip surfing;
     public AudioClip speedPUP;
-    
+
 
     #endregion
 
@@ -101,7 +101,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
-        
+
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
