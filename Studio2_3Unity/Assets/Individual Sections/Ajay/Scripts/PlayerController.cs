@@ -15,7 +15,7 @@ public class PlayerController : Photon.PunBehaviour
     public float viscosity;
     public float spDuration;
     public PlayerNameObj plyNames;
-    public Text userName;
+    //public Text userName;
 
     #endregion
 
@@ -33,9 +33,11 @@ public class PlayerController : Photon.PunBehaviour
     private double timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
+    [SerializeField]
     private GameObject mobilePrefab;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
+    private Animator anim;
     //private Text playerName;
     #endregion
 
@@ -46,17 +48,19 @@ public class PlayerController : Photon.PunBehaviour
         pview = GetComponent<PhotonView>();
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
-        mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
+        if (mobileJoy != null)
+            mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
 
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
+        anim = GetComponent<Animator>();
         //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         //SetName();
         //this.pview.RPC("SetName", PhotonTargets.All, )
-        Sync();
-        this.gameObject.SetActive(true);
+        //Sync();
+        //this.gameObject.SetActive(true);
 
         if (pview.isMine)
         {
@@ -77,6 +81,7 @@ public class PlayerController : Photon.PunBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
+            //anim.SetBool("isFast", false);
             timer = 5;
         }
 
@@ -102,6 +107,7 @@ public class PlayerController : Photon.PunBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
+            //anim.SetBool("isFast", true);
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
@@ -141,7 +147,10 @@ public class PlayerController : Photon.PunBehaviour
 
             movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
             myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
+            anim.SetBool("isMoving", true);
         }
+        else
+            anim.SetBool("isMoving", false);
     }
 
     void SmoothMovement()
@@ -182,17 +191,19 @@ public class PlayerController : Photon.PunBehaviour
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            stream.SendNext(userName);
+            stream.SendNext(anim.GetBool("isMoving"));
+            //stream.SendNext(userName);
         }
         else
         {
             tarPos = (Vector3)stream.ReceiveNext();
             tarRot = (Quaternion)stream.ReceiveNext();
-            userName.text = (string)stream.ReceiveNext();
+            anim.SetBool("isMoving", (bool)stream.ReceiveNext());
+            //userName.text = (string)stream.ReceiveNext();
         }
     }
 
-    [PunRPC]
+    /*[PunRPC]
     public void Sync()
     {
         pview.RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { plyNames.uesrName });
@@ -202,7 +213,7 @@ public class PlayerController : Photon.PunBehaviour
     public void DisplayPlayer(string user)
     {
         userName.text = user;
-    }
+    }*/
     #endregion
 
 }

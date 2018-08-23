@@ -12,11 +12,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float powerUpSpeed;
     public float clampMax;
     //public GameObject miniShark;
+    //public GameObject pickUpFX2;
     public float spDuration;
     //public bool hasSharkSeekPowerUp;
     public AudioClip surfing;
     public AudioClip speedPUP;
-    
+
 
     #endregion
 
@@ -100,11 +101,10 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
-        
-        
+
         if (other.tag == "Whirlpool")
         {
-            moveSpeed = slowSpeed/moveSpeed;
+            moveSpeed = slowSpeed;
         }
         //if(other.tag == "SharkSeekPowerUp")
         //{

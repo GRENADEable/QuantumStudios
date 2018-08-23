@@ -63,6 +63,8 @@ public class MyLauncher : MonoBehaviour
 
     public void MultiplayerPanel()
     {
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(false);
         loginText.SetActive(false);
         mainMenuPanel.SetActive(false);
         multiplayerPanel.SetActive(true);
@@ -81,6 +83,8 @@ public class MyLauncher : MonoBehaviour
     }
     public void LoginPanel()
     {
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
         userNotFoundText.SetActive(false);
         passwordWrongText.SetActive(false);
@@ -169,12 +173,14 @@ public class MyLauncher : MonoBehaviour
         Debug.Log("Email Field Added"); //Testing
 
         WWW dbLink = new WWW(userURL, loginform);
+        loginAndCreateUserPanel.SetActive(true);
+        createUserPanel.SetActive(false);
         creatingUserText.SetActive(false);
         createdUserText.SetActive(true);
         Debug.Log("Databse Accessed"); //Testing
 
-        creatingUserText.SetActive(false);
-        createdUserText.SetActive(true);
+        /*creatingUserText.SetActive(false);
+        createdUserText.SetActive(true);*/
     }
     #endregion
 }
