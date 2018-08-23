@@ -26,11 +26,11 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        if (ply1 != null && PhotonNetwork.isMasterClient)
+        if (ply1 != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
             PhotonNetwork.Instantiate(this.ply1.name, new Vector3(115.0f, 1.0f, 75.0f), Quaternion.identity, 0);
-            this.ply1.SetActive(true);
+            ply1.SetActive(true);
         }
 
         /*if (PhotonNetwork.room.PlayerCount > 1)
