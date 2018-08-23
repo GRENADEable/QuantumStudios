@@ -12,7 +12,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float powerUpSpeed;
     public float clampMax;
     //public GameObject miniShark;
-    //public GameObject pickUpFX2;
     public float spDuration;
     //public bool hasSharkSeekPowerUp;
     public AudioClip surfing;
@@ -102,9 +101,10 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             timer = spDuration;
         }
         
+        
         if (other.tag == "Whirlpool")
         {
-            moveSpeed = slowSpeed;
+            moveSpeed = slowSpeed/moveSpeed;
         }
         //if(other.tag == "SharkSeekPowerUp")
         //{

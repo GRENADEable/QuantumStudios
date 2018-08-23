@@ -33,6 +33,8 @@ public class PlayerConrollerTest : MonoBehaviour
             movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
             myRB.AddForce(movementInput * moveSpeed, ForceMode.Impulse);
         }
+       
     }
+    
     #endregion
 }
