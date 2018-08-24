@@ -5,10 +5,11 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
 
 	public AudioSource fxSource;
-	public AudioSource musicSource;
+	public AudioClip bgMusic;
+	
+	public AudioClip[] soundClips;
 	public static AudioManager instance = null;
-	public float lowestPitchRange = 0.90f;
-	public float highestPitchRange = 1.05f;
+	
 
 	void Awake()
 	{
@@ -28,23 +29,23 @@ public class AudioManager : MonoBehaviour {
 		fxSource.clip = clip;
 		fxSource.Play();
 	}
-	public void RandomizeFX(params AudioClip[] clips)
-	{	
-		int randomIndex = Random.Range(0, clips.Length);
 
-		float randomPitch = Random.Range(lowestPitchRange, highestPitchRange);
-		fxSource.pitch = randomPitch;
-		fxSource.clip = clips[randomIndex];
+	
+	public void MainMenuMusic(AudioClip clip)
+	{
+		fxSource.clip = clip;
 		fxSource.Play();
 	}
-	void Start () 
+	public void StopAudio()
 	{
-		
+		fxSource.Stop();
 	}
-	
-	
-	void Update () 
+	public void AudioAccess(int index)
 	{
-		
+		fxSource.PlayOneShot(soundClips[index]);
+	}
+	public void PlayAudio()
+	{
+		fxSource.PlayOneShot(soundClips[3]);
 	}
 }

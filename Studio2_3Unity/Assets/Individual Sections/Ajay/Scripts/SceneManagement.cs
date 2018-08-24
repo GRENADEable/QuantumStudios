@@ -21,6 +21,7 @@ public class SceneManagement : MonoBehaviour {
 	public void SinglePlayer () 
 	{
 		SceneManager.LoadScene("AjayScene");
+		AudioManager.instance.PlayAudio();
 	}
 	
 	public void Quit()

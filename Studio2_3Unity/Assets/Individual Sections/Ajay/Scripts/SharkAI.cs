@@ -108,7 +108,6 @@ public class SharkAI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             AudioManager.instance.PlaySingle(gameOverSoundFX);
-            AudioManager.instance.musicSource.Stop();
             //Destroy(other.gameObject);
             SceneManager.LoadScene("GameOverScene");
 
