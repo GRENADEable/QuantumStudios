@@ -27,7 +27,7 @@ public class MyLauncher : MonoBehaviour
     public InputField createUser;
     public InputField createPassword;
     public InputField createEmail;
-    public PlayerNameObj plyName;
+    //public PlayerNameObj plyName;
     #endregion
 
     #region Private Variables
@@ -40,7 +40,7 @@ public class MyLauncher : MonoBehaviour
 
     #region Callbacks
 
-    private void Awake()
+    void Awake()
     {
         if (PhotonNetwork.connected)
             PhotonNetwork.Disconnect();
@@ -50,6 +50,15 @@ public class MyLauncher : MonoBehaviour
         loginAndCreateUserPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+    }
+
+    void Start()
+    {
+        createUser.characterLimit = 20;
+        createPassword.characterLimit = 16;
+
+        inputUser.characterLimit = 20;
+        inputPassword.characterLimit = 16;
     }
     #endregion
 
@@ -105,7 +114,7 @@ public class MyLauncher : MonoBehaviour
         userNotFoundText.SetActive(false);
         passwordWrongText.SetActive(false);
         StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
-        plyName.uesrName = inputUser.text;
+        //plyName.uesrName = inputUser.text;
         //PhotonNetwork.player.NickName = inputUser.text;
     }
 
@@ -138,6 +147,8 @@ public class MyLauncher : MonoBehaviour
         yield return dbLink;
 
         Debug.Log(dbLink.text);
+
+        UserInfo.instance.UserSet(playerName);
 
         if (dbLink.text == "Login Success")
         {

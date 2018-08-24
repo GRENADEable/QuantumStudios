@@ -24,6 +24,8 @@ public class LobbyManager : Photon.PunBehaviour
         PhotonNetwork.autoJoinLobby = false;
         PhotonNetwork.automaticallySyncScene = false;
 
+        roomName.characterLimit = 12;
+
         //PhotonNetwork.sendRate = 60; //Default 20
         //PhotonNetwork.sendRateOnSerialize = 30; //Default 10
     }

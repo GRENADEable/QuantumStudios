@@ -15,6 +15,8 @@ public class MiniSharkAI : Photon.MonoBehaviour
     #region Private Variables
     private Rigidbody minisharkRB;
     [SerializeField]
+    private GameObject[] targets;
+    [SerializeField]
     private GameObject target;
     private Vector3 tarPos;
     private Quaternion tarRot;
@@ -30,11 +32,22 @@ public class MiniSharkAI : Photon.MonoBehaviour
         minisharkRB = GetComponent<Rigidbody>();
     }
 
+    void OnEnable()
+    {
+        targets = GameObject.FindGameObjectsWithTag("Player");
+
+        if (PhotonNetwork.isMasterClient)
+        {
+            int index = Random.Range(0, targets.Length);
+            this.photonView.RPC("FollowPlayer", PhotonTargets.AllViaServer, index.ToString());
+        }
+    }
+
     void FixedUpdate()
     {
-        if (target != null)
+        if (targets != null)
         {
-            Vector3 headDir = (new Vector3(target.gameObject.transform.position.x, 0, target.gameObject.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
+            Vector3 headDir = (new Vector3(target.transform.position.x, 0, target.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
 
             moveSpeed = Mathf.Clamp(moveSpeed, 0, maxSpeed);
             minisharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
@@ -60,10 +73,7 @@ public class MiniSharkAI : Photon.MonoBehaviour
         }
     }
 
-    void LateUpdate()
-    {
-        target = GameObject.FindGameObjectWithTag("Player");
-    }
+
     #endregion
 
     #region Photon Callbacks
@@ -102,10 +112,17 @@ public class MiniSharkAI : Photon.MonoBehaviour
         return nearestVertices;
     }
 
-    void SmoothMovement()
+    /*void SmoothMovement()
     {
         transform.position = Vector3.Lerp(transform.position, tarPos, movementValue);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
+    }*/
+
+    [PunRPC]
+    public void FollowPlayer(string stringToInt)
+    {
+        int convertedIndex = int.Parse(stringToInt);
+        target = targets[convertedIndex];
     }
     #endregion
 }
