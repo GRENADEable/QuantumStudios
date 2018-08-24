@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
-    public GameObject plyPrefab;
+    public GameObject ply1;
+    //public GameObject ply2;
     public static GameManager instance = null;
     #endregion
 
@@ -22,16 +23,21 @@ public class GameManager : Photon.PunBehaviour
 
         else if (instance != null)
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
     void Start()
     {
-        if (plyPrefab != null)
+        if (ply1 != null)
         {
             Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.plyPrefab.name, new Vector3(115.0f, 1.35f, 80.0f), Quaternion.identity, 0);
+            PhotonNetwork.Instantiate(this.ply1.name, new Vector3(115.0f, 1.0f, 75.0f), Quaternion.identity, 0);
+            ply1.SetActive(true);
         }
+
+        /*if (PhotonNetwork.room.PlayerCount > 1)
+        {
+            PhotonNetwork.Instantiate(this.ply2.name, new Vector3(122.0f, 1.0f, 55.0f), Quaternion.identity, 0);
+            this.ply2.SetActive(true);
+        }*/
     }
     #endregion
 
