@@ -99,7 +99,7 @@ public class GameManager : Photon.PunBehaviour
     #region Photon Callbacks
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("LobbyScene");
+        SceneManager.LoadScene("MainMenu");
     }
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {

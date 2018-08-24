@@ -162,7 +162,7 @@ public class LobbyManager : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         Debug.LogWarning("Joined Room");
-        PhotonNetwork.LoadLevel("IntegrateScene");
+        PhotonNetwork.LoadLevel("2PlayerOnline");
     }
 
     public override void OnCreatedRoom()

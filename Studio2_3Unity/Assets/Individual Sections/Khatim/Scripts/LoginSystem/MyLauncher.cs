@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-
 public class MyLauncher : MonoBehaviour
 {
     #region Public Variables
@@ -122,16 +120,6 @@ public class MyLauncher : MonoBehaviour
     {
         creatingUserText.SetActive(true);
         CreateUser(createUser.text, createPassword.text, createEmail.text);
-    }
-
-    public void Singleplayer()
-    {
-        SceneManager.LoadScene("AjayScene");
-    }
-    public void Quit()
-    {
-        Application.Quit();
-        Debug.LogWarning("Application Closed");
     }
     #endregion
 
