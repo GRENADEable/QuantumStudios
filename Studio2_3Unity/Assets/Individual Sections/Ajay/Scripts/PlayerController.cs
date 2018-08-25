@@ -14,7 +14,7 @@ public class PlayerController : Photon.PunBehaviour
     public float buoyancy = 20.0f;
     public float viscosity;
     public float spDuration;
-    public PlayerNameObj plyNames;
+    //public PlayerNameObj plyNames;
     public GameObject miniShark;
     //public Text userName;
 
@@ -91,9 +91,11 @@ public class PlayerController : Photon.PunBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
-            //anim.SetBool("isFast", false);
             timer = 5;
         }
+
+        if (moveSpeed == regularSpeed)
+            anim.SetBool("isFast", false);
 
         Vector3[] vertices = WaterDeformation.mesh.vertices;
         Vector3[] worldVertices = new Vector3[vertices.Length];
@@ -117,7 +119,9 @@ public class PlayerController : Photon.PunBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
-            //anim.SetBool("isFast", true);
+            if (moveSpeed == powerUpSpeed)
+                anim.SetBool("isFast", true);
+
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
@@ -208,6 +212,7 @@ public class PlayerController : Photon.PunBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(anim.GetBool("isMoving"));
+            stream.SendNext(anim.GetBool("isFast"));
             //stream.SendNext(userName);
         }
         else
@@ -215,6 +220,7 @@ public class PlayerController : Photon.PunBehaviour
             tarPos = (Vector3)stream.ReceiveNext();
             tarRot = (Quaternion)stream.ReceiveNext();
             this.anim.SetBool("isMoving", (bool)stream.ReceiveNext());
+            this.anim.SetBool("isFast", (bool)stream.ReceiveNext());
             //userName.text = (string)stream.ReceiveNext();
         }
     }

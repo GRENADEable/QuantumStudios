@@ -65,9 +65,9 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             moveSpeed = regularSpeed;
             timer = 5;
         }
-        
+
         if (moveSpeed == regularSpeed)
-                anim.SetBool("isFast", false);
+            anim.SetBool("isFast", false);
 
 #if UNITY_EDITOR || UNITY_STANDALONE
         MoveHorizontal = Input.GetAxisRaw("Horizontal");
