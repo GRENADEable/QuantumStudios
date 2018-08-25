@@ -17,14 +17,12 @@ public class SharkAI : MonoBehaviour
     public float viscosity;
     GameObject[] AI;
     public float spaceBetween;
-    public AudioClip gameOverSoundFX;
     #endregion
 
     #region Private Variables
     private Rigidbody sharkRB;
     [SerializeField]
     private GameObject Player;
-
     #endregion
 
 
@@ -108,6 +106,11 @@ public class SharkAI : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene("GameOverScene");
+            AudioManager.instance.StopAudio();
+            AudioManager.instance.AudioAccess(7);
+            AudioManager.instance.AudioAccess(1);
+            AudioManager.instance.AudioAccess(3);
+            AudioManager.instance.AudioAccess(6);
         }
     }
 

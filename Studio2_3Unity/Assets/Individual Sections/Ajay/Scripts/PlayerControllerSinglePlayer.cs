@@ -63,9 +63,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
-            anim.SetBool("isFast", false);
             timer = 5;
         }
+        
+        if (moveSpeed == regularSpeed)
+                anim.SetBool("isFast", false);
+
 #if UNITY_EDITOR || UNITY_STANDALONE
         MoveHorizontal = Input.GetAxisRaw("Horizontal");
         MoveVertical = Input.GetAxisRaw("Vertical");
@@ -97,9 +100,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
-            anim.SetBool("isFast", true);
+            if (moveSpeed == powerUpSpeed)
+                anim.SetBool("isFast", true);
+
             other.gameObject.SetActive(false);
             timer = spDuration;
+            AudioManager.instance.AudioAccess(4);
         }
 
         if (other.tag == "Whirlpool")

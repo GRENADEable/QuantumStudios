@@ -20,9 +20,17 @@ public class SceneManagement : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    void Start()
+    {
+        
+    }
     public void SinglePlayer()
     {
         SceneManager.LoadScene("SinglePlayer");
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.AudioAccess(2);
+
     }
 
     public void Quit()
@@ -34,5 +42,7 @@ public class SceneManagement : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.AudioAccess(9);
     }
 }
