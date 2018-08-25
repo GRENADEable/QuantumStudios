@@ -14,7 +14,8 @@ public class PlayerController : Photon.PunBehaviour
     public float buoyancy = 20.0f;
     public float viscosity;
     public float spDuration;
-    public PlayerNameObj plyNames;
+    //public PlayerNameObj plyNames;
+    public GameObject miniShark;
     //public Text userName;
 
     #endregion
@@ -38,6 +39,8 @@ public class PlayerController : Photon.PunBehaviour
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
     private Animator anim;
+    [SerializeField]
+    private bool hasSharkSeekPowerUp = false;
     //private Text playerName;
     #endregion
 
@@ -48,19 +51,19 @@ public class PlayerController : Photon.PunBehaviour
         pview = GetComponent<PhotonView>();
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         if (mobileJoy != null)
             mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
 
-        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
         anim = GetComponent<Animator>();
+        //this.gameObject.SetActive(true);
         //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
         //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
         //SetName();
         //this.pview.RPC("SetName", PhotonTargets.All, )
         //Sync();
-        //this.gameObject.SetActive(true);
 
         if (pview.isMine)
         {
@@ -68,7 +71,14 @@ public class PlayerController : Photon.PunBehaviour
             minimapCam.player = this.gameObject;
         }
     }
-
+    void Update()
+    {
+        if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E) && pview.isMine)
+        {
+            PhotonNetwork.Instantiate(miniShark.name, myRB.position, myRB.rotation, 0);
+            hasSharkSeekPowerUp = false;
+        }
+    }
     void FixedUpdate()
     {
         if (pview.isMine)
@@ -81,9 +91,11 @@ public class PlayerController : Photon.PunBehaviour
         if (timer <= 0f)
         {
             moveSpeed = regularSpeed;
-            //anim.SetBool("isFast", false);
             timer = 5;
         }
+
+        if (moveSpeed == regularSpeed)
+            anim.SetBool("isFast", false);
 
         Vector3[] vertices = WaterDeformation.mesh.vertices;
         Vector3[] worldVertices = new Vector3[vertices.Length];
@@ -107,7 +119,9 @@ public class PlayerController : Photon.PunBehaviour
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
-            //anim.SetBool("isFast", true);
+            if (moveSpeed == powerUpSpeed)
+                anim.SetBool("isFast", true);
+
             other.gameObject.SetActive(false);
             timer = spDuration;
         }
@@ -115,8 +129,14 @@ public class PlayerController : Photon.PunBehaviour
         if (other.tag == "Whirlpool")
         {
             this.gameObject.SetActive(false);
-            this.gameObject.transform.position = new Vector3(115.0f, 1.0f, 75.0f);
+            this.gameObject.transform.position = GameManager.instance.spawnLocation[GameManager.instance.index].transform.position;
             this.gameObject.SetActive(true);
+        }
+
+        if (other.tag == "SharkSeekPowerUp")
+        {
+            hasSharkSeekPowerUp = true;
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -192,13 +212,15 @@ public class PlayerController : Photon.PunBehaviour
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
             stream.SendNext(anim.GetBool("isMoving"));
+            stream.SendNext(anim.GetBool("isFast"));
             //stream.SendNext(userName);
         }
         else
         {
             tarPos = (Vector3)stream.ReceiveNext();
             tarRot = (Quaternion)stream.ReceiveNext();
-            anim.SetBool("isMoving", (bool)stream.ReceiveNext());
+            this.anim.SetBool("isMoving", (bool)stream.ReceiveNext());
+            this.anim.SetBool("isFast", (bool)stream.ReceiveNext());
             //userName.text = (string)stream.ReceiveNext();
         }
     }

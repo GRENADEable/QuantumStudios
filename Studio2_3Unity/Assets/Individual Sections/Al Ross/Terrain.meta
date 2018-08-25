@@ -1,7 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Studio2_3Unity/Assets/Individual Sections/Al Ross/Terrain.meta
 guid: 2369f89fd653b92408b45e1a7abd61a1
 folderAsset: yes
 timeCreated: 1535112920
+=======
+guid: d36d38a62028a2d4a8462b24dd43b0df
+folderAsset: yes
+timeCreated: 1535117584
+>>>>>>> 8b3d2bcb8d7990476ab5fda00814380022162676:Studio2_3Unity/Assets/Individual Sections/Al Ross/Terrain.meta
 licenseType: Free
 DefaultImporter:
   userData: 

@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
-    public GameObject ply1;
-    //public GameObject ply2;
-    public static GameManager instance = null;
+    public GameObject player;
+    public static GameManager instance;
+    public GameObject[] spawnLocation;
+    public int index;
     #endregion
 
     #region  Private Variables
+    //private int noOfPlayers;
     #endregion
 
     #region Unity Callbacks
@@ -26,19 +28,44 @@ public class GameManager : Photon.PunBehaviour
     }
     void Start()
     {
-        if (ply1 != null)
+        if (PhotonNetwork.connected)
         {
-            Debug.Log("Spawning Player From: " + SceneManager.GetActiveScene().name);
-            PhotonNetwork.Instantiate(this.ply1.name, new Vector3(115.0f, 1.0f, 75.0f), Quaternion.identity, 0);
-            ply1.SetActive(true);
+            spawnLocation = GameObject.FindGameObjectsWithTag("SpawnPlayer");
+            index = Random.Range(0, spawnLocation.Length);
+            if (player != null)
+            {
+                PhotonNetwork.Instantiate(player.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                //player.SetActive(true);
+            }
         }
-
-        /*if (PhotonNetwork.room.PlayerCount > 1)
-        {
-            PhotonNetwork.Instantiate(this.ply2.name, new Vector3(122.0f, 1.0f, 55.0f), Quaternion.identity, 0);
-            this.ply2.SetActive(true);
-        }*/
     }
+
+    /*void Update()
+    {
+        if (PhotonNetwork.connected)
+        {
+            if (PhotonNetwork.room.PlayerCount == 1 && noOfPlayers == 0)
+            {
+                PhotonNetwork.Instantiate(players[0].name, spawnLocation[0].transform.position, Quaternion.identity, 0);
+                noOfPlayers = 1;
+            }
+            else if (PhotonNetwork.room.PlayerCount == 2 && noOfPlayers == 1)
+            {
+                PhotonNetwork.Instantiate(players[1].name, spawnLocation[1].transform.position, Quaternion.identity, 0);
+                noOfPlayers = 2;
+            }
+            else if (PhotonNetwork.room.PlayerCount == 3 && noOfPlayers == 2)
+            {
+                PhotonNetwork.Instantiate(players[2].name, spawnLocation[1].transform.position, Quaternion.identity, 0);
+                noOfPlayers = 3;
+            }
+            else if (PhotonNetwork.room.PlayerCount == 4 && noOfPlayers == 3)
+            {
+                PhotonNetwork.Instantiate(players[3].name, spawnLocation[1].transform.position, Quaternion.identity, 0);
+                noOfPlayers = 4;
+            }
+        }
+    }*/
     #endregion
 
     #region My Functions
@@ -55,11 +82,24 @@ public class GameManager : Photon.PunBehaviour
         }
         Debug.Log("Level being Loaded");
     }
+
+    /*void PlayerCheck()
+    {
+        noOfPlayers = PhotonNetwork.room.PlayerCount;
+
+        for (int i = 0; i < noOfPlayers; i++)
+        {
+            if (noOfPlayers > 4)
+            {
+                noOfPlayers -= 4;
+            }
+        }
+    }*/
     #endregion
     #region Photon Callbacks
     public override void OnLeftRoom()
     {
-        SceneManager.LoadScene("LobbyScene");
+        SceneManager.LoadScene("MainMenu");
     }
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
