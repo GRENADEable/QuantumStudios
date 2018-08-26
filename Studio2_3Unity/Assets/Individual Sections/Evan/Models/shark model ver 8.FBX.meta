@@ -1,0 +1,222 @@
+fileFormatVersion: 2
+guid: 46280dd728269d74b880e14df6cebd8c
+timeCreated: 1535117346
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone098
+    100002: Bone099
+    100004: Bone100
+    100006: Bone101
+    100008: Bone102
+    100010: Bone103
+    100012: Bone104
+    100014: Bone105
+    100016: Bone106
+    100018: Bone107
+    100020: Bone108
+    100022: Bone109
+    100024: Bone110
+    100026: Bone111
+    100028: Bone112
+    100030: Bone113
+    100032: Bone114
+    100034: Bone115
+    100036: Bone116
+    100038: Bone117
+    100040: higher shark teeth
+    100042: Left eyeball
+    100044: Low_Jaw_vertical_CNTRL
+    100046: Lower shark teeth
+    100048: Rectangle001
+    100050: Right eye
+    100052: shark body
+    100054: //RootNode
+    100056: Tube003
+    100058: Tube004
+    100060: Tube009
+    100062: Tube010
+    100064: Tube011
+    100066: Tube011(TubeCap00)
+    100068: Tube011(TubeCap01)
+    100070: Tube011(TubeSurf01)
+    100072: Tube011(TubeSurf02)
+    100074: Tube012
+    100076: Tube013
+    100078: Tube014
+    100080: Tube015
+    100082: Tube016
+    100084: Up_Jaw_vertical_CNTRL
+    100086: Up_Tailvin_horizontal_CNTRL
+    100088: Up_Tailvin_vertical_CNTRL
+    400000: Bone098
+    400002: Bone099
+    400004: Bone100
+    400006: Bone101
+    400008: Bone102
+    400010: Bone103
+    400012: Bone104
+    400014: Bone105
+    400016: Bone106
+    400018: Bone107
+    400020: Bone108
+    400022: Bone109
+    400024: Bone110
+    400026: Bone111
+    400028: Bone112
+    400030: Bone113
+    400032: Bone114
+    400034: Bone115
+    400036: Bone116
+    400038: Bone117
+    400040: higher shark teeth
+    400042: Left eyeball
+    400044: Low_Jaw_vertical_CNTRL
+    400046: Lower shark teeth
+    400048: Rectangle001
+    400050: Right eye
+    400052: shark body
+    400054: //RootNode
+    400056: Tube003
+    400058: Tube004
+    400060: Tube009
+    400062: Tube010
+    400064: Tube011
+    400066: Tube011(TubeCap00)
+    400068: Tube011(TubeCap01)
+    400070: Tube011(TubeSurf01)
+    400072: Tube011(TubeSurf02)
+    400074: Tube012
+    400076: Tube013
+    400078: Tube014
+    400080: Tube015
+    400082: Tube016
+    400084: Up_Jaw_vertical_CNTRL
+    400086: Up_Tailvin_horizontal_CNTRL
+    400088: Up_Tailvin_vertical_CNTRL
+    2300000: higher shark teeth
+    2300002: Left eyeball
+    2300004: Low_Jaw_vertical_CNTRL
+    2300006: Lower shark teeth
+    2300008: Right eye
+    2300010: Tube003
+    2300012: Tube004
+    2300014: Tube009
+    2300016: Tube010
+    2300018: Tube012
+    2300020: Tube013
+    2300022: Tube014
+    2300024: Tube015
+    2300026: Tube016
+    2300028: Up_Jaw_vertical_CNTRL
+    2300030: Up_Tailvin_horizontal_CNTRL
+    2300032: Up_Tailvin_vertical_CNTRL
+    3300000: higher shark teeth
+    3300002: Left eyeball
+    3300004: Low_Jaw_vertical_CNTRL
+    3300006: Lower shark teeth
+    3300008: Right eye
+    3300010: Tube003
+    3300012: Tube004
+    3300014: Tube009
+    3300016: Tube010
+    3300018: Tube012
+    3300020: Tube013
+    3300022: Tube014
+    3300024: Tube015
+    3300026: Tube016
+    3300028: Up_Jaw_vertical_CNTRL
+    3300030: Up_Tailvin_horizontal_CNTRL
+    3300032: Up_Tailvin_vertical_CNTRL
+    4300000: Tube015
+    4300002: Tube016
+    4300004: Up_Jaw_vertical_CNTRL
+    4300006: Low_Jaw_vertical_CNTRL
+    4300008: shark body
+    4300010: Tube013
+    4300012: Tube014
+    4300014: Tube012
+    4300016: Tube009
+    4300018: Tube010
+    4300020: Up_Tailvin_horizontal_CNTRL
+    4300022: Up_Tailvin_vertical_CNTRL
+    4300024: Tube003
+    4300026: Tube004
+    4300028: higher shark teeth
+    4300030: Left eyeball
+    4300032: Right eye
+    4300034: Lower shark teeth
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: shark body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
