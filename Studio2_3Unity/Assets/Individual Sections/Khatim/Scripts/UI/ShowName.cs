@@ -6,34 +6,35 @@ using UnityEngine.UI;
 public class ShowName : Photon.MonoBehaviour
 {
     #region Public Variables
-    //public PlayerNameObj plyNames;
+    public PlayerNameObj plyNames;
     public Text userName;
     #endregion
 
     #region Private Variables
-    //private PhotonView pview;
+    private PhotonView pview;
     #endregion
 
     #region Unity Callbacks
-    /*void Start()
+    void Start()
     {
         pview = GetComponent<PhotonView>();
         Sync();
-    }*/
+    }
 
     void Awake()
     {
-        userName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        //userName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        userName = GetComponent<Text>(); //Drag and Drop.
     }
 
-    void Update()
+    /*void Update()
     {
         userName.text = GetComponent<PhotonView>().owner.NickName;
-    }
+    }*/
     #endregion
 
     #region PhotonCallbacks
-    /*void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.isWriting)
         {
@@ -43,11 +44,11 @@ public class ShowName : Photon.MonoBehaviour
         {
             userName.text = (string)stream.ReceiveNext();
         }
-    }*/
+    }
     #endregion
 
     #region My Functions
-    /*[PunRPC]
+    [PunRPC]
     public void Sync()
     {
         GetComponent<PhotonView>().RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { PhotonNetwork.player.NickName });
@@ -57,6 +58,6 @@ public class ShowName : Photon.MonoBehaviour
     public void DisplayPlayer(string user)
     {
         userName.text = user;
-    }*/
+    }
     #endregion
 }
