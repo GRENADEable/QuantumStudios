@@ -6,11 +6,13 @@ public class RandomWhirlpoolSinglePlayer : MonoBehaviour
 {
 	public float maxSize;
 	public float growInt;
-	public float waitTime;
+	[SerializeField]
+	private float waitTime;
 	
 	void Start () 
 	{
 		StartCoroutine(Scale());
+		waitTime = Random.Range(1f,3f);
 	}
 
 	IEnumerator Scale()
