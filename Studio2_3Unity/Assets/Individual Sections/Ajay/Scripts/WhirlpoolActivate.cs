@@ -38,6 +38,7 @@ public class WhirlpoolActivate : MonoBehaviour
             else if (timer == 5.0f && !isActivated)
                 isActivated = false;
         }
+        
     }
 
     void OnTriggerStay(Collider other)
