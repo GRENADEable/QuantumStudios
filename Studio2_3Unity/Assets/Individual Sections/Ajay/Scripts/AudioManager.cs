@@ -51,4 +51,10 @@ public class AudioManager : MonoBehaviour
         seagulFx.Stop();
         oceanFx.Stop();
     }
+
+    public void PlayGameMusicForOnline()
+    {
+        StopSplashScreenAudio();
+        AudioAccess(2);
+    }
 }

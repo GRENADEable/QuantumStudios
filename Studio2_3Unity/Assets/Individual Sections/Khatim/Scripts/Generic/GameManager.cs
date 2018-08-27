@@ -72,6 +72,8 @@ public class GameManager : Photon.PunBehaviour
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.AudioAccess(9);
     }
 
     void LoadMap()

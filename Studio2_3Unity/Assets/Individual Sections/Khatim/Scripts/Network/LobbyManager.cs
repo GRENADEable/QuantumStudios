@@ -163,6 +163,7 @@ public class LobbyManager : Photon.PunBehaviour
     {
         Debug.LogWarning("Joined Room");
         PhotonNetwork.LoadLevel("2PlayerOnline");
+        AudioManager.instance.PlayGameMusicForOnline();
     }
 
     public override void OnCreatedRoom()
