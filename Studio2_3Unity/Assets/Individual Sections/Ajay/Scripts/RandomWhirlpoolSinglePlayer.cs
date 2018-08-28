@@ -6,7 +6,6 @@ public class RandomWhirlpoolSinglePlayer : MonoBehaviour
 {
 	public float maxSize;
 	public float growInt;
-	[SerializeField]
 	private float waitTime;
 	
 	void Start () 
