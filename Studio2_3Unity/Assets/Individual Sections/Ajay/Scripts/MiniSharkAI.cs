@@ -17,7 +17,9 @@ public class MiniSharkAI : Photon.MonoBehaviour
     [SerializeField]
     private GameObject[] targets;
     [SerializeField]
-    private GameObject target;
+    private int index;
+    [SerializeField]
+    //private GameObject target;
     private Vector3 tarPos;
     private Quaternion tarRot;
     [SerializeField]
@@ -38,8 +40,7 @@ public class MiniSharkAI : Photon.MonoBehaviour
 
         if (PhotonNetwork.isMasterClient)
         {
-            int index = Random.Range(0, targets.Length);
-            this.photonView.RPC("FollowPlayer", PhotonTargets.AllViaServer, index.ToString());
+            index = Random.Range(0, targets.Length);
         }
     }
 
@@ -47,7 +48,7 @@ public class MiniSharkAI : Photon.MonoBehaviour
     {
         if (targets != null)
         {
-            Vector3 headDir = (new Vector3(target.transform.position.x, 0, target.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
+            Vector3 headDir = (new Vector3(targets[index].transform.position.x, 0, targets[index].transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
 
             moveSpeed = Mathf.Clamp(moveSpeed, 0, maxSpeed);
             minisharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
@@ -72,25 +73,6 @@ public class MiniSharkAI : Photon.MonoBehaviour
             }
         }
     }
-
-
-    #endregion
-
-    #region Photon Callbacks
-    /*void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-        else
-        {
-            tarPos = (Vector3)stream.ReceiveNext();
-            tarRot = (Quaternion)stream.ReceiveNext();
-        }
-    }*/
-
     #endregion
 
     #region My Functions
@@ -112,17 +94,26 @@ public class MiniSharkAI : Photon.MonoBehaviour
         return nearestVertices;
     }
 
-    /*void SmoothMovement()
+    void SmoothMovement()
     {
         transform.position = Vector3.Lerp(transform.position, tarPos, movementValue);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
-    }*/
+    }
+    #endregion
 
-    [PunRPC]
-    public void FollowPlayer(string stringToInt)
+    #region Photon Callbacks
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        int convertedIndex = int.Parse(stringToInt);
-        target = targets[convertedIndex];
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
+            tarPos = (Vector3)stream.ReceiveNext();
+            tarRot = (Quaternion)stream.ReceiveNext();
+        }
     }
     #endregion
 }

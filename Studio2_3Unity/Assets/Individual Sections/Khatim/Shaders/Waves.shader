@@ -54,6 +54,7 @@
 		//p.y = a * sin(f);
 		//p.z += d.y * (a * cos(f));
 
+		//Tangent Vector
 		tangent += float3
 		(
 			- d.x * d.x * (steepness * sin(f)),
@@ -61,6 +62,7 @@
 			-d.x * d.y * (steepness * sin(f))
 		);
 
+		//Binormal Vector
 		binormal += float3
 		(
 			-d.x * d.y * (steepness * sin(f)),
@@ -68,6 +70,7 @@
 			1 - d.y * d.y * (steepness * sin(f))
 		);
 
+		//Returns all the float 3 values.
 		return float3
 		(
 				d.x * (a * cos(f)),
@@ -78,6 +81,7 @@
 
 	void vert(inout appdata_full vertexData)
 	{
+		//Getting the vertecis of the plane and assigning it to float3.
 		float3 gridPoint = vertexData.vertex.xyz;
 		float3 tangent = float3(1, 0, 0);
 		float3 binormal = float3(0, 0, 1);

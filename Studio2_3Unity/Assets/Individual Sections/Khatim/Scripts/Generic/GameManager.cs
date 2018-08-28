@@ -14,7 +14,6 @@ public class GameManager : Photon.PunBehaviour
     #endregion
 
     #region  Private Variables
-    //private int noOfPlayers;
     #endregion
 
     #region Unity Callbacks
@@ -32,10 +31,10 @@ public class GameManager : Photon.PunBehaviour
         {
             spawnLocation = GameObject.FindGameObjectsWithTag("SpawnPlayer");
             index = Random.Range(0, spawnLocation.Length);
+
             if (player != null)
             {
                 PhotonNetwork.Instantiate(player.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
-                //player.SetActive(true);
             }
         }
     }
@@ -72,6 +71,8 @@ public class GameManager : Photon.PunBehaviour
     public void LeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.AudioAccess(9);
     }
 
     void LoadMap()

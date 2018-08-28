@@ -1,0 +1,399 @@
+fileFormatVersion: 2
+guid: 0a1715f7bdc6c0d42a3004a0135f35c7
+timeCreated: 1535264423
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cylinder001
+    100002: Direct001
+    100004: Direct001.Target
+    100006: Dummy031
+    100008: Dummy032
+    100010: Dummy033
+    100012: Dummy034
+    100014: Dummy035
+    100016: Dummy036
+    100018: Dummy037
+    100020: Dummy038
+    100022: Dummy039
+    100024: Dummy040
+    100026: Dummy041
+    100028: Dummy042
+    100030: Dummy043
+    100032: Dummy044
+    100034: Dummy045
+    100036: Dummy046
+    100038: Dummy047
+    100040: Dummy048
+    100042: Dummy049
+    100044: Dummy078
+    100046: Dummy079
+    100048: Dummy080
+    100050: Dummy081
+    100052: Dummy082
+    100054: Dummy083
+    100056: Dummy084
+    100058: Dummy085
+    100060: Dummy086
+    100062: Dummy087
+    100064: Dummy088
+    100066: Dummy089
+    100068: Dummy090
+    100070: Dummy091
+    100072: Dummy092
+    100074: Dummy093
+    100076: Dummy094
+    100078: Dummy095
+    100080: Dummy096
+    100082: Dummy097
+    100084: Dummy098
+    100086: Dummy099
+    100088: Dummy100
+    100090: Dummy101
+    100092: Dummy102
+    100094: Dummy103
+    100096: Dummy104
+    100098: Dummy105
+    100100: Dummy106
+    100102: Dummy107
+    100104: Dummy108
+    100106: Dummy109
+    100108: Dummy110
+    100110: Dummy111
+    100112: Dummy112
+    100114: Dummy113
+    100116: Dummy114
+    100118: Dummy115
+    100120: Dummy116
+    100122: Dummy117
+    100124: Dummy118
+    100126: Dummy119
+    100128: Dummy120
+    100130: //RootNode
+    100132: FlagHPoly
+    100134: Particle View 001
+    100136: PhysCamera001
+    100138: PhysCamera001.Target
+    100140: Plane003
+    400000: Cylinder001
+    400002: Direct001
+    400004: Direct001.Target
+    400006: Dummy031
+    400008: Dummy032
+    400010: Dummy033
+    400012: Dummy034
+    400014: Dummy035
+    400016: Dummy036
+    400018: Dummy037
+    400020: Dummy038
+    400022: Dummy039
+    400024: Dummy040
+    400026: Dummy041
+    400028: Dummy042
+    400030: Dummy043
+    400032: Dummy044
+    400034: Dummy045
+    400036: Dummy046
+    400038: Dummy047
+    400040: Dummy048
+    400042: Dummy049
+    400044: Dummy078
+    400046: Dummy079
+    400048: Dummy080
+    400050: Dummy081
+    400052: Dummy082
+    400054: Dummy083
+    400056: Dummy084
+    400058: Dummy085
+    400060: Dummy086
+    400062: Dummy087
+    400064: Dummy088
+    400066: Dummy089
+    400068: Dummy090
+    400070: Dummy091
+    400072: Dummy092
+    400074: Dummy093
+    400076: Dummy094
+    400078: Dummy095
+    400080: Dummy096
+    400082: Dummy097
+    400084: Dummy098
+    400086: Dummy099
+    400088: Dummy100
+    400090: Dummy101
+    400092: Dummy102
+    400094: Dummy103
+    400096: Dummy104
+    400098: Dummy105
+    400100: Dummy106
+    400102: Dummy107
+    400104: Dummy108
+    400106: Dummy109
+    400108: Dummy110
+    400110: Dummy111
+    400112: Dummy112
+    400114: Dummy113
+    400116: Dummy114
+    400118: Dummy115
+    400120: Dummy116
+    400122: Dummy117
+    400124: Dummy118
+    400126: Dummy119
+    400128: Dummy120
+    400130: //RootNode
+    400132: FlagHPoly
+    400134: Particle View 001
+    400136: PhysCamera001
+    400138: PhysCamera001.Target
+    400140: Plane003
+    2300000: Cylinder001
+    2300002: Plane003
+    3300000: Cylinder001
+    3300002: Plane003
+    4300000: Plane003
+    4300002: FlagHPoly
+    4300004: Cylinder001
+    7400000: Wave
+    9500000: //RootNode
+    13700000: FlagHPoly
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Wave
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cylinder001
+        weight: 1
+      - path: Direct001
+        weight: 1
+      - path: Direct001.Target
+        weight: 1
+      - path: Dummy049
+        weight: 1
+      - path: Dummy049/Dummy031
+        weight: 1
+      - path: Dummy049/Dummy032
+        weight: 1
+      - path: Dummy049/Dummy033
+        weight: 1
+      - path: Dummy049/Dummy034
+        weight: 1
+      - path: Dummy049/Dummy035
+        weight: 1
+      - path: Dummy049/Dummy036
+        weight: 1
+      - path: Dummy049/Dummy037
+        weight: 1
+      - path: Dummy049/Dummy038
+        weight: 1
+      - path: Dummy049/Dummy039
+        weight: 1
+      - path: Dummy049/Dummy040
+        weight: 1
+      - path: Dummy049/Dummy041
+        weight: 1
+      - path: Dummy049/Dummy042
+        weight: 1
+      - path: Dummy049/Dummy043
+        weight: 1
+      - path: Dummy049/Dummy044
+        weight: 1
+      - path: Dummy049/Dummy045
+        weight: 1
+      - path: Dummy049/Dummy046
+        weight: 1
+      - path: Dummy049/Dummy047
+        weight: 1
+      - path: Dummy049/Dummy048
+        weight: 1
+      - path: Dummy120
+        weight: 1
+      - path: Dummy120/Dummy078
+        weight: 1
+      - path: Dummy120/Dummy079
+        weight: 1
+      - path: Dummy120/Dummy080
+        weight: 1
+      - path: Dummy120/Dummy081
+        weight: 1
+      - path: Dummy120/Dummy082
+        weight: 1
+      - path: Dummy120/Dummy083
+        weight: 1
+      - path: Dummy120/Dummy084
+        weight: 1
+      - path: Dummy120/Dummy085
+        weight: 1
+      - path: Dummy120/Dummy086
+        weight: 1
+      - path: Dummy120/Dummy087
+        weight: 1
+      - path: Dummy120/Dummy088
+        weight: 1
+      - path: Dummy120/Dummy089
+        weight: 1
+      - path: Dummy120/Dummy090
+        weight: 1
+      - path: Dummy120/Dummy091
+        weight: 1
+      - path: Dummy120/Dummy092
+        weight: 1
+      - path: Dummy120/Dummy093
+        weight: 1
+      - path: Dummy120/Dummy094
+        weight: 1
+      - path: Dummy120/Dummy095
+        weight: 1
+      - path: Dummy120/Dummy096
+        weight: 1
+      - path: Dummy120/Dummy097
+        weight: 1
+      - path: Dummy120/Dummy098
+        weight: 1
+      - path: Dummy120/Dummy099
+        weight: 1
+      - path: Dummy120/Dummy100
+        weight: 1
+      - path: Dummy120/Dummy101
+        weight: 1
+      - path: Dummy120/Dummy102
+        weight: 1
+      - path: Dummy120/Dummy103
+        weight: 1
+      - path: Dummy120/Dummy104
+        weight: 1
+      - path: Dummy120/Dummy105
+        weight: 1
+      - path: Dummy120/Dummy106
+        weight: 1
+      - path: Dummy120/Dummy107
+        weight: 1
+      - path: Dummy120/Dummy108
+        weight: 1
+      - path: Dummy120/Dummy109
+        weight: 1
+      - path: Dummy120/Dummy110
+        weight: 1
+      - path: Dummy120/Dummy111
+        weight: 1
+      - path: Dummy120/Dummy112
+        weight: 1
+      - path: Dummy120/Dummy113
+        weight: 1
+      - path: Dummy120/Dummy114
+        weight: 1
+      - path: Dummy120/Dummy115
+        weight: 1
+      - path: Dummy120/Dummy116
+        weight: 1
+      - path: Dummy120/Dummy117
+        weight: 1
+      - path: Dummy120/Dummy118
+        weight: 1
+      - path: Dummy120/Dummy119
+        weight: 1
+      - path: FlagHPoly
+        weight: 1
+      - path: Particle View 001
+        weight: 1
+      - path: PhysCamera001
+        weight: 1
+      - path: PhysCamera001.Target
+        weight: 1
+      - path: Plane003
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

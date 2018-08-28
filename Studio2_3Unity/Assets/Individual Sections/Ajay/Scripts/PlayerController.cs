@@ -67,7 +67,7 @@ public class PlayerController : Photon.PunBehaviour
 
         if (pview.isMine)
         {
-            cam.Player = this.gameObject;
+            cam.player = this.gameObject;
             minimapCam.player = this.gameObject;
         }
     }
