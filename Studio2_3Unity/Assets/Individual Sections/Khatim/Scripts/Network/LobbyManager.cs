@@ -24,6 +24,8 @@ public class LobbyManager : Photon.PunBehaviour
         PhotonNetwork.autoJoinLobby = false;
         PhotonNetwork.automaticallySyncScene = false;
 
+        roomName.characterLimit = 12;
+
         //PhotonNetwork.sendRate = 60; //Default 20
         //PhotonNetwork.sendRateOnSerialize = 30; //Default 10
     }
@@ -160,7 +162,8 @@ public class LobbyManager : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         Debug.LogWarning("Joined Room");
-        PhotonNetwork.LoadLevel("IntegrateScene");
+        PhotonNetwork.LoadLevel("2PlayerOnline");
+        AudioManager.instance.PlayGameMusicForOnline();
     }
 
     public override void OnCreatedRoom()

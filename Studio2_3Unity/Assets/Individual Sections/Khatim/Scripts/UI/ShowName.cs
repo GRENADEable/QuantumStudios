@@ -18,27 +18,20 @@ public class ShowName : Photon.MonoBehaviour
     void Start()
     {
         pview = GetComponent<PhotonView>();
-        Sync();
+        if (pview.isMine)
+            Sync();
     }
 
-    /*void Start()
+    /*void Awake()
     {
-        Sync();
+        //userName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
+        userName = GetComponentInChildren<Text>(); //Drag and Drop.
     }*/
-    #endregion
 
-    #region PhotonCallbacks
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    /*void Update()
     {
-        if (stream.isWriting)
-        {
-            stream.SendNext(userName);
-        }
-        else if (stream.isReading)
-        {
-            userName.text = (string)stream.ReceiveNext();
-        }
-    }
+        userName.text = GetComponent<PhotonView>().owner.NickName;
+    }*/
     #endregion
 
     #region My Functions
@@ -52,6 +45,20 @@ public class ShowName : Photon.MonoBehaviour
     public void DisplayPlayer(string user)
     {
         userName.text = user;
+    }
+    #endregion
+
+    #region PhotonCallbacks
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(userName);
+        }
+        else if (stream.isReading)
+        {
+            userName.text = (string)stream.ReceiveNext();
+        }
     }
     #endregion
 }
