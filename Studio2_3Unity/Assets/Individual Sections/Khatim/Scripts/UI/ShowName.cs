@@ -21,16 +21,30 @@ public class ShowName : Photon.MonoBehaviour
         Sync();
     }
 
-    void Awake()
+    /*void Awake()
     {
         //userName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
-        userName = GetComponent<Text>(); //Drag and Drop.
-    }
+        userName = GetComponentInChildren<Text>(); //Drag and Drop.
+    }*/
 
     /*void Update()
     {
         userName.text = GetComponent<PhotonView>().owner.NickName;
     }*/
+    #endregion
+
+    #region My Functions
+    [PunRPC]
+    public void Sync()
+    {
+        pview.RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { plyNames.uesrName });
+    }
+
+    [PunRPC]
+    public void DisplayPlayer(string user)
+    {
+        userName.text = user;
+    }
     #endregion
 
     #region PhotonCallbacks
@@ -44,20 +58,6 @@ public class ShowName : Photon.MonoBehaviour
         {
             userName.text = (string)stream.ReceiveNext();
         }
-    }
-    #endregion
-
-    #region My Functions
-    [PunRPC]
-    public void Sync()
-    {
-        GetComponent<PhotonView>().RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { PhotonNetwork.player.NickName });
-    }
-
-    [PunRPC]
-    public void DisplayPlayer(string user)
-    {
-        userName.text = user;
     }
     #endregion
 }
