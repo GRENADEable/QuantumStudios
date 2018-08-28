@@ -17,7 +17,7 @@ public class PlayerController : Photon.PunBehaviour
     //public PlayerNameObj plyNames;
     public GameObject miniShark;
     //public Text userName;
-
+    public Vector3 sharkSpawn;
     #endregion
 
     #region Private Variables
@@ -65,9 +65,14 @@ public class PlayerController : Photon.PunBehaviour
         //this.pview.RPC("SetName", PhotonTargets.All, )
         //Sync();
 
-        if (pview.isMine)
+        if (pview.isMine && this.tag == "Player1")
         {
-            cam.player = this.gameObject;
+            cam.player1 = this.gameObject;
+            minimapCam.player = this.gameObject;
+        }
+        else if (pview.isMine && this.tag == "Player2")
+        {
+            cam.player2 = this.gameObject;
             minimapCam.player = this.gameObject;
         }
     }
@@ -75,7 +80,7 @@ public class PlayerController : Photon.PunBehaviour
     {
         if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E) && pview.isMine)
         {
-            PhotonNetwork.Instantiate(miniShark.name, myRB.position, myRB.rotation, 0);
+            PhotonNetwork.Instantiate(miniShark.name, myRB.position + sharkSpawn, myRB.rotation, 0);
             hasSharkSeekPowerUp = false;
         }
     }
@@ -137,6 +142,13 @@ public class PlayerController : Photon.PunBehaviour
         {
             hasSharkSeekPowerUp = true;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.tag == "Shark")
+        {
+            moveSpeed = slowSpeed;
+            other.gameObject.SetActive(false);
+            timer = spDuration;
         }
     }
 

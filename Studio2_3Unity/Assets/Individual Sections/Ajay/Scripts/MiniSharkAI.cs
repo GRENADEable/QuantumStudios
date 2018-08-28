@@ -15,7 +15,7 @@ public class MiniSharkAI : Photon.MonoBehaviour
     #region Private Variables
     private Rigidbody minisharkRB;
     [SerializeField]
-    private GameObject[] targets;
+    private PlayerController[] targets;
     [SerializeField]
     private int index;
     [SerializeField]
@@ -36,12 +36,9 @@ public class MiniSharkAI : Photon.MonoBehaviour
 
     void OnEnable()
     {
-        targets = GameObject.FindGameObjectsWithTag("Player");
-
-        if (PhotonNetwork.isMasterClient)
-        {
-            index = Random.Range(0, targets.Length);
-        }
+        //targets = GameObject.FindGameObjectsWithTag("Player");
+        targets = GameObject.FindObjectsOfType<PlayerController>();
+        index = Random.Range(0, targets.Length);
     }
 
     void FixedUpdate()
