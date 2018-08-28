@@ -6,13 +6,12 @@ public class CameraFollow : MonoBehaviour
 {
 
     #region Private Variables
-    public GameObject player1;
-    public GameObject player2;
+    public GameObject player;
     [SerializeField]
     private Vector3 Offset;
     //private RectTransform playerCanvas;
     [SerializeField]
-    private Vector3 textOffset;
+    //private Vector3 textOffset;
     #endregion
 
     void Awake()
@@ -21,18 +20,11 @@ public class CameraFollow : MonoBehaviour
     }
     void Start()
     {
-        if (player1 != null)
+        if (player != null)
         {
-            player1 = GameObject.FindGameObjectWithTag("Player1");
+            player = GameObject.FindGameObjectWithTag("Player");
 
-            Offset = transform.position - player1.transform.position;
-        }
-
-        if (player2 != null)
-        {
-            player2 = GameObject.FindGameObjectWithTag("Player2");
-
-            Offset = transform.position - player2.transform.position;
+            Offset = transform.position - player.transform.position;
         }
 
         //textOffset = playerCanvas.transform.position - Player.transform.position;
@@ -41,14 +33,9 @@ public class CameraFollow : MonoBehaviour
     }
     void LateUpdate()
     {
-        if (player1 != null)
+        if (player != null)
         {
-            transform.position = player1.transform.position + Offset;
-        }
-
-        if (player2 != null)
-        {
-            transform.position = player2.transform.position + Offset;
+            transform.position = player.transform.position + Offset;
         }
     }
 }

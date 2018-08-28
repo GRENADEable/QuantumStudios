@@ -65,14 +65,9 @@ public class PlayerController : Photon.PunBehaviour
         //this.pview.RPC("SetName", PhotonTargets.All, )
         //Sync();
 
-        if (pview.isMine && this.tag == "Player1")
+        if (pview.isMine)
         {
-            cam.player1 = this.gameObject;
-            minimapCam.player = this.gameObject;
-        }
-        else if (pview.isMine && this.tag == "Player2")
-        {
-            cam.player2 = this.gameObject;
+            cam.player = this.gameObject;
             minimapCam.player = this.gameObject;
         }
     }
