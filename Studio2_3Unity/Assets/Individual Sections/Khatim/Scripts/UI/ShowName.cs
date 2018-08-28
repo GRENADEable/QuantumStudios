@@ -18,7 +18,8 @@ public class ShowName : Photon.MonoBehaviour
     void Start()
     {
         pview = GetComponent<PhotonView>();
-        Sync();
+        if (pview.isMine)
+            Sync();
     }
 
     /*void Awake()

@@ -7,10 +7,14 @@ using UnityEngine.UI;
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
-    public GameObject player;
+    //public GameObject[] players;
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject cam;
     public static GameManager instance;
     public GameObject[] spawnLocation;
     public int index;
+    public Vector3 camOffset;
     #endregion
 
     #region  Private Variables
@@ -32,11 +36,30 @@ public class GameManager : Photon.PunBehaviour
         {
             spawnLocation = GameObject.FindGameObjectsWithTag("SpawnPlayer");
             index = Random.Range(0, spawnLocation.Length);
-            if (player != null)
+
+            if (player1 != null && PhotonNetwork.room.PlayerCount == 1)
             {
-                PhotonNetwork.Instantiate(player.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(player1.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                player1 = GameObject.FindGameObjectWithTag("Player1");
+                Instantiate(cam, player1.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
                 //player.SetActive(true);
             }
+            else if (player2 != null && PhotonNetwork.room.PlayerCount == 2)
+            {
+                PhotonNetwork.Instantiate(player2.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                player2 = GameObject.FindGameObjectWithTag("Player2");
+                Instantiate(cam, player2.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
+            }
+
+            /*if (player1 != null)
+            {
+                Instantiate(cam, player1.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
+            }
+
+            if (player2 != null)
+            {
+                Instantiate(cam, player2.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
+            }*/
         }
     }
 
