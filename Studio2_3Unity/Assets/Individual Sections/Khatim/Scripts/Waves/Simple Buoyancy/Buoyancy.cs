@@ -7,14 +7,10 @@ public class Buoyancy : MonoBehaviour
     #region Public Variables
     public float buoyancy = 20.0f;
     public float viscosity;
-    //public float forceUp;
-    //public float forceRight;
-    //public GameObject prefab;
     #endregion
 
     #region Private Variables
     private Rigidbody rg;
-    //private Collider col;
     #endregion
 
     #region Unity Calbacks
@@ -25,9 +21,6 @@ public class Buoyancy : MonoBehaviour
 
     void FixedUpdate()
     {
-        /*Vector3 moveRight = new Vector3(0, 0, forceRight);
-        rg.AddForce(moveRight);*/
-
         Vector3[] vertices = WaterDeformation.mesh.vertices;
         Vector3[] worldVertices = new Vector3[vertices.Length];
 
@@ -44,16 +37,6 @@ public class Buoyancy : MonoBehaviour
             rg.velocity /= ((viscosity / 100) + 1);
         }
     }
-
-    /*void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "Sea")
-        {
-            Vector3 force = new Vector3(0, forceUp, 0);
-            rg.AddForce(force * Time.deltaTime);
-            rg.AddForce(rg.velocity * -1 * viscosity * Time.deltaTime);
-        }
-    }*/
     #endregion
 
     #region My Functions
@@ -71,9 +54,7 @@ public class Buoyancy : MonoBehaviour
                 minimumDistance = Vector3.Distance(position, vertices[i]);
             }
         }
-
         return nearestVertices;
     }
-
     #endregion
 }
