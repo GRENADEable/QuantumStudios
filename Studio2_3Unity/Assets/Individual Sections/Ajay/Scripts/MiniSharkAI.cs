@@ -17,9 +17,7 @@ public class MiniSharkAI : Photon.MonoBehaviour
     [SerializeField]
     private PlayerController[] targets;
     [SerializeField]
-    private int index;
-    [SerializeField]
-    //private GameObject target;
+    private PlayerController target;
     private Vector3 tarPos;
     private Quaternion tarRot;
     [SerializeField]
@@ -38,14 +36,30 @@ public class MiniSharkAI : Photon.MonoBehaviour
     {
         //targets = GameObject.FindGameObjectsWithTag("Player");
         targets = GameObject.FindObjectsOfType<PlayerController>();
-        index = Random.Range(0, targets.Length);
+        if (PhotonNetwork.isMasterClient)
+        {
+            int index = Random.Range(0, targets.Length);
+            this.photonView.RPC("FollowPlayer", PhotonTargets.AllViaServer, index.ToString());
+        }
+    }
+
+    void Update()
+    {
+        if (target == null)
+        {
+            if (PhotonNetwork.isMasterClient)
+            {
+                int index = Random.Range(0, targets.Length);
+                this.photonView.RPC("FollowPlayer", PhotonTargets.AllViaServer, index.ToString());
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        if (targets != null)
+        if (target != null)
         {
-            Vector3 headDir = (new Vector3(targets[index].transform.position.x, 0, targets[index].transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
+            Vector3 headDir = (new Vector3(target.transform.position.x, 0, target.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
 
             moveSpeed = Mathf.Clamp(moveSpeed, 0, maxSpeed);
             minisharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
@@ -95,6 +109,13 @@ public class MiniSharkAI : Photon.MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, tarPos, movementValue);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
+    }
+
+    [PunRPC]
+    public void FollowPlayer(string intToPass)
+    {
+        int myInt = int.Parse(intToPass);
+        target = targets[myInt];
     }
     #endregion
 

@@ -146,8 +146,8 @@ public class PlayerController : Photon.PunBehaviour
 
         if (other.tag == "Shark")
         {
-            moveSpeed = slowSpeed;
             other.gameObject.SetActive(false);
+            moveSpeed = slowSpeed;
             timer = spDuration;
         }
     }
