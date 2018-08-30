@@ -12,7 +12,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-    public float spDuration;
+    public float spDuration;    
 
     #endregion
 
@@ -37,6 +37,12 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     private int sharkCount = 0;
     [SerializeField]
     private GameObject shark;
+    [SerializeField]
+    private float sharkTimer; 
+    [SerializeField]
+    private float spawnTime;
+    [SerializeField]
+    private int sharkLimit;
     #endregion
 
     void Start()
@@ -71,6 +77,14 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
             sharkCount++;
         }*/
+        sharkTimer -= Time.deltaTime;
+        if(sharkTimer <= 0 && sharkCount <= sharkLimit)
+        {
+             index = Random.Range(0, sharkSpawnLocation.Length);
+             Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+             sharkTimer = spawnTime;
+             sharkCount++;
+        }
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -125,7 +139,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         {
             moveSpeed = slowSpeed;
 
-            if (sharkCount <= 3)
+            if (sharkCount <= sharkLimit)
             {
                 index = Random.Range(0, sharkSpawnLocation.Length);
 

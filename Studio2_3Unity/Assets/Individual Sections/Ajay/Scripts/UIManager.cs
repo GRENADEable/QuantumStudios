@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     #region Public Variables
     public float scoreCount;
     public float pointsPerSec;
+    public float countInterval;
     #endregion
 
     #region  Private Variables
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviour
         if (scoring.text != null)
         {
             scoring.text = "Score: " + Mathf.Round(scoreCount);
-            scoreCount += pointsPerSec * Time.deltaTime;
+            scoreCount += pointsPerSec *countInterval* Time.deltaTime;
         }
     }
     #endregion
