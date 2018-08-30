@@ -14,12 +14,14 @@ public class SharkAI : MonoBehaviour
     public float maxForce;
     GameObject[] AI;
     public float spaceBetween;
+    
     #endregion
 
     #region Private Variables
     private Rigidbody sharkRB;
     [SerializeField]
     private GameObject Player;
+
     #endregion
 
 
