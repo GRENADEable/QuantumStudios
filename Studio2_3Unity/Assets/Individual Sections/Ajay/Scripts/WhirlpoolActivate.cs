@@ -4,63 +4,86 @@ using UnityEngine;
 
 public class WhirlpoolActivate : MonoBehaviour
 {
-
+    #region Public Variables
     public float maxSize;
     public float minSize;
     public float timer;
+    #endregion
 
-    private float growthSpeed;
-	private float temp;
-    public bool isActivated;
+    #region Private Variables
+    private float growthSize;
+    private float temp;
+    private bool isActivated;
+    private PhotonView pview;
+    #endregion
+
+    #region Unity Callbacks
     void Start()
     {
-
+        pview = GetComponent<PhotonView>();
     }
-
-
-    void FixedUpdate()
+    void Update()
     {
         if (isActivated)
         {
-            ActivateWhirlpool();
+            Debug.Log(growthSize);
+            transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
+            growthSize += 0.1f;
         }
-        if (growthSpeed > 1.0f)
+        else
+        {
+            transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
+            growthSize -= 0.1f;
+        }
+        growthSize = Mathf.Clamp01(growthSize);
+        if (growthSize >= 1.0f)
         {
             timer -= Time.deltaTime;
             if (timer <= 0 && isActivated)
             {
-                temp = maxSize;
-                maxSize = minSize;
-                minSize = temp;
-                growthSpeed = 0.0f;
+
                 timer = 5.0f;
-            }
-            else if (timer == 5.0f && !isActivated)
                 isActivated = false;
+            }
+
         }
-        
+        else if (growthSize <= 0f)
+        {
+            timer -= Time.deltaTime;
+        }
+
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKey(KeyCode.E))
+        if (other.tag == "Player1" && Input.GetKey(KeyCode.E) && timer <= 0)
         {
+            AudioManager.instance.AudioAccess(8);
             isActivated = true;
+            timer = 5;
         }
     }
+    #endregion
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            isActivated = false;
-        }
-    }
+    #region My Functions
     void ActivateWhirlpool()
     {
-        transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSpeed), Mathf.Lerp(minSize, maxSize, growthSpeed), 0.06062245f);
-        growthSpeed += 0.1f;
+        transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
+        growthSize += 0.1f;
     }
+    #endregion
 
-
+    #region Photon Callbacks
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            transform.localScale = (Vector3)stream.ReceiveNext();
+        }
+    }
+    #endregion
 }

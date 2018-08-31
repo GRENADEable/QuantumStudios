@@ -29,11 +29,11 @@ public class MyLauncher : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private string LoginURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php";
-    //private string userURL = "http://localhost/unity_login_system/usernamelogin.php";
+    private string LoginURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php"; //External Database
+    //private string LoginURL = "http://localhost/unity_login_system/usernamelogin.php"; //Local Database
 
-    private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php";
-    //private string userURL = "http://localhost/unity_login_system/adduser.php";
+    private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php"; //External Database
+    //private string userURL = "http://localhost/unity_login_system/adduser.php"; //Local Database
     #endregion
 
     #region Callbacks

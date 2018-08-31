@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: 8b65e5c12253b3743a8e32746cba96d5
+timeCreated: 1535476030
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone005
+    100002: Cylinder001
+    100004: Direct001
+    100006: Direct001.Target
+    100008: Dummy050
+    100010: Dummy051
+    100012: Dummy052
+    100014: Dummy053
+    100016: Dummy054
+    100018: Dummy055
+    100020: Dummy056
+    100022: Dummy057
+    100024: Dummy058
+    100026: Dummy059
+    100028: Dummy060
+    100030: Dummy061
+    100032: Dummy062
+    100034: Dummy063
+    100036: Dummy064
+    100038: Dummy065
+    100040: Dummy066
+    100042: Dummy067
+    100044: Dummy068
+    100046: Dummy069
+    100048: Dummy070
+    100050: Dummy071
+    100052: Dummy072
+    100054: Dummy073
+    100056: Dummy074
+    100058: Dummy075
+    100060: Dummy076
+    100062: Dummy077
+    100064: Dummy078
+    100066: Dummy079
+    100068: Dummy080
+    100070: Dummy081
+    100072: Dummy082
+    100074: Dummy083
+    100076: Dummy084
+    100078: Dummy085
+    100080: Dummy086
+    100082: Dummy087
+    100084: Dummy088
+    100086: Dummy089
+    100088: Dummy090
+    100090: Dummy091
+    100092: Dummy092
+    100094: Flag Skin
+    100096: //RootNode
+    100098: Flag Wave
+    100100: Particle View 001
+    400000: Bone005
+    400002: Cylinder001
+    400004: Direct001
+    400006: Direct001.Target
+    400008: Dummy050
+    400010: Dummy051
+    400012: Dummy052
+    400014: Dummy053
+    400016: Dummy054
+    400018: Dummy055
+    400020: Dummy056
+    400022: Dummy057
+    400024: Dummy058
+    400026: Dummy059
+    400028: Dummy060
+    400030: Dummy061
+    400032: Dummy062
+    400034: Dummy063
+    400036: Dummy064
+    400038: Dummy065
+    400040: Dummy066
+    400042: Dummy067
+    400044: Dummy068
+    400046: Dummy069
+    400048: Dummy070
+    400050: Dummy071
+    400052: Dummy072
+    400054: Dummy073
+    400056: Dummy074
+    400058: Dummy075
+    400060: Dummy076
+    400062: Dummy077
+    400064: Dummy078
+    400066: Dummy079
+    400068: Dummy080
+    400070: Dummy081
+    400072: Dummy082
+    400074: Dummy083
+    400076: Dummy084
+    400078: Dummy085
+    400080: Dummy086
+    400082: Dummy087
+    400084: Dummy088
+    400086: Dummy089
+    400088: Dummy090
+    400090: Dummy091
+    400092: Dummy092
+    400094: Flag Skin
+    400096: //RootNode
+    400098: Flag Wave
+    400100: Particle View 001
+    2300000: Cylinder001
+    2300002: Flag Wave
+    3300000: Cylinder001
+    3300002: Flag Wave
+    4300000: Flag Wave
+    4300002: Flag Skin
+    4300004: Cylinder001
+    7400000: Flag Wave Test3
+    9500000: //RootNode
+    13700000: Flag Skin
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Flag Wave Test3
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bone005
+        weight: 1
+      - path: Cylinder001
+        weight: 1
+      - path: Direct001
+        weight: 1
+      - path: Direct001.Target
+        weight: 1
+      - path: Dummy092
+        weight: 1
+      - path: Dummy092/Dummy050
+        weight: 1
+      - path: Dummy092/Dummy051
+        weight: 1
+      - path: Dummy092/Dummy052
+        weight: 1
+      - path: Dummy092/Dummy053
+        weight: 1
+      - path: Dummy092/Dummy054
+        weight: 1
+      - path: Dummy092/Dummy055
+        weight: 1
+      - path: Dummy092/Dummy056
+        weight: 1
+      - path: Dummy092/Dummy057
+        weight: 1
+      - path: Dummy092/Dummy058
+        weight: 1
+      - path: Dummy092/Dummy059
+        weight: 1
+      - path: Dummy092/Dummy060
+        weight: 1
+      - path: Dummy092/Dummy061
+        weight: 1
+      - path: Dummy092/Dummy062
+        weight: 1
+      - path: Dummy092/Dummy063
+        weight: 1
+      - path: Dummy092/Dummy064
+        weight: 1
+      - path: Dummy092/Dummy065
+        weight: 1
+      - path: Dummy092/Dummy066
+        weight: 1
+      - path: Dummy092/Dummy067
+        weight: 1
+      - path: Dummy092/Dummy068
+        weight: 1
+      - path: Dummy092/Dummy069
+        weight: 1
+      - path: Dummy092/Dummy070
+        weight: 1
+      - path: Dummy092/Dummy071
+        weight: 1
+      - path: Dummy092/Dummy072
+        weight: 1
+      - path: Dummy092/Dummy073
+        weight: 1
+      - path: Dummy092/Dummy074
+        weight: 1
+      - path: Dummy092/Dummy075
+        weight: 1
+      - path: Dummy092/Dummy076
+        weight: 1
+      - path: Dummy092/Dummy077
+        weight: 1
+      - path: Dummy092/Dummy078
+        weight: 1
+      - path: Dummy092/Dummy079
+        weight: 1
+      - path: Dummy092/Dummy080
+        weight: 1
+      - path: Dummy092/Dummy081
+        weight: 1
+      - path: Dummy092/Dummy082
+        weight: 1
+      - path: Dummy092/Dummy083
+        weight: 1
+      - path: Dummy092/Dummy084
+        weight: 1
+      - path: Dummy092/Dummy085
+        weight: 1
+      - path: Dummy092/Dummy086
+        weight: 1
+      - path: Dummy092/Dummy087
+        weight: 1
+      - path: Dummy092/Dummy088
+        weight: 1
+      - path: Dummy092/Dummy089
+        weight: 1
+      - path: Dummy092/Dummy090
+        weight: 1
+      - path: Dummy092/Dummy091
+        weight: 1
+      - path: Flag Skin
+        weight: 1
+      - path: Flag Wave
+        weight: 1
+      - path: Particle View 001
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

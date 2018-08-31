@@ -6,18 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerControllerSinglePlayer : MonoBehaviour
 {
     #region Public Variables
+    [Header("Movement Speed")]
     public float moveSpeed;
     public float slowSpeed;
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-    //public GameObject miniShark;
-    //public GameObject pickUpFX2;
-    public float spDuration;
-    //public bool hasSharkSeekPowerUp;
-    public AudioClip surfing;
-    public AudioClip speedPUP;
-
+    public float spDuration;    
 
     #endregion
 
@@ -26,15 +21,28 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     private Vector3 movementInput;
     [SerializeField]
     private float timer;
+    [Header("Mobile Joystick")]
     [SerializeField]
     private MobileJoystick mobileJoy;
     private GameObject mobilePrefab;
     [SerializeField]
     private Animator anim;
-    [SerializeField]
     private float MoveHorizontal;
-    [SerializeField]
     private float MoveVertical;
+    private int index;
+    [Header("Shark Spawning")]
+    [SerializeField]
+    private GameObject[] sharkSpawnLocation;
+    [SerializeField]
+    private int sharkCount = 0;
+    [SerializeField]
+    private GameObject shark;
+    [SerializeField]
+    private float sharkTimer; 
+    [SerializeField]
+    private float spawnTime;
+    [SerializeField]
+    private int sharkLimit;
     #endregion
 
     void Start()
@@ -43,6 +51,8 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
         anim = GetComponent<Animator>();
+
+        sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
     }
 
 
@@ -58,6 +68,23 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
     void FixedUpdate()
     {
+
+        /*if (sharkCount <= 3 && Input.GetKeyDown(KeyCode.F)) //Testing
+        {
+            index = Random.Range(0, sharkSpawnLocation.Length);
+
+            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+
+            sharkCount++;
+        }*/
+        sharkTimer -= Time.deltaTime;
+        if(sharkTimer <= 0 && sharkCount <= sharkLimit)
+        {
+             index = Random.Range(0, sharkSpawnLocation.Length);
+             Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+             sharkTimer = spawnTime;
+             sharkCount++;
+        }
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -111,6 +138,15 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
+
+            if (sharkCount <= sharkLimit)
+            {
+                index = Random.Range(0, sharkSpawnLocation.Length);
+
+                Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+
+                sharkCount++;
+            }
         }
         //if(other.tag == "SharkSeekPowerUp")
         //{

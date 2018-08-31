@@ -6,8 +6,8 @@ public class AudioManager : MonoBehaviour
 {
 
     public AudioSource fxSource;
-    public AudioSource oceanFx;
-    public AudioSource seagulFx;
+    public AudioSource mainMenuFx;
+    public AudioSource inGameFx;
     public AudioClip[] soundClips;
     public static AudioManager instance = null;
 
@@ -24,37 +24,47 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
-
-    /*public void PlaySingle(AudioClip clip)
-    {
-        fxSource.clip = clip;
-        fxSource.Play();
-    }
-
-
-    public void MainMenuMusic(AudioClip clip)
-    {
-        fxSource.clip = clip;
-        fxSource.Play();
-    }*/
     public void StopAudio()
     {
         fxSource.Stop();
+        mainMenuFx.Stop();
+        inGameFx.Stop();
     }
     public void AudioAccess(int index)
     {
         fxSource.PlayOneShot(soundClips[index]);
     }
 
-    public void StopSplashScreenAudio()
+    public void SplashScreenAudio()
     {
-        seagulFx.Stop();
-        oceanFx.Stop();
+        AudioAccess(3);
+        AudioAccess(6);
     }
 
     public void PlayGameMusicForOnline()
     {
-        StopSplashScreenAudio();
         AudioAccess(2);
+    }
+
+    public void PlaySinglePlayerAudio()
+    {
+        inGameFx.Play();
+        inGameFx.playOnAwake = true;
+        inGameFx.loop = true;
+    }
+
+    public void MainMenuMusic()
+    {
+        mainMenuFx.Play();
+        mainMenuFx.playOnAwake = true;
+        mainMenuFx.loop = true;
+    }
+
+    public void DeathAudio()
+    {
+        AudioAccess(7);
+        AudioAccess(1);
+        AudioAccess(3);
+        AudioAccess(6);
     }
 }

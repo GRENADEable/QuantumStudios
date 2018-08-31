@@ -131,12 +131,12 @@ public class PlayerController : Photon.PunBehaviour
             timer = spDuration;
         }
 
-        if (other.tag == "Whirlpool")
+        /*if (other.tag == "Whirlpool")
         {
             this.gameObject.SetActive(false);
             this.gameObject.transform.position = GameManager.instance.spawnLocation[GameManager.instance.index].transform.position;
             this.gameObject.SetActive(true);
-        }
+        }*/
 
         if (other.tag == "SharkSeekPowerUp")
         {
@@ -146,8 +146,8 @@ public class PlayerController : Photon.PunBehaviour
 
         if (other.tag == "Shark")
         {
-            moveSpeed = slowSpeed;
             other.gameObject.SetActive(false);
+            moveSpeed = slowSpeed;
             timer = spDuration;
         }
     }

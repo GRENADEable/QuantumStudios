@@ -1,0 +1,251 @@
+fileFormatVersion: 2
+guid: e0c69b0f50c6c09408708f7a6c25b290
+timeCreated: 1535473995
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone002
+    100004: Bone003
+    100006: Bone004
+    100008: Bone005
+    100010: Circle003
+    100012: Circle004
+    100014: Circle005
+    100016: Circle006
+    100018: Cylinder001
+    100020: Direct001
+    100022: Direct001.Target
+    100024: Dummy031
+    100026: Dummy032
+    100028: Dummy033
+    100030: Dummy034
+    100032: Dummy035
+    100034: Dummy036
+    100036: Dummy037
+    100038: Dummy038
+    100040: Dummy039
+    100042: Dummy040
+    100044: Dummy041
+    100046: Dummy042
+    100048: Dummy043
+    100050: Dummy044
+    100052: Dummy045
+    100054: Dummy046
+    100056: Dummy047
+    100058: Dummy048
+    100060: Dummy049
+    100062: Dummy078
+    100064: Dummy079
+    100066: Dummy080
+    100068: Dummy081
+    100070: Dummy082
+    100072: Dummy083
+    100074: Dummy084
+    100076: Dummy085
+    100078: Dummy086
+    100080: Dummy087
+    100082: Dummy088
+    100084: Dummy089
+    100086: Dummy090
+    100088: Dummy091
+    100090: Dummy092
+    100092: Dummy093
+    100094: Dummy094
+    100096: Dummy095
+    100098: Dummy096
+    100100: Dummy097
+    100102: Dummy098
+    100104: Dummy099
+    100106: Dummy100
+    100108: Dummy101
+    100110: Dummy102
+    100112: Dummy103
+    100114: Dummy104
+    100116: Dummy105
+    100118: Dummy106
+    100120: Dummy107
+    100122: Dummy108
+    100124: Dummy109
+    100126: Dummy110
+    100128: Dummy111
+    100130: Dummy112
+    100132: Dummy113
+    100134: Dummy114
+    100136: Dummy115
+    100138: Dummy116
+    100140: Dummy117
+    100142: Dummy118
+    100144: Dummy119
+    100146: Dummy120
+    100148: //RootNode
+    100150: FlagHPoly
+    100152: Particle View 001
+    100154: PhysCamera001
+    100156: PhysCamera001.Target
+    100158: Plane003
+    100160: Plane004
+    400000: Bone001
+    400002: Bone002
+    400004: Bone003
+    400006: Bone004
+    400008: Bone005
+    400010: Circle003
+    400012: Circle004
+    400014: Circle005
+    400016: Circle006
+    400018: Cylinder001
+    400020: Direct001
+    400022: Direct001.Target
+    400024: Dummy031
+    400026: Dummy032
+    400028: Dummy033
+    400030: Dummy034
+    400032: Dummy035
+    400034: Dummy036
+    400036: Dummy037
+    400038: Dummy038
+    400040: Dummy039
+    400042: Dummy040
+    400044: Dummy041
+    400046: Dummy042
+    400048: Dummy043
+    400050: Dummy044
+    400052: Dummy045
+    400054: Dummy046
+    400056: Dummy047
+    400058: Dummy048
+    400060: Dummy049
+    400062: Dummy078
+    400064: Dummy079
+    400066: Dummy080
+    400068: Dummy081
+    400070: Dummy082
+    400072: Dummy083
+    400074: Dummy084
+    400076: Dummy085
+    400078: Dummy086
+    400080: Dummy087
+    400082: Dummy088
+    400084: Dummy089
+    400086: Dummy090
+    400088: Dummy091
+    400090: Dummy092
+    400092: Dummy093
+    400094: Dummy094
+    400096: Dummy095
+    400098: Dummy096
+    400100: Dummy097
+    400102: Dummy098
+    400104: Dummy099
+    400106: Dummy100
+    400108: Dummy101
+    400110: Dummy102
+    400112: Dummy103
+    400114: Dummy104
+    400116: Dummy105
+    400118: Dummy106
+    400120: Dummy107
+    400122: Dummy108
+    400124: Dummy109
+    400126: Dummy110
+    400128: Dummy111
+    400130: Dummy112
+    400132: Dummy113
+    400134: Dummy114
+    400136: Dummy115
+    400138: Dummy116
+    400140: Dummy117
+    400142: Dummy118
+    400144: Dummy119
+    400146: Dummy120
+    400148: //RootNode
+    400150: FlagHPoly
+    400152: Particle View 001
+    400154: PhysCamera001
+    400156: PhysCamera001.Target
+    400158: Plane003
+    400160: Plane004
+    2300000: Cylinder001
+    2300002: Plane003
+    3300000: Cylinder001
+    3300002: Plane003
+    4300000: Plane003
+    4300002: FlagHPoly
+    4300004: Cylinder001
+    4300006: Plane004
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: FlagHPoly
+    13700002: Plane004
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
