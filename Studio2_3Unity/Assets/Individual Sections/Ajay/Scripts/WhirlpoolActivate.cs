@@ -56,9 +56,10 @@ public class WhirlpoolActivate : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player1" && Input.GetKey(KeyCode.E) && timer <= 0)
+        if (Input.GetKey(KeyCode.E) && timer <= 0)
         {
             AudioManager.instance.AudioAccess(8);
+            //pview.RPC("ActivateWhirlpool", PhotonTargets.All, new object[] { transform.localScale });
             isActivated = true;
             timer = 5;
         }
@@ -66,7 +67,8 @@ public class WhirlpoolActivate : MonoBehaviour
     #endregion
 
     #region My Functions
-    void ActivateWhirlpool()
+    [PunRPC]
+    public void ActivateWhirlpool()
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
@@ -78,11 +80,13 @@ public class WhirlpoolActivate : MonoBehaviour
     {
         if (stream.isWriting)
         {
+            stream.SendNext(isActivated);
             stream.SendNext(transform.localScale);
         }
         else
         {
-            transform.localScale = (Vector3)stream.ReceiveNext();
+            this.isActivated = (bool)stream.ReceiveNext();
+            this.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
     #endregion
