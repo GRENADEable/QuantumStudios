@@ -12,7 +12,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-    public float spDuration;    
+    public float spDuration;
 
     #endregion
 
@@ -38,7 +38,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     [SerializeField]
     private GameObject shark;
     [SerializeField]
-    private float sharkTimer; 
+    private float sharkTimer;
     [SerializeField]
     private float spawnTime;
     [SerializeField]
@@ -78,13 +78,23 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             sharkCount++;
         }*/
         sharkTimer -= Time.deltaTime;
-        if(sharkTimer <= 0 && sharkCount <= sharkLimit)
+#if UNITY_EDITOR || UNITY_STANDALONE
+        if (sharkTimer <= 0)
         {
-             index = Random.Range(0, sharkSpawnLocation.Length);
-             Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
-             sharkTimer = spawnTime;
-             sharkCount++;
+            index = Random.Range(0, sharkSpawnLocation.Length);
+            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+            sharkTimer = spawnTime;
+            Debug.LogWarning("Spawning Shark for PC Build");
         }
+#else
+        if (sharkTimer <= 0 && sharkCount <= sharkLimit)
+        {
+            index = Random.Range(0, sharkSpawnLocation.Length);
+            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+            sharkTimer = spawnTime;
+            sharkCount++;
+        }
+#endif
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -138,6 +148,11 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
+#if UNITY_EDITOR || UNITY_STANDALONE
+            index = Random.Range(0, sharkSpawnLocation.Length);
+            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+            Debug.LogWarning("Hit Whirlpool, Spawning Shark for PC Build");
+#else
 
             if (sharkCount <= sharkLimit)
             {
@@ -147,6 +162,7 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
                 sharkCount++;
             }
+#endif
         }
         //if(other.tag == "SharkSeekPowerUp")
         //{
