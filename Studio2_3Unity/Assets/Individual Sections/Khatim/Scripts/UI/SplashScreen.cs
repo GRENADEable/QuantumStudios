@@ -9,15 +9,19 @@ public class SplashScreen : MonoBehaviour
     #endregion
 
     #region Callbacks
+    void Start()
+    {
+        AudioManager.instance.SplashScreenAudio();
+    }
     void Update()
     {
         time += Time.deltaTime;
 
-        if (time >= 6.0f)
+        if (time >= 5.3f)
         {
-            AudioManager.instance.StopSplashScreenAudio();
+            AudioManager.instance.StopAudio();
             SceneManagement.instance.MainMenu();
-            AudioManager.instance.AudioAccess(9);
+            AudioManager.instance.MainMenuMusic();
         }
     }
     #endregion

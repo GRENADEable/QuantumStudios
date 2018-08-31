@@ -11,8 +11,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     private Vector3 Offset;
     //private RectTransform playerCanvas;
-    [SerializeField]
-    private Vector3 textOffset;
+    //private Vector3 textOffset;
     #endregion
 
     void Awake()
@@ -24,14 +23,12 @@ public class CameraFollow : MonoBehaviour
         if (player1 != null)
         {
             player1 = GameObject.FindGameObjectWithTag("Player1");
-
             Offset = transform.position - player1.transform.position;
         }
 
         if (player2 != null)
         {
             player2 = GameObject.FindGameObjectWithTag("Player2");
-
             Offset = transform.position - player2.transform.position;
         }
 

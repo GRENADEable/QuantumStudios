@@ -17,7 +17,7 @@ public class PlayerController : Photon.PunBehaviour
     //public PlayerNameObj plyNames;
     public GameObject miniShark;
     //public Text userName;
-
+    public Vector3 sharkSpawn;
     #endregion
 
     #region Private Variables
@@ -80,7 +80,7 @@ public class PlayerController : Photon.PunBehaviour
     {
         if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E) && pview.isMine)
         {
-            PhotonNetwork.Instantiate(miniShark.name, myRB.position, myRB.rotation, 0);
+            PhotonNetwork.Instantiate(miniShark.name, myRB.position + sharkSpawn, myRB.rotation, 0);
             hasSharkSeekPowerUp = false;
         }
     }
@@ -142,6 +142,13 @@ public class PlayerController : Photon.PunBehaviour
         {
             hasSharkSeekPowerUp = true;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.tag == "Shark")
+        {
+            other.gameObject.SetActive(false);
+            moveSpeed = slowSpeed;
+            timer = spDuration;
         }
     }
 
