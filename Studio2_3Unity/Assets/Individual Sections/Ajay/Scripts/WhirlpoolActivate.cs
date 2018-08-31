@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class WhirlpoolActivate : MonoBehaviour
 {
-
+    #region Public Variables
     public float maxSize;
     public float minSize;
     public float timer;
+    #endregion
 
+    #region Private Variables
     private float growthSize;
-	private float temp;
-    public bool isActivated;
+    private float temp;
+    private bool isActivated;
+    private PhotonView pview;
+    #endregion
 
+    #region Unity Callbacks
+    void Start()
+    {
+        pview = GetComponent<PhotonView>();
+    }
     void Update()
     {
         if (isActivated)
@@ -42,23 +51,39 @@ public class WhirlpoolActivate : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        
+
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && Input.GetKey(KeyCode.E) && timer <=0 )
+        if (other.tag == "Player1" && Input.GetKey(KeyCode.E) && timer <= 0)
         {
             AudioManager.instance.AudioAccess(8);
             isActivated = true;
             timer = 5;
         }
     }
+    #endregion
 
+    #region My Functions
     void ActivateWhirlpool()
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
-        
     }
+    #endregion
+
+    #region Photon Callbacks
+    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.localScale);
+        }
+        else
+        {
+            transform.localScale = (Vector3)stream.ReceiveNext();
+        }
+    }
+    #endregion
 }
