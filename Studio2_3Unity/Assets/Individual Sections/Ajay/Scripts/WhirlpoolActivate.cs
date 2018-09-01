@@ -11,8 +11,9 @@ public class WhirlpoolActivate : MonoBehaviour
     #endregion
 
     #region Private Variables
+    [SerializeField]
     private float growthSize;
-    private float temp;
+    [SerializeField]
     private bool isActivated;
     private PhotonView pview;
     #endregion
@@ -24,7 +25,7 @@ public class WhirlpoolActivate : MonoBehaviour
     }
     void Update()
     {
-        if (isActivated)
+        /*if (isActivated)
         {
             Debug.Log(growthSize);
             transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
@@ -34,16 +35,17 @@ public class WhirlpoolActivate : MonoBehaviour
         {
             transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
             growthSize -= 0.1f;
-        }
+        }*/
         growthSize = Mathf.Clamp01(growthSize);
-        if (growthSize >= 1.0f)
+        if (growthSize >= 0.1f)
         {
             timer -= Time.deltaTime;
             if (timer <= 0 && isActivated)
             {
 
                 timer = 5.0f;
-                isActivated = false;
+                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = false);
+                //isActivated = false;
             }
 
         }
@@ -59,8 +61,8 @@ public class WhirlpoolActivate : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && timer <= 0)
         {
             AudioManager.instance.AudioAccess(8);
-            //pview.RPC("ActivateWhirlpool", PhotonTargets.All, new object[] { transform.localScale });
-            isActivated = true;
+            //isActivated = true;
+            pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = true);
             timer = 5;
         }
     }
@@ -68,26 +70,20 @@ public class WhirlpoolActivate : MonoBehaviour
 
     #region My Functions
     [PunRPC]
-    public void ActivateWhirlpool()
+    public void ActivateWhirlpool(bool isActivated = true)
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
+        //isActivated = true;
     }
-    #endregion
 
-    #region Photon Callbacks
-    void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    [PunRPC]
+    public void DeactivateWhirlpool(bool isActivated = false)
     {
-        if (stream.isWriting)
-        {
-            stream.SendNext(isActivated);
-            stream.SendNext(transform.localScale);
-        }
-        else
-        {
-            this.isActivated = (bool)stream.ReceiveNext();
-            this.transform.localScale = (Vector3)stream.ReceiveNext();
-        }
+        /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
+        growthSize -= 0.1f;*/
+        transform.localScale = new Vector3(1f, 1f, 0.04f);
+        //isActivated = false;
     }
     #endregion
 }
