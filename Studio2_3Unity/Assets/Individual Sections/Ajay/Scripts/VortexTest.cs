@@ -37,6 +37,17 @@ public class VortexTest : MonoBehaviour
     #endregion
 
     #region My Functions
+    /*void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
+        else
+        {
 
+        }
+    }*/
     #endregion
 }

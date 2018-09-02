@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class PlayerController : Photon.PunBehaviour
 {
     #region Public Variables
+    [Header("Player Speeds")]
     public float moveSpeed;
     public float slowSpeed;
     public float regularSpeed;
     public float clampMax;
     public float powerUpSpeed;
+    [Header("Buoyancy")]
     public float buoyancy = 20.0f;
     public float viscosity;
+    [Header("Powerup Properties")]
     public float spDuration;
     //public PlayerNameObj plyNames;
     public GameObject miniShark;
@@ -31,7 +34,7 @@ public class PlayerController : Photon.PunBehaviour
     [SerializeField]
     private float rotateValue = 500f; //Default 500f
     [SerializeField]
-    private double timer;
+    private float timer;
     [SerializeField]
     private MobileJoystick mobileJoy;
     [SerializeField]
@@ -39,7 +42,6 @@ public class PlayerController : Photon.PunBehaviour
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
     private Animator anim;
-    [SerializeField]
     private bool hasSharkSeekPowerUp = false;
     //private Text playerName;
     #endregion
@@ -131,12 +133,12 @@ public class PlayerController : Photon.PunBehaviour
             timer = spDuration;
         }
 
-        if (other.tag == "Whirlpool")
+        /*if (other.tag == "Whirlpool")
         {
             this.gameObject.SetActive(false);
             this.gameObject.transform.position = GameManager.instance.spawnLocation[GameManager.instance.index].transform.position;
             this.gameObject.SetActive(true);
-        }
+        }*/
 
         if (other.tag == "SharkSeekPowerUp")
         {
