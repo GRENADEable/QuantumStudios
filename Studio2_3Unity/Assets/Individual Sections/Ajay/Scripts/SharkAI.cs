@@ -75,7 +75,7 @@ public class SharkAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneManagement.instance.GameOver();
             AudioManager.instance.StopAudio();
             AudioManager.instance.DeathAudio();
         }

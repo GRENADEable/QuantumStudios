@@ -13,7 +13,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float powerUpSpeed;
     public float clampMax;
     public float spDuration;
-
     #endregion
 
     #region Private Variables
@@ -31,18 +30,8 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     private float MoveVertical;
     private int index;
     [Header("Shark Spawning")]
-    [SerializeField]
-    private GameObject[] sharkSpawnLocation;
-    [SerializeField]
-    private int sharkCount = 0;
-    [SerializeField]
-    private GameObject shark;
-    [SerializeField]
-    private float sharkTimer;
-    [SerializeField]
-    private float spawnTime;
-    [SerializeField]
-    private int sharkLimit;
+
+    private SharkSpawning spawner;
     #endregion
 
     void Start()
@@ -52,7 +41,8 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
         anim = GetComponent<Animator>();
 
-        sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
+        //sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
+        spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
     }
 
 
@@ -77,24 +67,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
             sharkCount++;
         }*/
-        sharkTimer -= Time.deltaTime;
-#if UNITY_EDITOR || UNITY_STANDALONE
-        if (sharkTimer <= 0)
-        {
-            index = Random.Range(0, sharkSpawnLocation.Length);
-            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
-            sharkTimer = spawnTime;
-            Debug.LogWarning("Spawning Shark for PC Build");
-        }
-#else
-        if (sharkTimer <= 0 && sharkCount <= sharkLimit)
-        {
-            index = Random.Range(0, sharkSpawnLocation.Length);
-            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
-            sharkTimer = spawnTime;
-            sharkCount++;
-        }
-#endif
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -148,28 +120,9 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
-#if UNITY_EDITOR || UNITY_STANDALONE
-            index = Random.Range(0, sharkSpawnLocation.Length);
-            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
+            spawner.ActivateEnemy();
             Debug.LogWarning("Hit Whirlpool, Spawning Shark for PC Build");
-#else
-
-            if (sharkCount <= sharkLimit)
-            {
-                index = Random.Range(0, sharkSpawnLocation.Length);
-
-                Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
-
-                sharkCount++;
-            }
-#endif
         }
-        //if(other.tag == "SharkSeekPowerUp")
-        //{
-        //    hasSharkSeekPowerUp = true;
-        //    other.gameObject.SetActive(false);
-        //    Instantiate(pickUpFX2, myRB.position, myRB.rotation);
-        //}
     }
 
     void OnTriggerExit(Collider other)

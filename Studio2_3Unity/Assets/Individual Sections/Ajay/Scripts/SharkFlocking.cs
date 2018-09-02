@@ -15,52 +15,39 @@ public class SharkFlocking : MonoBehaviour
     public float maxForce;
     #endregion
     #region Private Variables
-    private List<Rigidbody> boids;
     private Rigidbody sharkRB;
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private GameObject[] sharks;
+    private SharkSpawning spawn;
     #endregion
     void Start()
     {
-        boids = new List<Rigidbody>();
         sharkRB = GetComponent<Rigidbody>();
-
-
         player = GameObject.FindGameObjectWithTag("Player");
-        //Testing
-        /*sharks = GameObject.FindGameObjectsWithTag("AIShark");
-
-        for (int i = 0; i < sharks.Length; i++)
-        {
-            Rigidbody rbBoid = sharks[i].GetComponent<Rigidbody>();
-            boids.Add(rbBoid);
-        }*/
+        spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
     }
 
     void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        sharks = GameObject.FindGameObjectsWithTag("AIShark");
 
-        //Access Each Array of Sharks
-        //Then get all the rb from the sharks in the scene
-        //Add the rb to the list of Rigidbodies
-
-        for (int i = 0; i < sharks.Length; i++)
-        {
-            Rigidbody rbBoid = sharks[i].GetComponent<Rigidbody>();
-            boids.Add(rbBoid);
-        }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            SceneManagement.instance.GameOver();
+        }
+    }
 
     void FixedUpdate()
     {
         Flocking();
     }
 
+    #region Steering Behaviour
     void Flocking()
     {
         Vector3 align = Alignment();
@@ -72,6 +59,10 @@ public class SharkFlocking : MonoBehaviour
         sharkRB.AddForce(seek * seekWeight);
         sharkRB.AddForce(coh * cohWeight);
         sharkRB.AddForce(seperate * seperateWeight);
+
+        Vector3 target = player.transform.position;
+        target.y = transform.position.y;
+        transform.LookAt(target + sharkRB.velocity);
     }
     Vector3 Alignment()
     {
@@ -79,7 +70,7 @@ public class SharkFlocking : MonoBehaviour
         Vector3 newPoint = Vector3.zero;
         int neighborCount = 0;
 
-        foreach (var other in boids)
+        foreach (var other in spawn.boids)
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             if (distance > 0 && distance < neighborDistance)
@@ -91,7 +82,7 @@ public class SharkFlocking : MonoBehaviour
 
         if (neighborCount > 0)
         {
-            Vector3 totalVel = (newPoint / boids.Count).normalized * maxSpeed;
+            Vector3 totalVel = (newPoint / spawn.boids.Count).normalized * maxSpeed;
             Vector3 steering = totalVel - sharkRB.velocity;
             Vector3 clampSteering = Vector3.ClampMagnitude(steering, maxForce);
             return clampSteering;
@@ -100,7 +91,6 @@ public class SharkFlocking : MonoBehaviour
         {
             return Vector3.zero;
         }
-
     }
 
     Vector3 Seeking(Vector3 target)
@@ -108,7 +98,6 @@ public class SharkFlocking : MonoBehaviour
         Vector3 desiredVelocity = (target - transform.position).normalized * maxSpeed;
         Vector3 steering = desiredVelocity - sharkRB.velocity;
         Vector3 clampSteering = Vector3.ClampMagnitude(steering, maxForce);
-        transform.LookAt(player.transform.position + sharkRB.velocity);
         return clampSteering;
     }
     Vector3 Cohesion()
@@ -118,7 +107,7 @@ public class SharkFlocking : MonoBehaviour
         Vector3 desiredCoh = Vector3.zero;
         int neighborCount = 0;
 
-        foreach (var other in boids)
+        foreach (var other in spawn.boids)
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             if (distance > 0 && distance < radius)
@@ -130,7 +119,7 @@ public class SharkFlocking : MonoBehaviour
 
         if (neighborCount > 0)
         {
-            Vector3 avgPos = newPoint / boids.Count;
+            Vector3 avgPos = newPoint / spawn.boids.Count;
             return Seeking(avgPos);
         }
         else
@@ -147,7 +136,7 @@ public class SharkFlocking : MonoBehaviour
         Vector3 sepClamp = Vector3.zero;
         int neighborCount = 0;
 
-        foreach (var other in boids)
+        foreach (var other in spawn.boids)
         {
             float distance = Vector3.Distance(transform.position, other.transform.position);
             if (distance > 0 && distance < seperationDistance)
@@ -161,10 +150,11 @@ public class SharkFlocking : MonoBehaviour
 
         if (neighborCount > 0)
         {
-            Vector3 totalVel = (newPoint / boids.Count).normalized * maxSpeed;
+            Vector3 totalVel = (newPoint / spawn.boids.Count).normalized * maxSpeed;
             Vector3 steering = totalVel - sharkRB.velocity;
             sepClamp = Vector3.ClampMagnitude(steering, maxForce);
         }
         return sepClamp;
     }
+    #endregion
 }
