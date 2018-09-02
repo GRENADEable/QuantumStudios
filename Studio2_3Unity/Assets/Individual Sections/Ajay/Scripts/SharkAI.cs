@@ -12,9 +12,10 @@ public class SharkAI : MonoBehaviour
     public int minDis;
     public float maxSpeed;
     public float maxForce;
-    GameObject[] AI;
+    [SerializeField]
+    private GameObject[] AI;
     public float spaceBetween;
-    
+
     #endregion
 
     #region Private Variables
@@ -74,7 +75,7 @@ public class SharkAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("GameOverScene");
+            SceneManagement.instance.GameOver();
             AudioManager.instance.StopAudio();
             AudioManager.instance.DeathAudio();
         }
