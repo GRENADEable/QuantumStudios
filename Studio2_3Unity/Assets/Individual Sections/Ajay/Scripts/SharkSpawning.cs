@@ -78,7 +78,7 @@ public class SharkSpawning : MonoBehaviour
         }
     }
 
-    void ActivateEnemy()
+    public void ActivateEnemy()
     {
         sharks = GameObject.FindGameObjectsWithTag("AIShark");
 

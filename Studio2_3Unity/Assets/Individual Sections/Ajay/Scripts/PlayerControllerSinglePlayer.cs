@@ -120,18 +120,9 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
-            /*#if UNITY_EDITOR || UNITY_STANDALONE
-                        Debug.LogWarning("Hit Whirlpool, Spawning Shark for PC Build");
-            #else
-
-            #endif*/
+            spawner.ActivateEnemy();
+            Debug.LogWarning("Hit Whirlpool, Spawning Shark for PC Build");
         }
-        //if(other.tag == "SharkSeekPowerUp")
-        //{
-        //    hasSharkSeekPowerUp = true;
-        //    other.gameObject.SetActive(false);
-        //    Instantiate(pickUpFX2, myRB.position, myRB.rotation);
-        //}
     }
 
     void OnTriggerExit(Collider other)

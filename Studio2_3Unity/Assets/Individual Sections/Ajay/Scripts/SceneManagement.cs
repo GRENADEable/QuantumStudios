@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagement : MonoBehaviour
 {
-
     public static SceneManagement instance = null;
 
     void Awake()
@@ -39,5 +38,12 @@ public class SceneManagement : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         AudioManager.instance.StopAudio();
         AudioManager.instance.MainMenuMusic();
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOverScene");
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.DeathAudio();
     }
 }
