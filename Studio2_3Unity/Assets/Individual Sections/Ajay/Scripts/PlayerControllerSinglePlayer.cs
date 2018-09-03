@@ -116,13 +116,21 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             timer = spDuration;
             AudioManager.instance.AudioAccess(4);
         }
-
+#if UNITY_EDITOR || UNITY_STANDALONE
         if (other.tag == "Whirlpool")
         {
             moveSpeed = slowSpeed;
             spawner.ActivateEnemy();
             Debug.LogWarning("Hit Whirlpool, Spawning Shark for PC Build");
         }
+#else
+        if (other.tag == "Whirlpool")
+        {
+            moveSpeed = slowSpeed;
+            Debug.LogWarning("Hit Whirlpool, Spawning Shark for Android Build");
+        }
+#endif
+
     }
 
     void OnTriggerExit(Collider other)
