@@ -9,18 +9,23 @@ public class SharkSpawning : MonoBehaviour
     [SerializeField]
     private GameObject[] sharkSpawnLocation;
     [SerializeField]
-    private int sharkCount = 0;
+    private GameObject[] sharkSpawnLocationAndroid;
+    [Header("Shark Prefabs")]
     [SerializeField]
-    private GameObject shark;
+    private GameObject sharkPC;
+    [SerializeField]
+    private GameObject sharkAndroid;
+    [Header("Shark Timers")]
     [SerializeField]
     private float sharkTimer;
     [SerializeField]
     private float spawnTime;
-    [SerializeField]
-    private int sharkLimit;
+    [Header("Shark Spawn Indexes")]
     [SerializeField]
     private int index;
     [SerializeField]
+    private int indexAndroid;
+    [Header("Shark Boids Count")]
     private GameObject[] sharks;
     public List<Rigidbody> boids;
     [SerializeField]
@@ -30,6 +35,7 @@ public class SharkSpawning : MonoBehaviour
     void Awake()
     {
         sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
+        sharkSpawnLocationAndroid = GameObject.FindGameObjectsWithTag("SharkSpawnerAndroid");
         boids = new List<Rigidbody>();
         Spawn();
         sharkTimer = spawnTime;
@@ -38,7 +44,11 @@ public class SharkSpawning : MonoBehaviour
     void FixedUpdate()
     {
         sharkTimer -= Time.deltaTime;
+#if UNITY_EDITOR || UNITY_STANDALONE
         index = Random.Range(0, sharkSpawnLocation.Length);
+#else
+        indexAndroid = Random.Range(0, sharkSpawnLocationAndroid.Length);
+#endif
 
 #if UNITY_EDITOR || UNITY_STANDALONE
         if (sharkTimer <= 0)
@@ -48,24 +58,32 @@ public class SharkSpawning : MonoBehaviour
             Debug.LogWarning("Spawning Shark for PC Build");
         }
 #else
-        if (sharkTimer <= 0 && sharkCount <= sharkLimit)
+        if (sharkTimer <= 0)
         {
-            index = Random.Range(0, sharkSpawnLocation.Length);
-            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
             sharkTimer = spawnTime;
-            sharkCount++;
+            ActivateEnemyAndroid();
+            Debug.LogWarning("Spawning Shark for Android Build");
         }
 #endif
     }
     void Spawn()
     {
+#if UNITY_EDITOR || UNITY_STANDALONE
         for (int i = 0; i < sharkSpawnLocation.Length; i++)
         {
-            GameObject enemy = Instantiate(shark, sharkSpawnLocation[i].transform.position, Quaternion.identity);
+            GameObject enemy = Instantiate(sharkPC, sharkSpawnLocation[i].transform.position, Quaternion.identity);
             SharkBoids();
             enemy.SetActive(false);
             sharkObj.Add(enemy);
         }
+#else
+        for (int i = 0; i < sharkSpawnLocationAndroid.Length; i++)
+        {
+            GameObject enemy = Instantiate(sharkPC, sharkSpawnLocationAndroid[i].transform.position, Quaternion.identity);
+            enemy.SetActive(false);
+            sharkObj.Add(enemy);
+        }
+#endif
     }
     void SharkBoids()
     {
@@ -82,6 +100,12 @@ public class SharkSpawning : MonoBehaviour
     {
         sharks = GameObject.FindGameObjectsWithTag("AIShark");
 
+        if (!sharkObj[index].activeInHierarchy)
+            sharkObj[index].SetActive(true);
+    }
+
+    public void ActivateEnemyAndroid()
+    {
         if (!sharkObj[index].activeInHierarchy)
             sharkObj[index].SetActive(true);
     }

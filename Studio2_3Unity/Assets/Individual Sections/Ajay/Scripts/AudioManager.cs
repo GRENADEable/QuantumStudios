@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource fxSource;
     public AudioSource mainMenuFx;
     public AudioSource inGameFx;
+    public AudioSource inGameAmbient;
     public AudioClip[] soundClips;
     public static AudioManager instance = null;
 
@@ -29,6 +30,7 @@ public class AudioManager : MonoBehaviour
         fxSource.Stop();
         mainMenuFx.Stop();
         inGameFx.Stop();
+        inGameAmbient.Stop();
     }
     public void AudioAccess(int index)
     {
@@ -51,6 +53,10 @@ public class AudioManager : MonoBehaviour
         inGameFx.Play();
         inGameFx.playOnAwake = true;
         inGameFx.loop = true;
+
+        inGameAmbient.Play();
+        inGameAmbient.playOnAwake = true;
+        inGameAmbient.loop = true;
     }
 
     public void MainMenuMusic()
