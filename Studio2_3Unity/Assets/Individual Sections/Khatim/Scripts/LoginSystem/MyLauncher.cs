@@ -13,6 +13,7 @@ public class MyLauncher : MonoBehaviour
     public GameObject lobbyPanel;
     public GameObject mainMenuPanel;
     public GameObject multiplayerPanel;
+    public GameObject tCPanel;
     [Header("Notification Text")]
     public GameObject userNotFoundText;
     public GameObject passwordWrongText;
@@ -49,12 +50,13 @@ public class MyLauncher : MonoBehaviour
         if (PhotonNetwork.connected)
             PhotonNetwork.Disconnect();
 
+        tCPanel.SetActive(true);
         lobbyPanel.SetActive(false);
         EnterUsernamePanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
         mainMenuButton.SetActive(false);
     }
 
