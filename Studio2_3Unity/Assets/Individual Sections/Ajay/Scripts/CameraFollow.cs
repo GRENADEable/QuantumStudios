@@ -8,6 +8,8 @@ public class CameraFollow : MonoBehaviour
     #region Private Variables
     public GameObject player1;
     public GameObject player2;
+    public GameObject player3;
+    public GameObject player4;
     [SerializeField]
     private Vector3 Offset;
     //private RectTransform playerCanvas;
@@ -32,6 +34,18 @@ public class CameraFollow : MonoBehaviour
             Offset = transform.position - player2.transform.position;
         }
 
+        if (player3 != null)
+        {
+            player3 = GameObject.FindGameObjectWithTag("Player3");
+            Offset = transform.position - player3.transform.position;
+        }
+
+        if (player4 != null)
+        {
+            player4 = GameObject.FindGameObjectWithTag("Player4");
+            Offset = transform.position - player4.transform.position;
+        }
+
         //textOffset = playerCanvas.transform.position - Player.transform.position;
 
         //playerCanvas.transform.position = playerCanvas.transform.position + textOffset;
@@ -46,6 +60,16 @@ public class CameraFollow : MonoBehaviour
         if (player2 != null)
         {
             transform.position = player2.transform.position + Offset;
+        }
+
+        if (player3 != null)
+        {
+            transform.position = player3.transform.position + Offset;
+        }
+
+        if (player4 != null)
+        {
+            transform.position = player4.transform.position + Offset;
         }
     }
 }

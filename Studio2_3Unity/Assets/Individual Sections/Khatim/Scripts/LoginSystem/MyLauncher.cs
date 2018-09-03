@@ -6,26 +6,33 @@ public class MyLauncher : MonoBehaviour
 {
     #region Public Variables
     [Header("Panels")]
+    public GameObject EnterUsernamePanel;
     public GameObject createUserPanel;
     public GameObject loginUserPanel;
     public GameObject loginAndCreateUserPanel;
     public GameObject lobbyPanel;
     public GameObject mainMenuPanel;
     public GameObject multiplayerPanel;
+    public GameObject tCPanel;
     [Header("Notification Text")]
     public GameObject userNotFoundText;
     public GameObject passwordWrongText;
     public GameObject loginText;
     public GameObject creatingUserText;
     public GameObject createdUserText;
+    public GameObject gameLoadingText;
+    public GameObject mainMenuButton;
     [Header("Login Field")]
     public InputField inputUser;
     public InputField inputPassword;
+    public float timer;
     [Header("Create Field")]
     public InputField createUser;
     public InputField createPassword;
     public InputField createEmail;
     public PlayerNameObj plyName;
+    public HighScoreObj high;
+    public InputField highscoreUser;
     #endregion
 
     #region Private Variables
@@ -43,11 +50,14 @@ public class MyLauncher : MonoBehaviour
         if (PhotonNetwork.connected)
             PhotonNetwork.Disconnect();
 
+        tCPanel.SetActive(true);
         lobbyPanel.SetActive(false);
+        EnterUsernamePanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+        mainMenuButton.SetActive(false);
     }
 
     void Start()
@@ -57,14 +67,48 @@ public class MyLauncher : MonoBehaviour
 
         inputUser.characterLimit = 20;
         inputPassword.characterLimit = 16;
+
+        highscoreUser.characterLimit = 20;
+
+        timer = 6.0f;
+    }
+
+    void Update()
+    {
+        if (loginText.activeInHierarchy)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0f)
+        {
+            mainMenuButton.SetActive(true);
+        }
     }
     #endregion
 
     #region My Functions
+    public void SingleplayerPanel()
+    {
+        EnterUsernamePanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+    }
+
+    public void LoadingPanel()
+    {
+        EnterUsernamePanel.SetActive(false);
+        gameLoadingText.SetActive(true);
+        //UserInfo.instance.username = highscoreUser.text;
+        high.playerName = highscoreUser.text;
+        Debug.LogWarning("Username Added to Scriptable Objects");
+    }
     public void MainMenuPanel()
     {
+        timer = 6.0f;
         lobbyPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
+        mainMenuButton.SetActive(false);
+        gameLoadingText.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 

@@ -72,11 +72,25 @@ public class PlayerController : Photon.PunBehaviour
             cam.player1 = this.gameObject;
             minimapCam.player = this.gameObject;
         }
+
         else if (pview.isMine && this.tag == "Player2")
         {
             cam.player2 = this.gameObject;
             minimapCam.player = this.gameObject;
         }
+
+        else if (pview.isMine && this.tag == "Player3")
+        {
+            cam.player3 = this.gameObject;
+            minimapCam.player = this.gameObject;
+        }
+        
+        else if (pview.isMine && this.tag == "Player4")
+        {
+            cam.player4 = this.gameObject;
+            minimapCam.player = this.gameObject;
+        }
+
     }
     void Update()
     {

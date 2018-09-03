@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 48440a2a210033a44bf946a2874b5805
+timeCreated: 1535884026
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bottem_tail_vin
+    100002: Bottem_tail_vin_END
+    100004: higher shark teeth
+    100006: Left eyeball
+    100008: Left_Bottem_pectoral_vin
+    100010: Left_pectoral_vin_END
+    100012: Left_Top_pectoral_vin
+    100014: Lower shark teeth
+    100016: Lower_Jaw
+    100018: Lower_Jaw_END
+    100020: Right eye
+    100022: Right_Bottem_pectoral_vin
+    100024: Right_pectoral_vin_END
+    100026: Right_Top_pectoral_vin
+    100028: shark body
+    100030: //RootNode
+    100032: Spine_01
+    100034: Spine_02
+    100036: Spine_03
+    100038: Spine_END
+    100040: Top_tail_vin
+    100042: Top_tail_vin_END
+    100044: Top_Vin
+    100046: Top_Vin_END
+    100048: Uper_Jaw
+    100050: uper_Jaw_END
+    400000: Bottem_tail_vin
+    400002: Bottem_tail_vin_END
+    400004: higher shark teeth
+    400006: Left eyeball
+    400008: Left_Bottem_pectoral_vin
+    400010: Left_pectoral_vin_END
+    400012: Left_Top_pectoral_vin
+    400014: Lower shark teeth
+    400016: Lower_Jaw
+    400018: Lower_Jaw_END
+    400020: Right eye
+    400022: Right_Bottem_pectoral_vin
+    400024: Right_pectoral_vin_END
+    400026: Right_Top_pectoral_vin
+    400028: shark body
+    400030: //RootNode
+    400032: Spine_01
+    400034: Spine_02
+    400036: Spine_03
+    400038: Spine_END
+    400040: Top_tail_vin
+    400042: Top_tail_vin_END
+    400044: Top_Vin
+    400046: Top_Vin_END
+    400048: Uper_Jaw
+    400050: uper_Jaw_END
+    2300000: higher shark teeth
+    2300002: Left eyeball
+    2300004: Lower shark teeth
+    2300006: Right eye
+    3300000: higher shark teeth
+    3300002: Left eyeball
+    3300004: Lower shark teeth
+    3300006: Right eye
+    4300000: shark body
+    4300002: Left eyeball
+    4300004: Right eye
+    4300006: higher shark teeth
+    4300008: Lower shark teeth
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: shark body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

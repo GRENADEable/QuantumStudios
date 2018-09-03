@@ -6,30 +6,25 @@ using UnityEngine.SceneManagement;
 
 public class SharkAI : MonoBehaviour
 {
-
     #region Public Variables
-    public int maxDis;
-    public int minDis;
     public float maxSpeed;
     public float maxForce;
     [SerializeField]
-    private GameObject[] AI;
-    public float spaceBetween;
-
+    //private SharkSpawning AI;
+    //public float spaceBetween;
     #endregion
 
     #region Private Variables
     private Rigidbody sharkRB;
     [SerializeField]
     private GameObject Player;
-
     #endregion
 
 
     void Start()
     {
         sharkRB = GetComponent<Rigidbody>();
-        AI = GameObject.FindGameObjectsWithTag("AIShark");
+        //AI = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
         Player = GameObject.FindGameObjectWithTag("Player");
     }
 
@@ -44,14 +39,9 @@ public class SharkAI : MonoBehaviour
 
         sharkRB.AddForce(clampSteering, ForceMode.Impulse);
         transform.LookAt(transform.position + sharkRB.velocity);
-        /*moveSpeed = Mathf.Clamp(moveSpeed, 0, maxSpeed);
-        sharkRB.AddForce(headDir * moveSpeed, ForceMode.Impulse);
-
-        //Look at the player and start moving towards them
-        transform.LookAt(headDir + this.transform.position);*/
 
         //Add seperation between each AI
-        foreach (GameObject go in AI)
+        /*foreach (GameObject go in AI.sharkAndroidPrefab)
         {
             if (go != gameObject)
             {
@@ -62,14 +52,7 @@ public class SharkAI : MonoBehaviour
                     transform.Translate(direction * Time.deltaTime);
                 }
             }
-        }
-        //transform.LookAt(Player.transform.position);
-
-        //if (Vector3.Distance(transform.position, Player.transform.position) >= minDis && Player != null)
-        //{
-        //    transform.position += transform.forward * moveSpeed * Time.deltaTime;
-        //}
-
+        }*/
     }
     void OnTriggerEnter(Collider other)
     {
