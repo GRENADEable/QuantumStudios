@@ -6,6 +6,7 @@ public class MyLauncher : MonoBehaviour
 {
     #region Public Variables
     [Header("Panels")]
+    public GameObject EnterUsernamePanel;
     public GameObject createUserPanel;
     public GameObject loginUserPanel;
     public GameObject loginAndCreateUserPanel;
@@ -18,6 +19,7 @@ public class MyLauncher : MonoBehaviour
     public GameObject loginText;
     public GameObject creatingUserText;
     public GameObject createdUserText;
+    public GameObject gameLoadingText;
     [Header("Login Field")]
     public InputField inputUser;
     public InputField inputPassword;
@@ -26,6 +28,8 @@ public class MyLauncher : MonoBehaviour
     public InputField createPassword;
     public InputField createEmail;
     public PlayerNameObj plyName;
+    public HighScoreObj high;
+    public InputField highscoreUser;
     #endregion
 
     #region Private Variables
@@ -44,6 +48,7 @@ public class MyLauncher : MonoBehaviour
             PhotonNetwork.Disconnect();
 
         lobbyPanel.SetActive(false);
+        EnterUsernamePanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
@@ -57,10 +62,26 @@ public class MyLauncher : MonoBehaviour
 
         inputUser.characterLimit = 20;
         inputPassword.characterLimit = 16;
+
+        highscoreUser.characterLimit = 20;
     }
     #endregion
 
     #region My Functions
+    public void SingleplayerPanel()
+    {
+        EnterUsernamePanel.SetActive(true);
+        mainMenuPanel.SetActive(false);
+    }
+
+    public void LoadingPanel()
+    {
+        EnterUsernamePanel.SetActive(false);
+        gameLoadingText.SetActive(true);
+        //UserInfo.instance.username = highscoreUser.text;
+        high.playerName = highscoreUser.text;
+        Debug.LogWarning("Username Added to Scriptable Objects");
+    }
     public void MainMenuPanel()
     {
         lobbyPanel.SetActive(false);
