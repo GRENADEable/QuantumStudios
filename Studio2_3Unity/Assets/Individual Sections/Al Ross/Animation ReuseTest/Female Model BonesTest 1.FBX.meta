@@ -1,0 +1,253 @@
+fileFormatVersion: 2
+guid: 1198a725d51c3f34b89ab12d189bec3a
+timeCreated: 1535924781
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm_LBone_01
+    100002: Arm_LBone_01 1
+    100004: Arm_LBone_02
+    100006: Arm_LBone_02 1
+    100008: Arm_LCollarbone
+    100010: Arm_LPalm
+    100012: Arm_RCollarbone
+    100014: Arm_RPalm
+    100016: Body
+    100018: Chest
+    100020: Circle001
+    100022: Circle002
+    100024: Circle007
+    100026: Circle008
+    100028: Circle009
+    100030: Circle010
+    100032: Circle011
+    100034: Circle012
+    100036: Circle013
+    100038: Circle014
+    100040: Circle015
+    100042: Circle016
+    100044: Clothes
+    100046: COG
+    100048: //RootNode
+    100050: Hair back
+    100052: Head
+    100054: IK Chain005
+    100056: IK Chain006
+    100058: IK Chain007
+    100060: IK Chain008
+    100062: Index_LBone_01
+    100064: Index_LBone_02
+    100066: Index_LBone_03
+    100068: Index_RBone_01
+    100070: Index_RBone_02
+    100072: Index_RBone_03
+    100074: Leg_LAnkle
+    100076: Leg_LBone_01
+    100078: Leg_LBone_02
+    100080: Leg_LBone_03
+    100082: Leg_RAnkle
+    100084: Leg_RBone_01
+    100086: Leg_RBone_02
+    100088: Leg_RBone_03
+    100090: Leg_RBone_04
+    100092: Leg_RBone_04 1
+    100094: Middle_LBone_01
+    100096: Middle_LBone_02
+    100098: Middle_LBone_03
+    100100: Middle_RBone_01
+    100102: Middle_RBone_02
+    100104: Middle_RBone_03
+    100106: Neck
+    100108: NGon005
+    100110: NGon006
+    100112: NGon008
+    100114: Pinky_LBone_01
+    100116: Pinky_LBone_02
+    100118: Pinky_LBone_03
+    100120: Pinky_RBone_01
+    100122: Pinky_RBone_02
+    100124: Pinky_RBone_03
+    100126: Ring_LBone_01
+    100128: Ring_LBone_02
+    100130: Ring_LBone_03
+    100132: Ring_RBone_01
+    100134: Ring_RBone_02
+    100136: Ring_RBone_03
+    100138: Spine_01
+    100140: Spine_02
+    100142: Star003
+    100144: Star004
+    100146: Star005
+    100148: Star006
+    100150: Star007
+    100152: Star008
+    100154: Thumb_LBone_01
+    100156: Thumb_LBone_02
+    100158: Thumb_LBone_03
+    100160: Thumb_RBone_01
+    100162: Thumb_RBone_02
+    100164: Thumb_RBone_03
+    400000: Arm_LBone_01
+    400002: Arm_LBone_01 1
+    400004: Arm_LBone_02
+    400006: Arm_LBone_02 1
+    400008: Arm_LCollarbone
+    400010: Arm_LPalm
+    400012: Arm_RCollarbone
+    400014: Arm_RPalm
+    400016: Body
+    400018: Chest
+    400020: Circle001
+    400022: Circle002
+    400024: Circle007
+    400026: Circle008
+    400028: Circle009
+    400030: Circle010
+    400032: Circle011
+    400034: Circle012
+    400036: Circle013
+    400038: Circle014
+    400040: Circle015
+    400042: Circle016
+    400044: Clothes
+    400046: COG
+    400048: //RootNode
+    400050: Hair back
+    400052: Head
+    400054: IK Chain005
+    400056: IK Chain006
+    400058: IK Chain007
+    400060: IK Chain008
+    400062: Index_LBone_01
+    400064: Index_LBone_02
+    400066: Index_LBone_03
+    400068: Index_RBone_01
+    400070: Index_RBone_02
+    400072: Index_RBone_03
+    400074: Leg_LAnkle
+    400076: Leg_LBone_01
+    400078: Leg_LBone_02
+    400080: Leg_LBone_03
+    400082: Leg_RAnkle
+    400084: Leg_RBone_01
+    400086: Leg_RBone_02
+    400088: Leg_RBone_03
+    400090: Leg_RBone_04
+    400092: Leg_RBone_04 1
+    400094: Middle_LBone_01
+    400096: Middle_LBone_02
+    400098: Middle_LBone_03
+    400100: Middle_RBone_01
+    400102: Middle_RBone_02
+    400104: Middle_RBone_03
+    400106: Neck
+    400108: NGon005
+    400110: NGon006
+    400112: NGon008
+    400114: Pinky_LBone_01
+    400116: Pinky_LBone_02
+    400118: Pinky_LBone_03
+    400120: Pinky_RBone_01
+    400122: Pinky_RBone_02
+    400124: Pinky_RBone_03
+    400126: Ring_LBone_01
+    400128: Ring_LBone_02
+    400130: Ring_LBone_03
+    400132: Ring_RBone_01
+    400134: Ring_RBone_02
+    400136: Ring_RBone_03
+    400138: Spine_01
+    400140: Spine_02
+    400142: Star003
+    400144: Star004
+    400146: Star005
+    400148: Star006
+    400150: Star007
+    400152: Star008
+    400154: Thumb_LBone_01
+    400156: Thumb_LBone_02
+    400158: Thumb_LBone_03
+    400160: Thumb_RBone_01
+    400162: Thumb_RBone_02
+    400164: Thumb_RBone_03
+    2300000: Clothes
+    2300002: Hair back
+    3300000: Clothes
+    3300002: Hair back
+    4300000: Body
+    4300002: Clothes
+    4300004: Hair back
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,319 @@
+fileFormatVersion: 2
+guid: b416eabad4f193349a58999e9b1b789e
+timeCreated: 1535930279
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm_LBone_01
+    100002: Arm_LBone_01 1
+    100004: Arm_LBone_02
+    100006: Arm_LBone_02 1
+    100008: Arm_LCollarbone
+    100010: Arm_LPalm
+    100012: Arm_RCollarbone
+    100014: Arm_RPalm
+    100016: Body
+    100018: Chest
+    100020: Circle001
+    100022: Circle002
+    100024: Circle009
+    100026: Circle010
+    100028: Circle011
+    100030: Circle012
+    100032: Circle013
+    100034: Circle014
+    100036: Circle015
+    100038: Circle016
+    100040: Circle017
+    100042: Circle018
+    100044: Circle019
+    100046: Circle020
+    100048: Circle021
+    100050: Circle022
+    100052: Circle024
+    100054: Circle025
+    100056: Circle026
+    100058: Circle027
+    100060: Circle028
+    100062: Circle029
+    100064: Circle030
+    100066: Circle031
+    100068: Circle032
+    100070: Circle033
+    100072: Circle034
+    100074: Circle035
+    100076: Circle036
+    100078: Circle037
+    100080: Circle038
+    100082: Circle039
+    100084: Circle040
+    100086: Circle041
+    100088: Circle042
+    100090: Circle043
+    100092: Circle044
+    100094: Circle045
+    100096: Circle046
+    100098: Circle047
+    100100: Circle048
+    100102: Circle049
+    100104: Circle050
+    100106: Circle051
+    100108: Circle052
+    100110: Circle053
+    100112: Clothes
+    100114: COG
+    100116: //RootNode
+    100118: Hair back
+    100120: Head
+    100122: IK Chain005
+    100124: IK Chain006
+    100126: IK Chain007
+    100128: IK Chain008
+    100130: Index_LBone_01
+    100132: Index_LBone_02
+    100134: Index_LBone_03
+    100136: Index_RBone_01
+    100138: Index_RBone_02
+    100140: Index_RBone_03
+    100142: Leg_LAnkle
+    100144: Leg_LBone_01
+    100146: Leg_LBone_02
+    100148: Leg_LBone_03
+    100150: Leg_RAnkle
+    100152: Leg_RBone_01
+    100154: Leg_RBone_02
+    100156: Leg_RBone_03
+    100158: Leg_RBone_04
+    100160: Leg_RBone_04 1
+    100162: Middle_LBone_01
+    100164: Middle_LBone_02
+    100166: Middle_LBone_03
+    100168: Middle_RBone_01
+    100170: Middle_RBone_02
+    100172: Middle_RBone_03
+    100174: Neck
+    100176: NGon005
+    100178: NGon006
+    100180: Pinky_LBone_01
+    100182: Pinky_LBone_02
+    100184: Pinky_LBone_03
+    100186: Pinky_RBone_01
+    100188: Pinky_RBone_02
+    100190: Pinky_RBone_03
+    100192: Rectangle001
+    100194: Rectangle002
+    100196: Ring_LBone_01
+    100198: Ring_LBone_02
+    100200: Ring_LBone_03
+    100202: Ring_RBone_01
+    100204: Ring_RBone_02
+    100206: Ring_RBone_03
+    100208: Spine_01
+    100210: Spine_02
+    100212: Star005
+    100214: Star006
+    100216: Star007
+    100218: Star008
+    100220: Star009
+    100222: Thumb_LBone_01
+    100224: Thumb_LBone_02
+    100226: Thumb_LBone_03
+    100228: Thumb_RBone_01
+    100230: Thumb_RBone_02
+    100232: Thumb_RBone_03
+    400000: Arm_LBone_01
+    400002: Arm_LBone_01 1
+    400004: Arm_LBone_02
+    400006: Arm_LBone_02 1
+    400008: Arm_LCollarbone
+    400010: Arm_LPalm
+    400012: Arm_RCollarbone
+    400014: Arm_RPalm
+    400016: Body
+    400018: Chest
+    400020: Circle001
+    400022: Circle002
+    400024: Circle009
+    400026: Circle010
+    400028: Circle011
+    400030: Circle012
+    400032: Circle013
+    400034: Circle014
+    400036: Circle015
+    400038: Circle016
+    400040: Circle017
+    400042: Circle018
+    400044: Circle019
+    400046: Circle020
+    400048: Circle021
+    400050: Circle022
+    400052: Circle024
+    400054: Circle025
+    400056: Circle026
+    400058: Circle027
+    400060: Circle028
+    400062: Circle029
+    400064: Circle030
+    400066: Circle031
+    400068: Circle032
+    400070: Circle033
+    400072: Circle034
+    400074: Circle035
+    400076: Circle036
+    400078: Circle037
+    400080: Circle038
+    400082: Circle039
+    400084: Circle040
+    400086: Circle041
+    400088: Circle042
+    400090: Circle043
+    400092: Circle044
+    400094: Circle045
+    400096: Circle046
+    400098: Circle047
+    400100: Circle048
+    400102: Circle049
+    400104: Circle050
+    400106: Circle051
+    400108: Circle052
+    400110: Circle053
+    400112: Clothes
+    400114: COG
+    400116: //RootNode
+    400118: Hair back
+    400120: Head
+    400122: IK Chain005
+    400124: IK Chain006
+    400126: IK Chain007
+    400128: IK Chain008
+    400130: Index_LBone_01
+    400132: Index_LBone_02
+    400134: Index_LBone_03
+    400136: Index_RBone_01
+    400138: Index_RBone_02
+    400140: Index_RBone_03
+    400142: Leg_LAnkle
+    400144: Leg_LBone_01
+    400146: Leg_LBone_02
+    400148: Leg_LBone_03
+    400150: Leg_RAnkle
+    400152: Leg_RBone_01
+    400154: Leg_RBone_02
+    400156: Leg_RBone_03
+    400158: Leg_RBone_04
+    400160: Leg_RBone_04 1
+    400162: Middle_LBone_01
+    400164: Middle_LBone_02
+    400166: Middle_LBone_03
+    400168: Middle_RBone_01
+    400170: Middle_RBone_02
+    400172: Middle_RBone_03
+    400174: Neck
+    400176: NGon005
+    400178: NGon006
+    400180: Pinky_LBone_01
+    400182: Pinky_LBone_02
+    400184: Pinky_LBone_03
+    400186: Pinky_RBone_01
+    400188: Pinky_RBone_02
+    400190: Pinky_RBone_03
+    400192: Rectangle001
+    400194: Rectangle002
+    400196: Ring_LBone_01
+    400198: Ring_LBone_02
+    400200: Ring_LBone_03
+    400202: Ring_RBone_01
+    400204: Ring_RBone_02
+    400206: Ring_RBone_03
+    400208: Spine_01
+    400210: Spine_02
+    400212: Star005
+    400214: Star006
+    400216: Star007
+    400218: Star008
+    400220: Star009
+    400222: Thumb_LBone_01
+    400224: Thumb_LBone_02
+    400226: Thumb_LBone_03
+    400228: Thumb_RBone_01
+    400230: Thumb_RBone_02
+    400232: Thumb_RBone_03
+    4300000: Body
+    4300002: Clothes
+    4300004: Hair back
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+    13700002: Clothes
+    13700004: Hair back
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
