@@ -30,7 +30,7 @@ public class SceneManagement : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-        Debug.Log("Quit");
+        Debug.LogWarning("Quit");
     }
 
     public void MainMenu()
