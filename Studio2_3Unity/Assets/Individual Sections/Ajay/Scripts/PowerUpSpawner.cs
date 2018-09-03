@@ -13,13 +13,21 @@ public class PowerUpSpawner : Photon.MonoBehaviour
     [SerializeField]
     private GameObject[] powerupSpawnLocation;
     [SerializeField]
+    private GameObject[] sharkPowerupSpawnLocation;
+    [SerializeField]
     private string index;
+    [SerializeField]
+    private string indexShark;
     [SerializeField]
     private int offlineIndex;
     [SerializeField]
-    private GameObject powerUp;
+    private GameObject speedPowerUp;
+    [SerializeField]
+    private GameObject sharkPowerUp;
     [SerializeField]
     private List<GameObject> powerPickUp;
+    [SerializeField]
+    private List<GameObject> sharkPickup;
     #endregion
 
     #region Unity Callbacks
@@ -28,13 +36,21 @@ public class PowerUpSpawner : Photon.MonoBehaviour
         if (PhotonNetwork.connected && PhotonNetwork.isMasterClient)
         {
             timer = maxTime;
-            powerupSpawnLocation = GameObject.FindGameObjectsWithTag("SpeedPowerSpawn");
+            powerupSpawnLocation = GameObject.FindGameObjectsWithTag("PowerUpSpawn");
 
             for (int i = 0; i < powerupSpawnLocation.Length; i++)
             {
-                GameObject obj = PhotonNetwork.Instantiate(powerUp.name, powerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
-                powerUp.SetActive(false);
-                powerPickUp.Add(obj);
+                GameObject speedObj = PhotonNetwork.Instantiate(speedPowerUp.name, powerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
+                speedPowerUp.SetActive(false);
+                powerPickUp.Add(speedObj);
+            }
+
+            sharkPowerupSpawnLocation = GameObject.FindGameObjectsWithTag("SharkPowerUpSpawn");
+            for (int i = 0; i < sharkPowerupSpawnLocation.Length; i++)
+            {
+                GameObject miniSharkObj = PhotonNetwork.Instantiate(sharkPowerUp.name, sharkPowerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
+                miniSharkObj.SetActive(false);
+                sharkPickup.Add(miniSharkObj);
             }
         }
         else
@@ -43,8 +59,8 @@ public class PowerUpSpawner : Photon.MonoBehaviour
             powerupSpawnLocation = GameObject.FindGameObjectsWithTag("SpeedPowerSpawn");
             for (int i = 0; i < powerupSpawnLocation.Length; i++)
             {
-                GameObject obj = Instantiate(powerUp, powerupSpawnLocation[i].transform.position, Quaternion.identity);
-                powerUp.SetActive(false);
+                GameObject obj = Instantiate(speedPowerUp, powerupSpawnLocation[i].transform.position, Quaternion.identity);
+                speedPowerUp.SetActive(false);
                 powerPickUp.Add(obj);
             }
         }
@@ -59,6 +75,12 @@ public class PowerUpSpawner : Photon.MonoBehaviour
             {
                 this.photonView.RPC("Spawner", PhotonTargets.All, index);
                 timer = maxTime;
+            }
+
+            indexShark = Random.Range(0, sharkPickup.Count).ToString();
+            if (timer <= 5f)
+            {
+                this.photonView.RPC("SharkSpawner", PhotonTargets.All, index);
             }
         }
         else
@@ -85,6 +107,21 @@ public class PowerUpSpawner : Photon.MonoBehaviour
             if (!powerPickUp[i].activeInHierarchy)
             {
                 powerPickUp[convertIndex].SetActive(true);
+                break;
+            }
+        }
+    }
+
+     [PunRPC]
+    void SharkSpawner(string intConvert)
+    {
+        Debug.LogWarning("Spawning SharkPowerup");
+        int convertIndex = int.Parse(intConvert);
+        for (int i = 0; i < sharkPickup.Count; i++)
+        {
+            if (!sharkPickup[i].activeInHierarchy)
+            {
+                sharkPickup[convertIndex].SetActive(true);
                 break;
             }
         }

@@ -20,9 +20,11 @@ public class MyLauncher : MonoBehaviour
     public GameObject creatingUserText;
     public GameObject createdUserText;
     public GameObject gameLoadingText;
+    public GameObject mainMenuButton;
     [Header("Login Field")]
     public InputField inputUser;
     public InputField inputPassword;
+    public float timer;
     [Header("Create Field")]
     public InputField createUser;
     public InputField createPassword;
@@ -53,6 +55,7 @@ public class MyLauncher : MonoBehaviour
         loginAndCreateUserPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        mainMenuButton.SetActive(false);
     }
 
     void Start()
@@ -64,6 +67,21 @@ public class MyLauncher : MonoBehaviour
         inputPassword.characterLimit = 16;
 
         highscoreUser.characterLimit = 20;
+
+        timer = 6.0f;
+    }
+
+    void Update()
+    {
+        if (loginText.activeInHierarchy)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        if (timer <= 0f)
+        {
+            mainMenuButton.SetActive(true);
+        }
     }
     #endregion
 
@@ -84,8 +102,11 @@ public class MyLauncher : MonoBehaviour
     }
     public void MainMenuPanel()
     {
+        timer = 6.0f;
         lobbyPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
+        mainMenuButton.SetActive(false);
+        gameLoadingText.SetActive(false);
         mainMenuPanel.SetActive(true);
     }
 
