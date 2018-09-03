@@ -12,26 +12,29 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-    public float spDuration;
     #endregion
 
     #region Private Variables
     private Rigidbody myRB;
     private Vector3 movementInput;
-    [SerializeField]
-    private float timer;
+
     [Header("Mobile Joystick")]
     [SerializeField]
     private MobileJoystick mobileJoy;
     private GameObject mobilePrefab;
-    [SerializeField]
-    private Animator anim;
+
     private float MoveHorizontal;
     private float MoveVertical;
     private int index;
     [Header("Shark Spawning")]
-
     private SharkSpawning spawner;
+    [Header("Other")]
+    [SerializeField]
+    private float spDuration;
+    [SerializeField]
+    private float timer;
+    [SerializeField]
+    private Animator anim;
     #endregion
 
     void Start()
@@ -41,32 +44,11 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
         mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
         anim = GetComponent<Animator>();
 
-        //sharkSpawnLocation = GameObject.FindGameObjectsWithTag("SharkSpawner");
         spawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
-    }
-
-
-    void Update()
-    {
-        //the problem here is that if I set the timer to <= 0, then the player will always stay at regular speed even through the whirlpool
-
-        //if (hasSharkSeekPowerUp == true && Input.GetKeyDown(KeyCode.E))
-        //{
-        //    Instantiate(miniShark, myRB.position, myRB.rotation);
-        //}
     }
 
     void FixedUpdate()
     {
-
-        /*if (sharkCount <= 3 && Input.GetKeyDown(KeyCode.F)) //Testing
-        {
-            index = Random.Range(0, sharkSpawnLocation.Length);
-
-            Instantiate(shark, sharkSpawnLocation[index].transform.position, Quaternion.identity);
-
-            sharkCount++;
-        }*/
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -105,7 +87,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
         if (other.tag == "SpeedPowerUp")
         {
             moveSpeed = powerUpSpeed;
@@ -130,7 +111,6 @@ public class PlayerControllerSinglePlayer : MonoBehaviour
             Debug.LogWarning("Hit Whirlpool, Spawning Shark for Android Build");
         }
 #endif
-
     }
 
     void OnTriggerExit(Collider other)
