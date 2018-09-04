@@ -16,12 +16,18 @@ public class WhirlpoolActivate : MonoBehaviour
     [SerializeField]
     private bool isActivated;
     private PhotonView pview;
+    [SerializeField]
+    private PlayerController player;
+    [SerializeField]
+    private int whirlPoolID;
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
         pview = GetComponent<PhotonView>();
+        player = GameObject.FindObjectOfType<PlayerController>();
+        whirlPoolID = 0;
     }
     void Update()
     {
@@ -45,6 +51,7 @@ public class WhirlpoolActivate : MonoBehaviour
 
                 timer = 5.0f;
                 pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = false);
+                whirlPoolID = 0;
                 //isActivated = false;
             }
 
@@ -63,6 +70,7 @@ public class WhirlpoolActivate : MonoBehaviour
             AudioManager.instance.AudioAccess(8);
             //isActivated = true;
             pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = true);
+            this.whirlPoolID = player.playerID;
             timer = 5;
         }
     }

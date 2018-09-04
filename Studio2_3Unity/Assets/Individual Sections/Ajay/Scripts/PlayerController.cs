@@ -35,14 +35,16 @@ public class PlayerController : Photon.PunBehaviour
     private float rotateValue = 500f; //Default 500f
     [SerializeField]
     private float timer;
-    [SerializeField]
-    private MobileJoystick mobileJoy;
-    [SerializeField]
-    private GameObject mobilePrefab;
+    private bool hasSharkSeekPowerUp = false;
+    [Header("Other")]
+    public int playerID;
+    private Animator anim;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
-    private Animator anim;
-    private bool hasSharkSeekPowerUp = false;
+    [SerializeField]
+    private GameObject mobilePrefab;
+    [SerializeField]
+    private MobileJoystick mobileJoy;
     //private Text playerName;
     #endregion
 
@@ -51,6 +53,7 @@ public class PlayerController : Photon.PunBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
+        playerID = this.pview.ownerId;
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
@@ -84,7 +87,7 @@ public class PlayerController : Photon.PunBehaviour
             cam.player3 = this.gameObject;
             minimapCam.player = this.gameObject;
         }
-        
+
         else if (pview.isMine && this.tag == "Player4")
         {
             cam.player4 = this.gameObject;

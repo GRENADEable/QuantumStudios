@@ -37,10 +37,10 @@ public class MyLauncher : MonoBehaviour
 
     #region Private Variables
     private string LoginURL = "https://kahtimdar.000webhostapp.com/usernamelogin.php"; //External Database
-    //private string LoginURL = "http://localhost/unity_login_system/usernamelogin.php"; //Local Database
-
+    //private string LoginURL = "http://localhost/unity_login_system/usernamelogin.php"; //Local Databas
     private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php"; //External Database
     //private string userURL = "http://localhost/unity_login_system/adduser.php"; //Local Database
+    private bool seen;
     #endregion
 
     #region Callbacks
@@ -50,12 +50,19 @@ public class MyLauncher : MonoBehaviour
         if (PhotonNetwork.connected)
             PhotonNetwork.Disconnect();
 
-        tCPanel.SetActive(true);
+        if (!seen)
+            tCPanel.SetActive(true);
+        else
+            tCPanel.SetActive(false);
+
+
+        multiplayerPanel.SetActive(false);
         lobbyPanel.SetActive(false);
         EnterUsernamePanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
-        multiplayerPanel.SetActive(false);
+        gameLoadingText.SetActive(false);
+
         mainMenuPanel.SetActive(false);
         mainMenuButton.SetActive(false);
     }
@@ -73,7 +80,7 @@ public class MyLauncher : MonoBehaviour
         timer = 6.0f;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (loginText.activeInHierarchy)
         {
@@ -88,84 +95,113 @@ public class MyLauncher : MonoBehaviour
     #endregion
 
     #region My Functions
-    public void SingleplayerPanel()
+    #region Cleanup
+
+    /*public void SingleplayerPanel()
     {
         EnterUsernamePanel.SetActive(true);
         mainMenuPanel.SetActive(false);
-    }
+    }*/
+    #endregion
 
     public void LoadingPanel()
     {
-        EnterUsernamePanel.SetActive(false);
-        gameLoadingText.SetActive(true);
+        #region Cleanup
+        //EnterUsernamePanel.SetActive(false);
+        //gameLoadingText.SetActive(true);
         //UserInfo.instance.username = highscoreUser.text;
+        #endregion
         high.playerName = highscoreUser.text;
         Debug.LogWarning("Username Added to Scriptable Objects");
     }
     public void MainMenuPanel()
     {
         timer = 6.0f;
-        lobbyPanel.SetActive(false);
+        seen = true;
+        loginText.SetActive(false);
+        #region Cleanup
+        /*lobbyPanel.SetActive(false);
         multiplayerPanel.SetActive(false);
         mainMenuButton.SetActive(false);
         gameLoadingText.SetActive(false);
-        mainMenuPanel.SetActive(true);
+        mainMenuPanel.SetActive(true);*/
+        #endregion
     }
 
     public void MultiplayerPanel()
     {
         creatingUserText.SetActive(false);
         createdUserText.SetActive(false);
-        loginText.SetActive(false);
+        #region Cleanup
+        /*loginText.SetActive(false);
         mainMenuPanel.SetActive(false);
         multiplayerPanel.SetActive(true);
         createUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
-        loginAndCreateUserPanel.SetActive(true);
+        loginAndCreateUserPanel.SetActive(true);*/
+        #endregion
     }
 
+    #region Cleanup
     public void CreateUserPanel()
     {
-        loginText.SetActive(false);
-        loginAndCreateUserPanel.SetActive(false);
-        creatingUserText.SetActive(false);
-        createdUserText.SetActive(false);
-        createUserPanel.SetActive(true);
+        /*loginText.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);*/
+        //createUserPanel.SetActive(true);
+        //creatingUserText.SetActive(false);
+        //createdUserText.SetActive(false);
     }
     public void LoginPanel()
     {
-        creatingUserText.SetActive(false);
-        createdUserText.SetActive(false);
-        loginAndCreateUserPanel.SetActive(false);
-        userNotFoundText.SetActive(false);
-        passwordWrongText.SetActive(false);
-        loginUserPanel.SetActive(true);
+        //creatingUserText.SetActive(false);
+        /*createdUserText.SetActive(false);
+        loginAndCreateUserPanel.SetActive(false);*/
+        /*userNotFoundText.SetActive(false);
+        passwordWrongText.SetActive(false);*/
+        //loginUserPanel.SetActive(true);
     }
+    #endregion
 
     public void JoinLobby()
     {
         loginText.SetActive(false);
-        loginAndCreateUserPanel.SetActive(false);
+        #region Cleanup
+        /*loginAndCreateUserPanel.SetActive(false);
         loginUserPanel.SetActive(false);
-        createUserPanel.SetActive(false);
+        createUserPanel.SetActive(false);*/
+        #endregion
         lobbyPanel.SetActive(true);
     }
 
     public void Login()
     {
-        userNotFoundText.SetActive(false);
-        passwordWrongText.SetActive(false);
-        StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
+        #region Cleanup
+        //userNotFoundText.SetActive(false);
+        //passwordWrongText.SetActive(false);
+        #endregion
+        if (inputUser.text != "" || inputPassword.text != "")
+        {
+            loginText.SetActive(true);
+            StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
+            Debug.LogWarning("Started DBLogin");
+
+            plyName.uesrName = inputUser.text;
+            Debug.LogWarning("Username Stored");
+        }
+
+        #region Cleanup
         //PhotonNetwork.player.NickName = inputUser.text;
-        plyName.uesrName = inputUser.text;
-        Debug.LogWarning("Username Stored");
         //PhotonNetwork.player.NickName = inputUser.text;
+        #endregion
     }
 
     public void Create()
     {
-        creatingUserText.SetActive(true);
-        CreateUser(createUser.text, createPassword.text, createEmail.text);
+        if (createUser.text != "" || createEmail.text != "" || createPassword.text != "")
+        {
+            creatingUserText.SetActive(true);
+            CreateUser(createUser.text, createPassword.text, createEmail.text);
+        }
     }
     #endregion
 
@@ -189,6 +225,7 @@ public class MyLauncher : MonoBehaviour
         else if (dbLink.text == "User Not Found")
         {
             loginText.SetActive(false);
+            passwordWrongText.SetActive(false);
             loginUserPanel.SetActive(true);
             userNotFoundText.SetActive(true);
             yield return null;
@@ -196,6 +233,7 @@ public class MyLauncher : MonoBehaviour
         else if (dbLink.text == "Password is Wrong")
         {
             loginText.SetActive(false);
+            userNotFoundText.SetActive(false);
             loginUserPanel.SetActive(true);
             passwordWrongText.SetActive(true);
             yield return null;

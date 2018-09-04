@@ -20,12 +20,15 @@ public class SharkFlocking : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private SharkSpawning spawn;
+    [SerializeField]
+    private Animator anim;
     #endregion
     void Start()
     {
         sharkRB = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
+        anim = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -98,6 +101,7 @@ public class SharkFlocking : MonoBehaviour
         Vector3 desiredVelocity = (target - transform.position).normalized * maxSpeed;
         Vector3 steering = desiredVelocity - sharkRB.velocity;
         Vector3 clampSteering = Vector3.ClampMagnitude(steering, maxForce);
+        anim.Play("SharkMovement");
         return clampSteering;
     }
     Vector3 Cohesion()
