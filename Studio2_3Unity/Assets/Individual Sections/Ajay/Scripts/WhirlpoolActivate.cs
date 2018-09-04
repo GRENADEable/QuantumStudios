@@ -51,6 +51,7 @@ public class WhirlpoolActivate : MonoBehaviour
 
                 timer = 5.0f;
                 pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = false);
+                whirlPoolID = 0;
                 //isActivated = false;
             }
 
@@ -69,6 +70,7 @@ public class WhirlpoolActivate : MonoBehaviour
             AudioManager.instance.AudioAccess(8);
             //isActivated = true;
             pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = true);
+            this.whirlPoolID = player.playerID;
             timer = 5;
         }
     }
@@ -89,7 +91,6 @@ public class WhirlpoolActivate : MonoBehaviour
         /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize -= 0.1f;*/
         transform.localScale = new Vector3(1f, 1f, 0.04f);
-        whirlPoolID = 0;
         //isActivated = false;
     }
     #endregion
