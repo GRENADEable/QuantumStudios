@@ -16,12 +16,18 @@ public class WhirlpoolActivate : MonoBehaviour
     [SerializeField]
     private bool isActivated;
     private PhotonView pview;
+    [SerializeField]
+    private PlayerController player;
+    [SerializeField]
+    private int whirlPoolID;
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
         pview = GetComponent<PhotonView>();
+        player = GameObject.FindObjectOfType<PlayerController>();
+        whirlPoolID = 0;
     }
     void Update()
     {
@@ -83,6 +89,7 @@ public class WhirlpoolActivate : MonoBehaviour
         /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize -= 0.1f;*/
         transform.localScale = new Vector3(1f, 1f, 0.04f);
+        whirlPoolID = 0;
         //isActivated = false;
     }
     #endregion

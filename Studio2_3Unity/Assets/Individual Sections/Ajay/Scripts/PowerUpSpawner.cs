@@ -33,27 +33,29 @@ public class PowerUpSpawner : Photon.MonoBehaviour
     #region Unity Callbacks
     void Awake()
     {
-        if (PhotonNetwork.connected && PhotonNetwork.isMasterClient)
+        //Debug.LogWarning(this.gameObject.name + " is Master");
+        maxTime = 15.0f;
+        timer = maxTime;
+        powerupSpawnLocation = GameObject.FindGameObjectsWithTag("PowerUpSpawn");
+
+        for (int i = 0; i < powerupSpawnLocation.Length; i++)
         {
-            timer = maxTime;
-            powerupSpawnLocation = GameObject.FindGameObjectsWithTag("PowerUpSpawn");
-
-            for (int i = 0; i < powerupSpawnLocation.Length; i++)
-            {
-                GameObject speedObj = PhotonNetwork.Instantiate(speedPowerUp.name, powerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
-                speedPowerUp.SetActive(false);
-                powerPickUp.Add(speedObj);
-            }
-
-            sharkPowerupSpawnLocation = GameObject.FindGameObjectsWithTag("SharkPowerUpSpawn");
-            for (int i = 0; i < sharkPowerupSpawnLocation.Length; i++)
-            {
-                GameObject miniSharkObj = PhotonNetwork.Instantiate(sharkPowerUp.name, sharkPowerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
-                miniSharkObj.SetActive(false);
-                sharkPickup.Add(miniSharkObj);
-            }
+            GameObject speedObj = PhotonNetwork.Instantiate(speedPowerUp.name, powerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
+            speedPowerUp.SetActive(false);
+            powerPickUp.Add(speedObj);
+            Debug.LogWarning("Adding Speed Powerup to List for Online");
         }
-        else
+
+        sharkPowerupSpawnLocation = GameObject.FindGameObjectsWithTag("SharkPowerUpSpawn");
+        for (int i = 0; i < sharkPowerupSpawnLocation.Length; i++)
+        {
+            GameObject miniSharkObj = PhotonNetwork.Instantiate(sharkPowerUp.name, sharkPowerupSpawnLocation[i].transform.position, Quaternion.identity, 0);
+            miniSharkObj.SetActive(false);
+            sharkPickup.Add(miniSharkObj);
+            Debug.LogWarning("Adding Shark Powerup to List for Online");
+        }
+
+        if (!PhotonNetwork.connected)
         {
             timer = maxTime;
             powerupSpawnLocation = GameObject.FindGameObjectsWithTag("SpeedPowerSpawn");
@@ -62,12 +64,13 @@ public class PowerUpSpawner : Photon.MonoBehaviour
                 GameObject obj = Instantiate(speedPowerUp, powerupSpawnLocation[i].transform.position, Quaternion.identity);
                 speedPowerUp.SetActive(false);
                 powerPickUp.Add(obj);
+                Debug.LogWarning("Adding Speed Powerup to List for Offline");
             }
         }
     }
     void FixedUpdate()
     {
-        if (PhotonNetwork.isMasterClient && PhotonNetwork.connected)
+        if (PhotonNetwork.isMasterClient)
         {
             index = Random.Range(0, powerPickUp.Count).ToString();
             timer -= Time.deltaTime;
@@ -81,9 +84,10 @@ public class PowerUpSpawner : Photon.MonoBehaviour
             if (timer <= 5f)
             {
                 this.photonView.RPC("SharkSpawner", PhotonTargets.All, index);
+                timer = maxTime;
             }
         }
-        else
+        else if (!PhotonNetwork.connected)
         {
             offlineIndex = Random.Range(0, powerPickUp.Count);
             timer -= Time.deltaTime;
@@ -100,28 +104,28 @@ public class PowerUpSpawner : Photon.MonoBehaviour
     [PunRPC]
     void Spawner(string intConvert)
     {
-        Debug.LogWarning("Spawning SpeedPowerup");
         int convertIndex = int.Parse(intConvert);
         for (int i = 0; i < powerPickUp.Count; i++)
         {
             if (!powerPickUp[i].activeInHierarchy)
             {
                 powerPickUp[convertIndex].SetActive(true);
+                Debug.LogWarning("Spawning Speed Power Up for Online");
                 break;
             }
         }
     }
 
-     [PunRPC]
+    [PunRPC]
     void SharkSpawner(string intConvert)
     {
-        Debug.LogWarning("Spawning SharkPowerup");
         int convertIndex = int.Parse(intConvert);
         for (int i = 0; i < sharkPickup.Count; i++)
         {
             if (!sharkPickup[i].activeInHierarchy)
             {
                 sharkPickup[convertIndex].SetActive(true);
+                Debug.LogWarning("Spawning Shark Power Up for Online");
                 break;
             }
         }
@@ -132,6 +136,7 @@ public class PowerUpSpawner : Photon.MonoBehaviour
         if (!powerPickUp[offlineIndex].activeInHierarchy)
         {
             powerPickUp[offlineIndex].SetActive(true);
+            Debug.LogWarning("Spawning Speed Power Up for Offline");
         }
     }
     #endregion

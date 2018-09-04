@@ -13,7 +13,8 @@ public class UserInfo : MonoBehaviour
     #endregion
 
     #region Private Variables
-    private string addScoreURL = "http://localhost/highscore_unity/addScore.php";
+    //private string addScoreURL = "http://localhost/highscore_unity/addScore.php"; //Local Database
+    private string addScoreURL = "https://kahtimdar.000webhostapp.com/addScore.php"; //External Database
     #endregion
 
     #region Unity Callbacks
