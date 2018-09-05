@@ -111,8 +111,14 @@ public class MyLauncher : MonoBehaviour
         //gameLoadingText.SetActive(true);
         //UserInfo.instance.username = highscoreUser.text;
         #endregion
-        high.playerName = highscoreUser.text;
-        Debug.LogWarning("Username Added to Scriptable Objects");
+        if (highscoreUser.text != "")
+        {
+            high.playerName = highscoreUser.text;
+            Debug.LogWarning("Username Added to Scriptable Objects");
+            EnterUsernamePanel.SetActive(false);
+            gameLoadingText.SetActive(true);
+            SceneManagement.instance.SinglePlayer();
+        }
     }
     public void MainMenuPanel()
     {
@@ -181,6 +187,7 @@ public class MyLauncher : MonoBehaviour
         #endregion
         if (inputUser.text != "" || inputPassword.text != "")
         {
+            loginUserPanel.SetActive(false);
             loginText.SetActive(true);
             StartCoroutine(DBLogin(inputUser.text, inputPassword.text));
             Debug.LogWarning("Started DBLogin");
