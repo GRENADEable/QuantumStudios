@@ -82,7 +82,6 @@ public class WhirlpoolActivate : MonoBehaviour
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
-        //isActivated = true;
     }
 
     [PunRPC]
