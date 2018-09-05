@@ -13,13 +13,15 @@ public class WhirlpoolActivate : MonoBehaviour
     #region Private Variables
     [SerializeField]
     private float growthSize;
-    [SerializeField]
-    private bool isActivated;
+    /*[SerializeField]
+    private bool isActivated;*/
     private PhotonView pview;
     [SerializeField]
     private PlayerController player;
     [SerializeField]
     private int whirlPoolID;
+    [SerializeField]
+    private int isActivated;
     #endregion
 
     #region Unity Callbacks
@@ -28,6 +30,7 @@ public class WhirlpoolActivate : MonoBehaviour
         pview = GetComponent<PhotonView>();
         player = GameObject.FindObjectOfType<PlayerController>();
         whirlPoolID = 0;
+        isActivated = 0;
     }
     void Update()
     {
@@ -46,12 +49,11 @@ public class WhirlpoolActivate : MonoBehaviour
         if (growthSize >= 0.1f)
         {
             timer -= Time.deltaTime;
-            if (timer <= 0 && isActivated)
+            if (timer <= 0 && isActivated == 1)
             {
 
                 timer = 5.0f;
-                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = false);
-                whirlPoolID = 0;
+                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = 0);
                 //isActivated = false;
             }
 
@@ -69,8 +71,8 @@ public class WhirlpoolActivate : MonoBehaviour
         {
             AudioManager.instance.AudioAccess(8);
             //isActivated = true;
-            pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = true);
             this.whirlPoolID = player.playerID;
+            //pview.RPC("ActivateWhirlpool", PhotonTargets.All, new object[isActivated, player]);
             timer = 5;
         }
     }
@@ -78,14 +80,14 @@ public class WhirlpoolActivate : MonoBehaviour
 
     #region My Functions
     [PunRPC]
-    public void ActivateWhirlpool(bool isActivated = true)
+    public void ActivateWhirlpool(int isActivated = 1)
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
     }
 
     [PunRPC]
-    public void DeactivateWhirlpool(bool isActivated = false)
+    public void DeactivateWhirlpool(int isActivated = 0)
     {
         /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize -= 0.1f;*/
