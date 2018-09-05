@@ -1,0 +1,596 @@
+fileFormatVersion: 2
+guid: 5aa666c1548cc304fac6b2341930c3c2
+timeCreated: 1536132437
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Arm_LBone_01
+    100002: Arm_LBone_02
+    100004: Arm_LCollarbone
+    100006: Arm_LPalm
+    100008: Arm_LPalm_OrientationController
+    100010: Arm_LPalm_PositionController
+    100012: Arm_RBone_01
+    100014: Arm_RBone_02
+    100016: Arm_RCollarbone
+    100018: Arm_RPalm
+    100020: Arm_RPalm_OrientationController
+    100022: Arm_RPalm_PositionController
+    100024: Body
+    100026: Chest
+    100028: Circle001
+    100030: Circle002
+    100032: Circle009
+    100034: Circle010
+    100036: Circle011
+    100038: Circle012
+    100040: Circle017
+    100042: Circle018
+    100044: Circle019
+    100046: Circle020
+    100048: Circle021
+    100050: Circle022
+    100052: Circle024
+    100054: Circle025
+    100056: Circle026
+    100058: Circle027
+    100060: Circle028
+    100062: Circle029
+    100064: Circle030
+    100066: Circle031
+    100068: Circle032
+    100070: Circle033
+    100072: Circle034
+    100074: Circle035
+    100076: Circle036
+    100078: Circle037
+    100080: Circle038
+    100082: Circle039
+    100084: Circle040
+    100086: Circle041
+    100088: Circle042
+    100090: Circle043
+    100092: Circle044
+    100094: Circle045
+    100096: Circle046
+    100098: Circle047
+    100100: Circle048
+    100102: Circle049
+    100104: Circle050
+    100106: Circle051
+    100108: Circle052
+    100110: Circle053
+    100112: Clothes
+    100114: COG
+    100116: //RootNode
+    100118: Hair back
+    100120: Head
+    100122: Hoverboard lowerhalf
+    100124: IK Chain005
+    100126: IK Chain006
+    100128: IK Chain007
+    100130: IK Chain008
+    100132: IK Chain009
+    100134: IK Chain010
+    100136: Index_LBone_01
+    100138: Index_LBone_02
+    100140: Index_LBone_03
+    100142: Index_RBone_01
+    100144: Index_RBone_02
+    100146: Index_RBone_03
+    100148: Leg_LAnkle
+    100150: Leg_LBone_01
+    100152: Leg_LBone_02
+    100154: Leg_LBone_03
+    100156: Leg_LBone_04
+    100158: Leg_RAnkle
+    100160: Leg_RBone_01
+    100162: Leg_RBone_02
+    100164: Leg_RBone_03
+    100166: Leg_RBone_04
+    100168: Middle_LBone_01
+    100170: Middle_LBone_02
+    100172: Middle_LBone_03
+    100174: Middle_RBone_01
+    100176: Middle_RBone_02
+    100178: Middle_RBone_03
+    100180: Neck
+    100182: NGon005
+    100184: NGon006
+    100186: Pinky_LBone_01
+    100188: Pinky_LBone_02
+    100190: Pinky_LBone_03
+    100192: Pinky_RBone_01
+    100194: Pinky_RBone_02
+    100196: Pinky_RBone_03
+    100198: Rectangle001
+    100200: Rectangle002
+    100202: Ring_LBone_01
+    100204: Ring_LBone_02
+    100206: Ring_LBone_03
+    100208: Ring_RBone_01
+    100210: Ring_RBone_02
+    100212: Ring_RBone_03
+    100214: Spine_01
+    100216: Spine_02
+    100218: Star005
+    100220: Star006
+    100222: Star007
+    100224: Star008
+    100226: Star009
+    100228: Thumb_LBone_01
+    100230: Thumb_LBone_02
+    100232: Thumb_LBone_03
+    100234: Thumb_RBone_01
+    100236: Thumb_RBone_02
+    100238: Thumb_RBone_03
+    400000: Arm_LBone_01
+    400002: Arm_LBone_02
+    400004: Arm_LCollarbone
+    400006: Arm_LPalm
+    400008: Arm_LPalm_OrientationController
+    400010: Arm_LPalm_PositionController
+    400012: Arm_RBone_01
+    400014: Arm_RBone_02
+    400016: Arm_RCollarbone
+    400018: Arm_RPalm
+    400020: Arm_RPalm_OrientationController
+    400022: Arm_RPalm_PositionController
+    400024: Body
+    400026: Chest
+    400028: Circle001
+    400030: Circle002
+    400032: Circle009
+    400034: Circle010
+    400036: Circle011
+    400038: Circle012
+    400040: Circle017
+    400042: Circle018
+    400044: Circle019
+    400046: Circle020
+    400048: Circle021
+    400050: Circle022
+    400052: Circle024
+    400054: Circle025
+    400056: Circle026
+    400058: Circle027
+    400060: Circle028
+    400062: Circle029
+    400064: Circle030
+    400066: Circle031
+    400068: Circle032
+    400070: Circle033
+    400072: Circle034
+    400074: Circle035
+    400076: Circle036
+    400078: Circle037
+    400080: Circle038
+    400082: Circle039
+    400084: Circle040
+    400086: Circle041
+    400088: Circle042
+    400090: Circle043
+    400092: Circle044
+    400094: Circle045
+    400096: Circle046
+    400098: Circle047
+    400100: Circle048
+    400102: Circle049
+    400104: Circle050
+    400106: Circle051
+    400108: Circle052
+    400110: Circle053
+    400112: Clothes
+    400114: COG
+    400116: //RootNode
+    400118: Hair back
+    400120: Head
+    400122: Hoverboard lowerhalf
+    400124: IK Chain005
+    400126: IK Chain006
+    400128: IK Chain007
+    400130: IK Chain008
+    400132: IK Chain009
+    400134: IK Chain010
+    400136: Index_LBone_01
+    400138: Index_LBone_02
+    400140: Index_LBone_03
+    400142: Index_RBone_01
+    400144: Index_RBone_02
+    400146: Index_RBone_03
+    400148: Leg_LAnkle
+    400150: Leg_LBone_01
+    400152: Leg_LBone_02
+    400154: Leg_LBone_03
+    400156: Leg_LBone_04
+    400158: Leg_RAnkle
+    400160: Leg_RBone_01
+    400162: Leg_RBone_02
+    400164: Leg_RBone_03
+    400166: Leg_RBone_04
+    400168: Middle_LBone_01
+    400170: Middle_LBone_02
+    400172: Middle_LBone_03
+    400174: Middle_RBone_01
+    400176: Middle_RBone_02
+    400178: Middle_RBone_03
+    400180: Neck
+    400182: NGon005
+    400184: NGon006
+    400186: Pinky_LBone_01
+    400188: Pinky_LBone_02
+    400190: Pinky_LBone_03
+    400192: Pinky_RBone_01
+    400194: Pinky_RBone_02
+    400196: Pinky_RBone_03
+    400198: Rectangle001
+    400200: Rectangle002
+    400202: Ring_LBone_01
+    400204: Ring_LBone_02
+    400206: Ring_LBone_03
+    400208: Ring_RBone_01
+    400210: Ring_RBone_02
+    400212: Ring_RBone_03
+    400214: Spine_01
+    400216: Spine_02
+    400218: Star005
+    400220: Star006
+    400222: Star007
+    400224: Star008
+    400226: Star009
+    400228: Thumb_LBone_01
+    400230: Thumb_LBone_02
+    400232: Thumb_LBone_03
+    400234: Thumb_RBone_01
+    400236: Thumb_RBone_02
+    400238: Thumb_RBone_03
+    2300000: Hoverboard lowerhalf
+    3300000: Hoverboard lowerhalf
+    4300000: Body
+    4300002: Clothes
+    4300004: Hair back
+    4300006: Hoverboard lowerhalf
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Body
+    13700002: Clothes
+    13700004: Hair back
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Clothes
+        weight: 1
+      - path: COG
+        weight: 1
+      - path: COG/Leg_LBone_01
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03
+        weight: 1
+      - path: COG/Leg_LBone_01/Leg_LBone_02/Leg_LAnkle/Leg_LBone_03/Leg_LBone_04
+        weight: 1
+      - path: COG/Leg_RBone_01
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03
+        weight: 1
+      - path: COG/Leg_RBone_01/Leg_RBone_02/Leg_RAnkle/Leg_RBone_03/Leg_RBone_04
+        weight: 1
+      - path: COG/Spine_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Index_LBone_01/Index_LBone_02/Index_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Middle_LBone_01/Middle_LBone_02/Middle_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Pinky_LBone_01/Pinky_LBone_02/Pinky_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Ring_LBone_01/Ring_LBone_02/Ring_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_LCollarbone/Arm_LBone_01/Arm_LBone_02/Arm_LPalm/Thumb_LBone_01/Thumb_LBone_02/Thumb_LBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Index_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Index_RBone_01/Index_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Index_RBone_01/Index_RBone_02/Index_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Middle_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Middle_RBone_01/Middle_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Middle_RBone_01/Middle_RBone_02/Middle_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Pinky_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Pinky_RBone_01/Pinky_RBone_02/Pinky_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Ring_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Ring_RBone_01/Ring_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Ring_RBone_01/Ring_RBone_02/Ring_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Thumb_RBone_01
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Arm_RCollarbone/Arm_RBone_01/Arm_RBone_02/Arm_RPalm/Thumb_RBone_01/Thumb_RBone_02/Thumb_RBone_03
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck
+        weight: 1
+      - path: COG/Spine_01/Spine_02/Chest/Neck/Head
+        weight: 1
+      - path: Hair back
+        weight: 1
+      - path: Hoverboard lowerhalf
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: IK Chain009
+        weight: 1
+      - path: IK Chain010
+        weight: 1
+      - path: Star009
+        weight: 1
+      - path: Star009/NGon005
+        weight: 1
+      - path: Star009/NGon005/Circle001
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle009
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle009/Circle010
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle024
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle024/Circle025
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle024/Circle025/Circle026
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle028
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle028/Circle029
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle028/Circle029/Circle027
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle030
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle030/Circle031
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle030/Circle031/Circle032
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle033
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle033/Circle034
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle033/Circle034/Circle035
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle037
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle037/Circle038
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle011/Arm_LPalm_PositionController/Arm_LPalm_OrientationController/Circle037/Circle038/Circle036
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle042
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle042/Circle041
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle042/Circle041/Circle052
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle043
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle043/Circle049
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle043/Circle049/Circle053
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle046
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle046/Circle045
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle046/Circle045/Circle044
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle047
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle047/Circle039
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle047/Circle039/Circle051
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle048
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle048/Circle040
+        weight: 1
+      - path: Star009/NGon005/Circle001/Circle002/NGon006/Circle012/Arm_RPalm_PositionController/Arm_RPalm_OrientationController/Circle048/Circle040/Circle050
+        weight: 1
+      - path: Star009/Rectangle001
+        weight: 1
+      - path: Star009/Rectangle001/Circle022
+        weight: 1
+      - path: Star009/Rectangle001/Circle022/Circle021
+        weight: 1
+      - path: Star009/Rectangle001/Circle022/Circle021/Circle017
+        weight: 1
+      - path: Star009/Rectangle002
+        weight: 1
+      - path: Star009/Rectangle002/Circle020
+        weight: 1
+      - path: Star009/Rectangle002/Circle020/Circle019
+        weight: 1
+      - path: Star009/Rectangle002/Circle020/Circle019/Circle018
+        weight: 1
+      - path: Star009/Star005
+        weight: 1
+      - path: Star009/Star006
+        weight: 1
+      - path: Star009/Star007
+        weight: 1
+      - path: Star009/Star008
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

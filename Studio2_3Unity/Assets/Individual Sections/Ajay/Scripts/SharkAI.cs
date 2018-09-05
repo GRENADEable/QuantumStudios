@@ -18,6 +18,8 @@ public class SharkAI : MonoBehaviour
     private Rigidbody sharkRB;
     [SerializeField]
     private GameObject Player;
+    [SerializeField]
+    private Animator anim;
     #endregion
 
 
@@ -26,6 +28,7 @@ public class SharkAI : MonoBehaviour
         sharkRB = GetComponent<Rigidbody>();
         //AI = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
         Player = GameObject.FindGameObjectWithTag("Player");
+        anim = GetComponent<Animator>();
     }
 
 

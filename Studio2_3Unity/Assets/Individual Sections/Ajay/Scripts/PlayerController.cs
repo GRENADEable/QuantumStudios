@@ -37,8 +37,7 @@ public class PlayerController : Photon.PunBehaviour
     private float timer;
     private bool hasSharkSeekPowerUp = false;
     [Header("Other")]
-    [SerializeField]
-    private int playerID;
+    public int playerID;
     private Animator anim;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
