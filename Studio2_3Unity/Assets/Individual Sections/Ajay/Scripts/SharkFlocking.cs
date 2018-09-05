@@ -13,6 +13,10 @@ public class SharkFlocking : MonoBehaviour
     [Header("Flocking Speed")]
     public float maxSpeed;
     public float maxForce;
+    public float minDis;
+    public float distance;
+    public float closeRange;
+    public float waitTime;
     #endregion
     #region Private Variables
     private Rigidbody sharkRB;
@@ -22,6 +26,7 @@ public class SharkFlocking : MonoBehaviour
     private SharkSpawning spawn;
     [SerializeField]
     private Animator anim;
+    private Animator playerAnim;
     #endregion
     void Start()
     {
@@ -29,12 +34,12 @@ public class SharkFlocking : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
         anim = GetComponent<Animator>();
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -45,6 +50,25 @@ public class SharkFlocking : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance <= minDis)
+        {
+            anim.SetBool("isNear", true);
+            //StartCoroutine(destroyDelay());
+
+        }
+        else
+        {
+            anim.SetBool("isNear", false);
+        }
+    }
+    /*IEnumerator destroyDelay()
+    {
+        yield return new WaitForSeconds(waitTime);
+        playerAnim.SetBool("isDead", true);
+    }*/
     void FixedUpdate()
     {
         Flocking();
@@ -53,6 +77,8 @@ public class SharkFlocking : MonoBehaviour
     #region Steering Behaviour
     void Flocking()
     {
+        //Compiling Agent
+
         Vector3 align = Alignment();
         Vector3 seek = Seeking(player.transform.position);
         Vector3 coh = Cohesion();
@@ -66,6 +92,11 @@ public class SharkFlocking : MonoBehaviour
         Vector3 target = player.transform.position;
         target.y = transform.position.y;
         transform.LookAt(target + sharkRB.velocity);
+
+        /*if (distance <= closeRange)
+        {
+            playerAnim.SetBool("isDead", true);
+        }*/
     }
     Vector3 Alignment()
     {
@@ -101,7 +132,7 @@ public class SharkFlocking : MonoBehaviour
         Vector3 desiredVelocity = (target - transform.position).normalized * maxSpeed;
         Vector3 steering = desiredVelocity - sharkRB.velocity;
         Vector3 clampSteering = Vector3.ClampMagnitude(steering, maxForce);
-        anim.Play("SharkMovement");
+        anim.SetBool("isNear", false);
         return clampSteering;
     }
     Vector3 Cohesion()
