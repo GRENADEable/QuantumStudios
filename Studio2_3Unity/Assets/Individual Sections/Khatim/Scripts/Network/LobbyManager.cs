@@ -39,7 +39,7 @@ public class LobbyManager : Photon.PunBehaviour
     }
     public void TwoPlayerRoom()
     {
-        if (PhotonNetwork.JoinLobby())
+        if (PhotonNetwork.JoinLobby() && roomName.text != "")
         {
             Debug.LogWarning("Creating Room");
             RoomOptions roomOpt = new RoomOptions()
@@ -56,7 +56,7 @@ public class LobbyManager : Photon.PunBehaviour
 
     public void FourPlayerRoom()
     {
-        if (PhotonNetwork.JoinLobby())
+        if (PhotonNetwork.JoinLobby() && roomName.text != "")
         {
             Debug.LogWarning("Creating Room");
             RoomOptions roomOpt = new RoomOptions()
