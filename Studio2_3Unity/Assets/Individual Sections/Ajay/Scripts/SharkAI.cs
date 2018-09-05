@@ -9,6 +9,9 @@ public class SharkAI : MonoBehaviour
     #region Public Variables
     public float maxSpeed;
     public float maxForce;
+    public float minDis;
+    public float distance;
+    public float waitTime;
     [SerializeField]
     //private SharkSpawning AI;
     //public float spaceBetween;
@@ -20,6 +23,7 @@ public class SharkAI : MonoBehaviour
     private GameObject Player;
     [SerializeField]
     private Animator anim;
+    private Animator playerAnim;
     #endregion
 
 
@@ -29,9 +33,23 @@ public class SharkAI : MonoBehaviour
         //AI = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
         Player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
+        playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
-
+    void Update()
+    {
+        distance = Vector3.Distance(Player.transform.position, transform.position);
+        if (distance <= minDis)
+        {
+            anim.SetBool("isNear", true);
+            StartCoroutine(destroyDelay());
+            
+        }
+        else
+        {
+            anim.SetBool("isNear", false);
+        }
+    }
     void FixedUpdate()
     {
         Vector3 headDir = (new Vector3(Player.gameObject.transform.position.x, 0, Player.gameObject.transform.position.z) - new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z)).normalized;
@@ -61,9 +79,15 @@ public class SharkAI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            //StartCoroutine(destroyDelay());
             SceneManagement.instance.GameOver();
             AudioManager.instance.StopAudio();
             AudioManager.instance.DeathAudio();
         }
+    }
+    IEnumerator destroyDelay()
+    {
+        yield return new WaitForSeconds(waitTime);
+        playerAnim.SetBool("isDead", true);
     }
 }
