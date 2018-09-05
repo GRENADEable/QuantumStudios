@@ -75,6 +75,6 @@ public class AudioManager : MonoBehaviour
         AudioAccess(7);
         AudioAccess(1);
         AudioAccess(3);
-        AudioAccess(6);
+        AudioAccess(10);
     }
 }
