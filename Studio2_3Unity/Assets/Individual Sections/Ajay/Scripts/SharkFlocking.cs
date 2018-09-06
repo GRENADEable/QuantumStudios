@@ -27,6 +27,8 @@ public class SharkFlocking : MonoBehaviour
     [SerializeField]
     private Animator anim;
     private Animator playerAnim;
+    private bool isSeeking;
+    private GameObject particle;
     #endregion
     void Start()
     {
@@ -35,6 +37,7 @@ public class SharkFlocking : MonoBehaviour
         spawn = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SharkSpawning>();
         anim = GetComponent<Animator>();
         playerAnim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        particle = GameObject.FindGameObjectWithTag("Particle");
     }
 
     void OnEnable()
@@ -56,12 +59,16 @@ public class SharkFlocking : MonoBehaviour
         if (distance <= minDis)
         {
             anim.SetBool("isNear", true);
+            isSeeking = false;
+            particle.SetActive(false);
             //StartCoroutine(destroyDelay());
 
         }
         else
         {
             anim.SetBool("isNear", false);
+            isSeeking = true;
+            particle.SetActive(true);
         }
     }
     /*IEnumerator destroyDelay()
@@ -80,6 +87,7 @@ public class SharkFlocking : MonoBehaviour
         //Compiling Agent
 
         Vector3 align = Alignment();
+
         Vector3 seek = Seeking(player.transform.position);
         Vector3 coh = Cohesion();
         Vector3 seperate = Seperation();
@@ -89,9 +97,12 @@ public class SharkFlocking : MonoBehaviour
         sharkRB.AddForce(coh * cohWeight);
         sharkRB.AddForce(seperate * seperateWeight);
 
-        Vector3 target = player.transform.position;
-        target.y = transform.position.y;
-        transform.LookAt(target + sharkRB.velocity);
+        if (isSeeking)
+        {
+            Vector3 target = player.transform.position;
+            target.y = transform.position.y;
+            transform.LookAt(target + sharkRB.velocity);
+        }
 
         /*if (distance <= closeRange)
         {
