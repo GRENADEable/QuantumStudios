@@ -52,9 +52,9 @@ public class WhirlpoolActivate : MonoBehaviour
             if (timer <= 0 && isActivated == 1)
             {
                 timer = 5.0f;
-                whirlPoolID = 0;
+                //whirlPoolID = 0;
                 isActivated = 0;
-                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, new object[isActivated, whirlPoolID]);
+                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = 0);
             }
         }
         else if (growthSize <= 0f)
@@ -68,29 +68,29 @@ public class WhirlpoolActivate : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && timer <= 0)
         {
             AudioManager.instance.AudioAccess(8);
-            this.whirlPoolID = player.playerID;
+            //this.pview.viewID = player.photonView.viewID;
             isActivated = 1;
-            pview.RPC("ActivateWhirlpool", PhotonTargets.All, new object[isActivated, whirlPoolID]);
+            pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = 1);
             timer = 5;
         }
 
-        if (whirlPoolID != player.playerID && isActivated == 1)
+        /*if (whirlPoolID != player.playerID && isActivated == 1)
         {
             other.gameObject.SetActive(false);
-        }
+        }*/
     }
     #endregion
 
     #region My Functions
     [PunRPC]
-    public void ActivateWhirlpool(int isActivated, int whirlPoolID)
+    public void ActivateWhirlpool(int isActivated = 1)
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
     }
 
     [PunRPC]
-    public void DeactivateWhirlpool(int isActivated = 0, int whirlPoolID = 0)
+    public void DeactivateWhirlpool(int isActivated = 0)
     {
         /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize -= 0.1f;*/

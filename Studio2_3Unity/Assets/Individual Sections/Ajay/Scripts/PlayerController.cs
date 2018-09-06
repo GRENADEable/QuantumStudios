@@ -53,7 +53,7 @@ public class PlayerController : Photon.PunBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
-        playerID = this.pview.ownerId;
+        //playerID = this.pview.viewID;
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
