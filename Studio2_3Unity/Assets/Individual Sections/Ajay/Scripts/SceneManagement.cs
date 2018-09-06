@@ -51,4 +51,11 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    public void TutorialScene()
+    {
+        SceneManager.LoadScene("TutorialScene");
+        AudioManager.instance.StopAudio();
+        AudioManager.instance.MainMenuMusic();
+    }
 }

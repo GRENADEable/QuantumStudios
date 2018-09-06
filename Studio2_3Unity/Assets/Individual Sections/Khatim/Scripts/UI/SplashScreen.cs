@@ -19,9 +19,7 @@ public class SplashScreen : MonoBehaviour
 
         if (time >= 5.3f)
         {
-            AudioManager.instance.StopAudio();
-            SceneManagement.instance.MainMenu();
-            AudioManager.instance.MainMenuMusic();
+            SceneManagement.instance.TutorialScene();
         }
     }
     #endregion
