@@ -131,6 +131,8 @@ public class MyLauncher : MonoBehaviour
         mainMenuButton.SetActive(false);
         gameLoadingText.SetActive(false);
         mainMenuPanel.SetActive(true);*/
+        if (PhotonNetwork.connected)
+            PhotonNetwork.Disconnect();
         #endregion
     }
 

@@ -16,21 +16,21 @@ public class WhirlpoolActivate : MonoBehaviour
     /*[SerializeField]
     private bool isActivated;*/
     private PhotonView pview;
+    //[SerializeField]
+    //private PlayerController player;
+    //[SerializeField]
+    //private int whirlPoolID;
     [SerializeField]
-    private PlayerController player;
-    [SerializeField]
-    private int whirlPoolID;
-    [SerializeField]
-    private int isActivated;
+    private bool isActivated;
     #endregion
 
     #region Unity Callbacks
     void Start()
     {
         pview = GetComponent<PhotonView>();
-        player = GameObject.FindObjectOfType<PlayerController>();
-        whirlPoolID = 0;
-        isActivated = 0;
+        //player = GameObject.FindObjectOfType<PlayerController>();
+        //whirlPoolID = 0;
+        //isActivated = 0;
     }
     void Update()
     {
@@ -49,14 +49,16 @@ public class WhirlpoolActivate : MonoBehaviour
         if (growthSize >= 0.1f)
         {
             timer -= Time.deltaTime;
-            if (timer <= 0 && isActivated == 1)
+            if (timer <= 0 && isActivated)
             {
+
                 timer = 5.0f;
-                //whirlPoolID = 0;
-                isActivated = 0;
-                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = 0);
+                pview.RPC("DeactivateWhirlpool", PhotonTargets.All, isActivated = false);
+                //isActivated = false;
             }
+
         }
+
         else if (growthSize <= 0f)
         {
             timer -= Time.deltaTime;
@@ -68,29 +70,24 @@ public class WhirlpoolActivate : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && timer <= 0)
         {
             AudioManager.instance.AudioAccess(8);
-            //this.pview.viewID = player.photonView.viewID;
-            isActivated = 1;
-            pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = 1);
+            //isActivated = true;
+            pview.RPC("ActivateWhirlpool", PhotonTargets.All, isActivated = true);
             timer = 5;
         }
-
-        /*if (whirlPoolID != player.playerID && isActivated == 1)
-        {
-            other.gameObject.SetActive(false);
-        }*/
     }
     #endregion
 
     #region My Functions
     [PunRPC]
-    public void ActivateWhirlpool(int isActivated = 1)
+    public void ActivateWhirlpool(bool isActivated = true)
     {
         transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize += 0.1f;
+        //isActivated = true;
     }
 
     [PunRPC]
-    public void DeactivateWhirlpool(int isActivated = 0)
+    public void DeactivateWhirlpool(bool isActivated = false)
     {
         /*transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
         growthSize -= 0.1f;*/
