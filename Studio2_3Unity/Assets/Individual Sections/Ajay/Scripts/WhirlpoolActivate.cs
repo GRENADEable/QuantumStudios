@@ -14,7 +14,7 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     public float timer;
     public float maxTime;
     [Header("Whirlpool Other")]
-    public int isActivated;
+    public bool isActivated;
     #endregion
 
     #region Private Variables
@@ -24,14 +24,6 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     private PlayerController player;
     private Vector3 movementInput;
     private Rigidbody rg;
-    //[SerializeField]
-    //private int whirlPoolID;
-    /*[SerializeField]
-    private float movementValue = 0.25f;
-    [SerializeField]
-    private float rotateValue = 500f;
-    private Vector3 tarPos;
-    private Quaternion tarRot;*/
     #endregion
 
     #region Unity Callbacks
@@ -46,13 +38,11 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         if (growthSize >= 0.1f)
         {
             timer -= Time.deltaTime;
-            if (timer <= 0 && isActivated == 1)
+            if (timer <= 0 && isActivated)
             {
                 timer = maxTime;
-                isActivated = 0;
-                base.photonView.RPC("DeactivateWhirlpool", PhotonTargets.All, 0);
-                //base.photonView.TransferOwnership(6);
-                //Debug.LogWarning("Ownership Transferred to Scene");
+                isActivated = false;
+                base.photonView.RPC("DeactivateWhirlpool", PhotonTargets.All, false);
             }
         }
 
@@ -72,17 +62,11 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        /*if (base.photonView.owner != PhotonNetwork.player && !isActivated && timer <= 0)
-        {
-            base.photonView.RequestOwnership();
-            Debug.LogWarning("Ownership Transferred to Player");
-        }*/
-
-        if (Input.GetKey(KeyCode.E) && timer <= 0 && isActivated == 0)
+        if (Input.GetKey(KeyCode.E) && timer <= 0 && !isActivated)
         {
             AudioManager.instance.AudioAccess(8);
-            isActivated = 1;
-            base.photonView.RPC("ActivateWhirlpool", PhotonTargets.All, 1);
+            isActivated = true;
+            base.photonView.RPC("ActivateWhirlpool", PhotonTargets.All, true);
             timer = maxTime;
         }
     }
@@ -91,7 +75,7 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     {
         player = GameObject.FindObjectOfType<PlayerController>();
 
-        if (base.photonView.owner != player.photonView.owner && isActivated == 1)
+        if (base.photonView.owner != player.photonView.owner && isActivated)
         {
             /*other.gameObject.SetActive(false);
             GameManager.instance.index = Random.Range(0, GameManager.instance.spawnLocation.Length);
@@ -109,18 +93,16 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
 
     #region My Functions
     [PunRPC]
-    public void ActivateWhirlpool(int isActivated)
+    public void ActivateWhirlpool(bool isActivated)
     {
-        isActivated = 1;
         transform.localScale = new Vector3(maxSize, maxSize, 0.04f);
         growthSize += 0.1f;
         base.photonView.RequestOwnership();
     }
 
     [PunRPC]
-    public void DeactivateWhirlpool(int isActivated)
+    public void DeactivateWhirlpool(bool isActivated)
     {
-        isActivated = 0;
         transform.localScale = new Vector3(1f, 1f, 0.04f);
         growthSize -= 0.1f;
         base.photonView.TransferOwnership(6);
@@ -147,14 +129,10 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     {
         if (stream.isWriting)
         {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.localScale);
 
         }
         else
         {
-            this.transform.position = (Vector3)stream.ReceiveNext();
-            this.transform.localScale = (Vector3)stream.ReceiveNext();
         }
     }
     #endregion*/
