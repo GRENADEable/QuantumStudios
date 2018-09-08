@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 public class MyLauncher : MonoBehaviour
@@ -14,6 +14,7 @@ public class MyLauncher : MonoBehaviour
     public GameObject mainMenuPanel;
     public GameObject multiplayerPanel;
     public GameObject tCPanel;
+    public GameObject leaderboardPanel;
     [Header("Notification Text")]
     public GameObject userNotFoundText;
     public GameObject passwordWrongText;
@@ -33,6 +34,8 @@ public class MyLauncher : MonoBehaviour
     public PlayerNameObj plyName;
     public HighScoreObj high;
     public InputField highscoreUser;
+    [Header("Leaderboard")]
+    public string[] leaderboardArray;
     #endregion
 
     #region Private Variables
@@ -40,6 +43,10 @@ public class MyLauncher : MonoBehaviour
     //private string LoginURL = "http://localhost/unity_login_system/usernamelogin.php"; //Local Databas
     private string userURL = "https://kahtimdar.000webhostapp.com/adduser.php"; //External Database
     //private string userURL = "http://localhost/unity_login_system/adduser.php"; //Local Database
+    //private string leaderboardURL = "http://localhost/highscore_unity/displayScore.php"; //Local Databse
+    private string leaderboardURL = "https://kahtimdar.000webhostapp.com/displayScore.php"; //External Databse
+    [SerializeField]
+    private Text[] leaderboardTextArray;
     private bool seen;
     #endregion
 
@@ -58,13 +65,17 @@ public class MyLauncher : MonoBehaviour
 
         multiplayerPanel.SetActive(false);
         lobbyPanel.SetActive(false);
+
         EnterUsernamePanel.SetActive(false);
         loginUserPanel.SetActive(false);
         loginAndCreateUserPanel.SetActive(false);
+
         gameLoadingText.SetActive(false);
 
         mainMenuPanel.SetActive(false);
         mainMenuButton.SetActive(false);
+
+        leaderboardPanel.SetActive(false);
     }
 
     void Start()
@@ -204,6 +215,11 @@ public class MyLauncher : MonoBehaviour
         #endregion
     }
 
+    public void Leaderboard()
+    {
+        StartCoroutine(LoadLeaderboard());
+    }
+
     public void Create()
     {
         if (createUser.text != "" || createEmail.text != "" || createPassword.text != "")
@@ -211,6 +227,31 @@ public class MyLauncher : MonoBehaviour
             creatingUserText.SetActive(true);
             CreateUser(createUser.text, createPassword.text, createEmail.text);
         }
+    }
+
+    public void CreateUser(string playerName, string password, string email)
+    {
+        WWWForm loginform = new WWWForm();
+        Debug.Log("WWWForm Created"); //Testing
+
+        loginform.AddField("playerUsername", playerName);
+        Debug.Log("Username Field Added"); //Testing
+
+        loginform.AddField("playerPassword", password);
+        Debug.Log("Password Field Added"); //Testing
+
+        loginform.AddField("playerEmail", email);
+        Debug.Log("Email Field Added"); //Testing
+
+        WWW dbLink = new WWW(userURL, loginform);
+        loginAndCreateUserPanel.SetActive(true);
+        createUserPanel.SetActive(false);
+        creatingUserText.SetActive(false);
+        createdUserText.SetActive(true);
+        Debug.Log("Databse Accessed"); //Testing
+
+        /*creatingUserText.SetActive(false);
+        createdUserText.SetActive(true);*/
     }
     #endregion
 
@@ -248,29 +289,21 @@ public class MyLauncher : MonoBehaviour
             yield return null;
         }
     }
-    public void CreateUser(string playerName, string password, string email)
+
+    private IEnumerator LoadLeaderboard()
     {
-        WWWForm loginform = new WWWForm();
-        Debug.Log("WWWForm Created"); //Testing
+        WWW leaderboard = new WWW(leaderboardURL);
+        yield return leaderboard;
 
-        loginform.AddField("playerUsername", playerName);
-        Debug.Log("Username Field Added"); //Testing
+        string leaderboardString = leaderboard.text;
+        leaderboardArray = leaderboardString.Split(';');
+        //Array.Sort(leaderboardArray);
 
-        loginform.AddField("playerPassword", password);
-        Debug.Log("Password Field Added"); //Testing
-
-        loginform.AddField("playerEmail", email);
-        Debug.Log("Email Field Added"); //Testing
-
-        WWW dbLink = new WWW(userURL, loginform);
-        loginAndCreateUserPanel.SetActive(true);
-        createUserPanel.SetActive(false);
-        creatingUserText.SetActive(false);
-        createdUserText.SetActive(true);
-        Debug.Log("Databse Accessed"); //Testing
-
-        /*creatingUserText.SetActive(false);
-        createdUserText.SetActive(true);*/
+        for (int i = 0; i < leaderboardArray.Length; i++)
+        {
+            leaderboardTextArray[i].text = leaderboardArray[i];
+        }
     }
     #endregion
+
 }
