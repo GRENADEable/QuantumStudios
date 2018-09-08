@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerController : Photon.PunBehaviour
 {
     #region Public Variables
+    public static PlayerController instance;
     [Header("Player Speeds")]
     public float moveSpeed;
     public float slowSpeed;
@@ -21,6 +22,9 @@ public class PlayerController : Photon.PunBehaviour
     public GameObject miniShark;
     //public Text userName;
     public Vector3 sharkSpawn;
+    [Header("Mobile Joystick")]
+    public GameObject mobilePrefab;
+    public MobileJoystick mobileJoy;
     #endregion
 
     #region Private Variables
@@ -29,6 +33,8 @@ public class PlayerController : Photon.PunBehaviour
     private PhotonView pview;
     private Vector3 tarPos;
     private Quaternion tarRot;
+    [Header("Player Smooth Movement")]
+
     [SerializeField]
     private float movementValue = 0.25f; //Default 0.25f
     [SerializeField]
@@ -36,15 +42,10 @@ public class PlayerController : Photon.PunBehaviour
     [SerializeField]
     private float timer;
     private bool hasSharkSeekPowerUp = false;
-    [Header("Other")]
-    public int playerID;
     private Animator anim;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
-    [SerializeField]
-    private GameObject mobilePrefab;
-    [SerializeField]
-    private MobileJoystick mobileJoy;
+
     //private Text playerName;
     #endregion
 
@@ -53,7 +54,6 @@ public class PlayerController : Photon.PunBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         pview = GetComponent<PhotonView>();
-        //playerID = this.pview.viewID;
 
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
         mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");

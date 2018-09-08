@@ -5,22 +5,25 @@ using UnityEngine;
 public class WhirlpoolActivate : Photon.MonoBehaviour
 {
     #region Public Variables
-    public static WhirlpoolActivate instance;
+    [Header("Wirlpool Speed")]
+    public float clampMax;
+    [Header("Whirlpool Sizes")]
     public float maxSize;
     public float minSize;
+    [Header("Whirlpool Timer")]
     public float timer;
     public float maxTime;
+    [Header("Whirlpool Other")]
     public int isActivated;
     #endregion
 
     #region Private Variables
     [SerializeField]
     private float growthSize;
-    /*[SerializeField]
-    private bool isActivated;*/
-    //private PhotonView pview;
     [SerializeField]
     private PlayerController player;
+    private Vector3 movementInput;
+    private Rigidbody rg;
     //[SerializeField]
     //private int whirlPoolID;
     /*[SerializeField]
@@ -34,25 +37,11 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     #region Unity Callbacks
     void Start()
     {
-        //pview = GetComponent<PhotonView>();
-        //player = GameObject.FindObjectOfType<PlayerController>();
-        //whirlPoolID = 0;
-        //isActivated = 0;
         base.photonView.TransferOwnership(6);
+        rg = GetComponent<Rigidbody>();
     }
     void Update()
     {
-        /*if (isActivated)
-        {
-            Debug.Log(growthSize);
-            transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
-            growthSize += 0.1f;
-        }
-        else
-        {
-            transform.localScale = new Vector3(Mathf.Lerp(minSize, maxSize, growthSize), Mathf.Lerp(minSize, maxSize, growthSize), 0.06062245f);
-            growthSize -= 0.1f;
-        }*/
         growthSize = Mathf.Clamp01(growthSize);
         if (growthSize >= 0.1f)
         {
@@ -64,7 +53,6 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
                 base.photonView.RPC("DeactivateWhirlpool", PhotonTargets.All, 0);
                 //base.photonView.TransferOwnership(6);
                 //Debug.LogWarning("Ownership Transferred to Scene");
-                //isActivated = false;
             }
         }
 
@@ -72,6 +60,14 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (base.photonView.owner == PhotonNetwork.player)
+            MoveWhirlpool();
+        else
+            rg.velocity = Vector3.zero;
     }
 
     void OnTriggerStay(Collider other)
@@ -93,14 +89,6 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        /*if (base.photonView.owner != player.photonView.owner && isActivated)
-        {
-            other.gameObject.SetActive(false);
-            GameManager.instance.index = Random.Range(0, GameManager.instance.spawnLocation.Length);
-            other.gameObject.transform.position = GameManager.instance.spawnLocation[GameManager.instance.index].transform.position;
-            other.gameObject.SetActive(true);
-            Debug.LogWarning("Player Dead");
-        }*/
         player = GameObject.FindObjectOfType<PlayerController>();
 
         if (base.photonView.owner != player.photonView.owner && isActivated == 1)
@@ -113,12 +101,10 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         }
     }
 
-
     void OnTriggerExit(Collider other)
     {
         player = null;
     }
-
     #endregion
 
     #region My Functions
@@ -140,11 +126,20 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         base.photonView.TransferOwnership(6);
     }
 
-    /*void SmoothMovement()
+    void MoveWhirlpool()
     {
-        transform.position = Vector3.Lerp(transform.position, tarPos, movementValue);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
-    }*/
+#if UNITY_EDITOR || UNITY_STANDALONE
+        float MoveHorizontal = Input.GetAxisRaw("Horizontal");
+        float MoveVertical = Input.GetAxisRaw("Vertical");
+#else
+        float MoveHorizontal = PlayerController.instance.mobileJoy.Horizontal();
+        float MoveVertical = PlayerController.instance.mobileJoy.Vertical();
+#endif
+
+        movementInput = new Vector3(MoveHorizontal, 0.0f, MoveVertical);
+        movementInput = Vector3.ClampMagnitude(movementInput, clampMax);
+        rg.AddForce(movementInput, ForceMode.Impulse);
+    }
     #endregion
 
     /*#region Photon Callbacks

@@ -7,18 +7,19 @@ using UnityEngine.UI;
 public class GameManager : Photon.PunBehaviour
 {
     #region  Public Variables
+    [Header("Players")]
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
     public GameObject player4;
+    [Header("Camera")]
     public GameObject cam;
     public Vector3 camOffset;
     public static GameManager instance;
-    public GameObject[] spawnLocation;
+    [Header("Spwan Location")]
+    public GameObject[] playerSpawnLocation;
+    [Header("Index")]
     public int index;
-    #endregion
-
-    #region  Private Variables
     #endregion
 
     #region Unity Callbacks
@@ -32,33 +33,33 @@ public class GameManager : Photon.PunBehaviour
 
         if (PhotonNetwork.connected)
         {
-            spawnLocation = GameObject.FindGameObjectsWithTag("SpawnPlayer");
-            index = Random.Range(0, spawnLocation.Length);
+            playerSpawnLocation = GameObject.FindGameObjectsWithTag("SpawnPlayer");
+            index = Random.Range(0, playerSpawnLocation.Length);
 
             if (player1 != null && PhotonNetwork.room.PlayerCount == 1)
             {
-                PhotonNetwork.Instantiate(player1.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(player1.name, playerSpawnLocation[index].transform.position, Quaternion.identity, 0);
                 player1 = GameObject.FindGameObjectWithTag("Player1");
                 Instantiate(cam, player1.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
             }
 
             if (player2 != null && PhotonNetwork.room.PlayerCount == 2)
             {
-                PhotonNetwork.Instantiate(player2.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(player2.name, playerSpawnLocation[index].transform.position, Quaternion.identity, 0);
                 player2 = GameObject.FindGameObjectWithTag("Player2");
                 Instantiate(cam, player2.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
             }
 
             if (player3 != null && PhotonNetwork.room.PlayerCount == 3)
             {
-                PhotonNetwork.Instantiate(player3.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(player3.name, playerSpawnLocation[index].transform.position, Quaternion.identity, 0);
                 player3 = GameObject.FindGameObjectWithTag("Player3");
                 Instantiate(cam, player3.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
             }
 
             if (player4 != null && PhotonNetwork.room.PlayerCount == 4)
             {
-                PhotonNetwork.Instantiate(player4.name, spawnLocation[index].transform.position, Quaternion.identity, 0);
+                PhotonNetwork.Instantiate(player4.name, playerSpawnLocation[index].transform.position, Quaternion.identity, 0);
                 player4 = GameObject.FindGameObjectWithTag("Player4");
                 Instantiate(cam, player4.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
             }
