@@ -30,7 +30,6 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
     #region Unity Callbacks
     void Start()
     {
-        //base.photonView.TransferOwnership(6);
         rg = GetComponent<Rigidbody>();
     }
     void Update()
@@ -84,6 +83,7 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         {
             other.gameObject.transform.position = GameManager.instance.playerSpawnLocation[GameManager.instance.index].transform.position;
             AudioManager.instance.AudioAccess(5);
+            //Add Score
             Debug.LogWarning("Player Dead");
         }
     }
@@ -128,14 +128,4 @@ public class WhirlpoolActivate : Photon.MonoBehaviour
         rg.AddForce(movementInput, ForceMode.Impulse);
     }*/
     #endregion
-
-    /*#region Photon Callbacks
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-            stream.SendNext(activation);
-        else
-            activation = (bool)stream.ReceiveNext();
-    }
-    #endregion*/
 }

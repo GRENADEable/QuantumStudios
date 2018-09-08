@@ -42,13 +42,13 @@ public class SharkAITutorial : MonoBehaviour
         sharkRB.AddForce(clampSteering, ForceMode.Impulse);
         transform.LookAt(transform.position + sharkRB.velocity);
 
-        
+
     }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManagement.instance.TutorialTransition();
+            SceneManagement.instance.TutorialToMainMenu();
         }
     }
 }

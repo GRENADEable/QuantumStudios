@@ -25,6 +25,8 @@ public class PlayerController : Photon.PunBehaviour
     [Header("Mobile Joystick")]
     public GameObject mobilePrefab;
     public MobileJoystick mobileJoy;
+    [Header("Score")]
+    public int score;
     #endregion
 
     #region Private Variables
@@ -39,14 +41,13 @@ public class PlayerController : Photon.PunBehaviour
     private float movementValue = 0.25f; //Default 0.25f
     [SerializeField]
     private float rotateValue = 500f; //Default 500f
+    [Header("Other")]
     [SerializeField]
     private float timer;
     private bool hasSharkSeekPowerUp = false;
     private Animator anim;
     private CameraFollow cam;
     private UIManagerOnline minimapCam;
-
-    //private Text playerName;
     #endregion
 
     #region Callbacks
@@ -63,12 +64,6 @@ public class PlayerController : Photon.PunBehaviour
         minimapCam = GameObject.FindGameObjectWithTag("MinimapCamera").GetComponent<UIManagerOnline>();
 
         anim = GetComponent<Animator>();
-        //this.gameObject.SetActive(true);
-        //score = GameObject.FindGameObjectWithTag("Score").GetComponent<Text>();
-        //playerName = GameObject.FindGameObjectWithTag("PlayerText").GetComponent<Text>();
-        //SetName();
-        //this.pview.RPC("SetName", PhotonTargets.All, )
-        //Sync();
 
         if (pview.isMine && this.tag == "Player1")
         {
@@ -93,6 +88,8 @@ public class PlayerController : Photon.PunBehaviour
             cam.player4 = this.gameObject;
             minimapCam.player = this.gameObject;
         }
+
+        score = 0;
 
     }
     void Update()
@@ -150,13 +147,6 @@ public class PlayerController : Photon.PunBehaviour
             timer = spDuration;
         }
 
-        /*if (other.tag == "Whirlpool")
-        {
-            this.gameObject.SetActive(false);
-            this.gameObject.transform.position = GameManager.instance.spawnLocation[GameManager.instance.index].transform.position;
-            this.gameObject.SetActive(true);
-        }*/
-
         if (other.tag == "SharkSeekPowerUp")
         {
             hasSharkSeekPowerUp = true;
@@ -210,12 +200,6 @@ public class PlayerController : Photon.PunBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, tarRot, rotateValue * Time.deltaTime);
     }
 
-    /*public void SetName()
-    {
-        if (playerName != null)
-            playerName.text = PhotonNetwork.player.NickName;
-    }*/
-
     Vector3 NearVertices(Vector3 position, Vector3[] vertices)
     {
         Vector3 nearestVertices = Vector3.zero;
@@ -230,7 +214,6 @@ public class PlayerController : Photon.PunBehaviour
                 minimumDistance = Vector3.Distance(position, vertices[i]);
             }
         }
-
         return nearestVertices;
     }
     #endregion
@@ -244,7 +227,7 @@ public class PlayerController : Photon.PunBehaviour
             stream.SendNext(transform.rotation);
             stream.SendNext(anim.GetBool("isMoving"));
             stream.SendNext(anim.GetBool("isFast"));
-            //stream.SendNext(userName);
+            stream.SendNext(score);
         }
         else
         {
@@ -252,21 +235,9 @@ public class PlayerController : Photon.PunBehaviour
             tarRot = (Quaternion)stream.ReceiveNext();
             this.anim.SetBool("isMoving", (bool)stream.ReceiveNext());
             this.anim.SetBool("isFast", (bool)stream.ReceiveNext());
-            //userName.text = (string)stream.ReceiveNext();
+            this.score = (int)stream.ReceiveNext();
         }
     }
-
-    /*[PunRPC]
-    public void Sync()
-    {
-        pview.RPC("DisplayPlayer", PhotonTargets.AllBuffered, new object[] { plyNames.uesrName });
-    }
-
-    [PunRPC]
-    public void DisplayPlayer(string user)
-    {
-        userName.text = user;
-    }*/
     #endregion
 
 }

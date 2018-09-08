@@ -6,6 +6,7 @@ public class PowerUpSpawner : Photon.MonoBehaviour
 {
     #region Public Variables
     public float maxTime;
+    public float maxTimeOffline;
     public float timer = 0;
     #endregion
 
@@ -57,11 +58,11 @@ public class PowerUpSpawner : Photon.MonoBehaviour
 
         if (!PhotonNetwork.connected)
         {
-            timer = maxTime;
+            timer = maxTimeOffline;
             powerupSpawnLocation = GameObject.FindGameObjectsWithTag("SpeedPowerSpawn");
             for (int i = 0; i < powerupSpawnLocation.Length; i++)
             {
-                GameObject obj = Instantiate(speedPowerUp, powerupSpawnLocation[i].transform.position, Quaternion.identity);
+                GameObject obj = Instantiate(speedPowerUp, powerupSpawnLocation[i].transform.position, powerupSpawnLocation[i].transform.rotation);
                 speedPowerUp.SetActive(false);
                 powerPickUp.Add(obj);
                 Debug.LogWarning("Adding Speed Powerup to List for Offline");

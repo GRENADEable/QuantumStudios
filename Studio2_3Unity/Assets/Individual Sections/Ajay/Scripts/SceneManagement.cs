@@ -47,7 +47,7 @@ public class SceneManagement : MonoBehaviour
         AudioManager.instance.DeathAudio();
     }
 
-    public void TutorialTransition()
+    public void TutorialToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
     }
