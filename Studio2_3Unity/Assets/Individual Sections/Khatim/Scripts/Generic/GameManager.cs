@@ -12,6 +12,9 @@ public class GameManager : Photon.PunBehaviour
     public GameObject player2;
     public GameObject player3;
     public GameObject player4;
+    //[Header("Tiemrs")]
+    //public float respawnTimer;
+    //public float maxRespawnTime;
     [Header("Camera")]
     public GameObject cam;
     public Vector3 camOffset;
@@ -63,8 +66,23 @@ public class GameManager : Photon.PunBehaviour
                 player4 = GameObject.FindGameObjectWithTag("Player4");
                 Instantiate(cam, player4.transform.position + camOffset, Quaternion.Euler(45.0f, 0f, 0f));
             }
+
+            //respawnTimer = maxRespawnTime;
         }
     }
+
+    /*void Update()
+    {
+        if (!player1.activeInHierarchy)
+        {
+            respawnTimer -= Time.deltaTime;
+            if (respawnTimer <= 0)
+            {
+                player1.SetActive(true);
+                respawnTimer = maxRespawnTime;
+            }
+        }
+    }*/
     #endregion
 
     #region My Functions
