@@ -106,22 +106,8 @@ public class MyLauncher : MonoBehaviour
     #endregion
 
     #region My Functions
-    #region Cleanup
-
-    /*public void SingleplayerPanel()
-    {
-        EnterUsernamePanel.SetActive(true);
-        mainMenuPanel.SetActive(false);
-    }*/
-    #endregion
-
     public void LoadingPanel()
     {
-        #region Cleanup
-        //EnterUsernamePanel.SetActive(false);
-        //gameLoadingText.SetActive(true);
-        //UserInfo.instance.username = highscoreUser.text;
-        #endregion
         if (highscoreUser.text != "")
         {
             high.playerName = highscoreUser.text;
@@ -136,68 +122,22 @@ public class MyLauncher : MonoBehaviour
         timer = 6.0f;
         seen = true;
         loginText.SetActive(false);
-        #region Cleanup
-        /*lobbyPanel.SetActive(false);
-        multiplayerPanel.SetActive(false);
-        mainMenuButton.SetActive(false);
-        gameLoadingText.SetActive(false);
-        mainMenuPanel.SetActive(true);*/
-        if (PhotonNetwork.connected)
-            PhotonNetwork.Disconnect();
-        #endregion
     }
 
     public void MultiplayerPanel()
     {
         creatingUserText.SetActive(false);
         createdUserText.SetActive(false);
-        #region Cleanup
-        /*loginText.SetActive(false);
-        mainMenuPanel.SetActive(false);
-        multiplayerPanel.SetActive(true);
-        createUserPanel.SetActive(false);
-        loginUserPanel.SetActive(false);
-        loginAndCreateUserPanel.SetActive(true);*/
-        #endregion
     }
-
-    #region Cleanup
-    public void CreateUserPanel()
-    {
-        /*loginText.SetActive(false);
-        loginAndCreateUserPanel.SetActive(false);*/
-        //createUserPanel.SetActive(true);
-        //creatingUserText.SetActive(false);
-        //createdUserText.SetActive(false);
-    }
-    public void LoginPanel()
-    {
-        //creatingUserText.SetActive(false);
-        /*createdUserText.SetActive(false);
-        loginAndCreateUserPanel.SetActive(false);*/
-        /*userNotFoundText.SetActive(false);
-        passwordWrongText.SetActive(false);*/
-        //loginUserPanel.SetActive(true);
-    }
-    #endregion
 
     public void JoinLobby()
     {
         loginText.SetActive(false);
-        #region Cleanup
-        /*loginAndCreateUserPanel.SetActive(false);
-        loginUserPanel.SetActive(false);
-        createUserPanel.SetActive(false);*/
-        #endregion
         lobbyPanel.SetActive(true);
     }
 
     public void Login()
     {
-        #region Cleanup
-        //userNotFoundText.SetActive(false);
-        //passwordWrongText.SetActive(false);
-        #endregion
         if (inputUser.text != "" || inputPassword.text != "")
         {
             loginUserPanel.SetActive(false);
@@ -208,11 +148,6 @@ public class MyLauncher : MonoBehaviour
             plyName.uesrName = inputUser.text;
             Debug.LogWarning("Username Stored");
         }
-
-        #region Cleanup
-        //PhotonNetwork.player.NickName = inputUser.text;
-        //PhotonNetwork.player.NickName = inputUser.text;
-        #endregion
     }
 
     public void Leaderboard()
