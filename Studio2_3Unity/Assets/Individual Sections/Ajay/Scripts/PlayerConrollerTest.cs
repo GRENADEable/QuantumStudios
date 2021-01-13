@@ -10,16 +10,11 @@ public class PlayerConrollerTest : MonoBehaviour
     public float regularSpeed;
     public float powerUpSpeed;
     public float clampMax;
-
     #endregion
 
     #region Private Variables
     private Rigidbody myRB;
     private Vector3 movementInput;
-    [Header("Mobile Joystick")]
-    [SerializeField]
-    private MobileJoystick mobileJoy;
-    private GameObject mobilePrefab;
     [SerializeField]
     private float spDuration;
     [SerializeField]
@@ -36,10 +31,11 @@ public class PlayerConrollerTest : MonoBehaviour
     {
         myRB = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-        mobilePrefab = GameObject.FindGameObjectWithTag("Joystick");
-        mobileJoy = GameObject.FindGameObjectWithTag("Joystick").GetComponent<MobileJoystick>();
-        shark = GameObject.FindGameObjectWithTag("AIShark");
-        shark.SetActive(false);
+        if (shark != null)
+        {
+            shark = GameObject.FindGameObjectWithTag("AIShark");
+            shark.SetActive(false);
+        }
     }
 
     void FixedUpdate()
@@ -48,11 +44,9 @@ public class PlayerConrollerTest : MonoBehaviour
 #if UNITY_EDITOR || UNITY_STANDALONE
         MoveHorizontal = Input.GetAxisRaw("Horizontal");
         MoveVertical = Input.GetAxisRaw("Vertical");
-        mobilePrefab.SetActive(false);
 #else
         float MoveHorizontal = mobileJoy.Horizontal();
         float MoveVertical = mobileJoy.Vertical();
-        mobilePrefab.SetActive(true);
 #endif
 
 
