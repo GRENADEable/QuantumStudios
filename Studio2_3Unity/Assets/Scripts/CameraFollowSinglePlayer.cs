@@ -7,22 +7,18 @@ public class CameraFollowSinglePlayer : MonoBehaviour
 
     #region Private Variables
     [SerializeField]
-    private GameObject Player;
+    private GameObject player;
     [SerializeField]
     private Vector3 Offset;
     #endregion
-
-    void Awake()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player");
-    }
     void Start()
     {
-        Offset = transform.position - Player.transform.position;
+        if (player != null)
+            Offset = transform.position - player.transform.position;
     }
     void LateUpdate()
     {
-        if (Player != null)
-            transform.position = Player.transform.position + Offset;
+        if (player != null)
+            transform.position = player.transform.position + Offset;
     }
 }
